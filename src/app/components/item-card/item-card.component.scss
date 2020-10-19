@@ -1,0 +1,26 @@
+.item-card {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid;
+
+  .item-img-container {
+    margin-right: 10px;
+
+    .item-img {
+      width: 100%;
+    }
+  }
+
+  .item-details {
+    .item-description {
+      font-size: 12px;
+      color: #666666;
+    }
+
+    & > * {
+      margin-bottom: 8px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.item-card-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+
+  app-item-card {
+    display: grid;
+    height: 100%;
+  }
+}
