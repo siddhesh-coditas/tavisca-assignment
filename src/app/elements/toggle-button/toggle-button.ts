@@ -7,6 +7,6 @@ export class ToggleButtonElement extends LitElement {
     }
 
     render() {
-        return html`<input type="checkbox"> Theme`
+        return html`<input type="checkbox"> Dark`
     }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { CartService } from 'src/app/services/cart.service';
 import { CommonDbService } from 'src/app/services/common-db.service';
 import { ItemCardModel } from '../../item/item-card/item-card.model';
+import { CartState, GetItems } from './state/cart-action';
 
 @Component({
   selector: 'app-cart',
@@ -15,20 +17,20 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private dbService: CommonDbService
+    private dbService: CommonDbService,
+    private store: Store<CartState>
   ) { }
 
   ngOnInit(): void {
-    // this.dbService.getAllItems().subscribe((data: ItemCardModel[]) => {
-    //   this.cartItems = data.splice(0, 3).map((elem) => {
-    //     return { ...elem, cartView: true };
-    //   });
-
-    // })
   }
 
   ngAfterViewInit() {
     this.showTotal = true;
+    this.store.select(state => state.allItems).subscribe((data: any) => {
+      this.cartItems = data.allItems.map((elem) => {
+        return { ...elem, cartView: true };
+      });;
+    });
   }
 
   closeCart() {

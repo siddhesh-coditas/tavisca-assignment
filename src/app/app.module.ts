@@ -26,7 +26,7 @@ import { CartReducer } from './components/common/cart/state/cart-reducer';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ message: CartReducer }),
+    StoreModule.forRoot({ allItems: CartReducer }),
     StoreDevtoolsModule.instrument({
       name: "E-kart",
       logOnly: true,
