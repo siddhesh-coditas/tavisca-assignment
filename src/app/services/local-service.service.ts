@@ -28,4 +28,8 @@ export class LocalServiceService {
   getLocalText(key?: string) {
     return key !== undefined ? i18next.t(key) : '';
   }
+
+  getCurrencyText(value): string {
+    return '$' + value;
+  }
 }

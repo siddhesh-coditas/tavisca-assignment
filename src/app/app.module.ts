@@ -9,6 +9,8 @@ import { ItemListComponent } from './components/item/item-list/item-list.compone
 import { HeaderComponent } from './components/common/header/header.component';
 import { CartComponent } from './components/common/cart/cart.component';
 import { ItemDetailsComponent } from './components/item/item-details/item-details.component';
+import { StoreModule } from '@ngrx/store';
+import { CartReducer } from './components/common/cart/cart-reducer';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ItemDetailsComponent } from './components/item/item-details/item-detail
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ message: CartReducer })
   ],
   providers: [],
   bootstrap: [AppComponent],

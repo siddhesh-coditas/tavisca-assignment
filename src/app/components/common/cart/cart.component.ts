@@ -10,7 +10,7 @@ import { ItemCardModel } from '../../item/item-card/item-card.model';
 })
 export class CartComponent implements OnInit {
 
-  cartItems: ItemCardModel[];
+  cartItems: ItemCardModel[] = [];
   showTotal = false;
 
   constructor(

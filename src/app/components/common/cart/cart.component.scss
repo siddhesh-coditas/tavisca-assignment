@@ -1,5 +1,5 @@
 .cart-container {
-  width: 220px;
+  width: 350px;
   position: fixed;
   height: 100vh;
   right: 0;
@@ -48,5 +48,11 @@
       line-height: 20px;
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cart-container {
+    width: 220px;
   }
 }

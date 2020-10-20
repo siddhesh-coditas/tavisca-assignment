@@ -3,6 +3,14 @@
   grid-template-columns: auto;
 
   &.two-column-view {
-    grid-template-columns: auto 220px;
+    grid-template-columns: auto 350px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .column-view {
+    &.two-column-view {
+      grid-template-columns: auto 220px;
+    }
   }
 }

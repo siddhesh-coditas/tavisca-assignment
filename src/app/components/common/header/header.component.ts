@@ -23,13 +23,18 @@ export class HeaderComponent implements OnInit {
   ngAfterViewInit() {
     document.addEventListener('click', (event: any)=>{
       if(!$(event.target).closest('.theme-toggle-container').length) {
-        this.showMenu = !this.showMenu;
+        this.hideHamMenu();
       }
     })
   }
 
+  hideHamMenu() {
+    this.showMenu = false;
+  }
+
   openCart() {
     this.cartService.toggleCartVisibilityStatus();
+    this.hideHamMenu();
   }
 
 }

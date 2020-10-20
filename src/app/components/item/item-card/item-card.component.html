@@ -1,4 +1,4 @@
-<div class="item-card" [ngClass]="{'cart-view-item': item.cartView}">
+<div class="item-card" (click)="openItemDetails()" [ngClass]="{'cart-view-item': item.cartView}">
   <div class="item-img-container">
     <img class="item-img" src="{{ item.imgUrl }}" alt="{{ item.name }}" />
   </div>
@@ -10,7 +10,7 @@
       <span>{{ item.description }}</span>
     </div>
     <div class="item-price">
-      <span>{{ item.price }}</span>
+      <span>{{ locService.getCurrencyText(item.price) }}</span>
     </div>
   </div>
 </div>

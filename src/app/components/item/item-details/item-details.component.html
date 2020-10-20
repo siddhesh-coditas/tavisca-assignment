@@ -1,0 +1,26 @@
+<div class="item-details-container">
+  <div class="back-btn-container">
+    <button class="back-btn" (click)="redirectToListing()">←</button>
+  </div>
+  <div class="item-details">
+    <div class="item-img-container">
+      <img class="item-img" src="{{ item.imgUrl }}" alt="{{ item.name }}" />
+    </div>
+    <div class="item-description-container">
+      <div class="item-title">
+        <span>{{ item.name }}</span>
+      </div>
+      <div *ngIf="!item.cartView" class="item-description">
+        <span>{{ item.description }}</span>
+      </div>
+      <div class="item-price">
+        <span class="price-label">Price: </span>
+        <span class="price-value">{{ locService.getCurrencyText(item.price) }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <button (click)="additemToCart()" class="action-btn">Add to Cart</button>
+    <button class="action-btn">Add to WishList</button>
+  </div>
+</div>
