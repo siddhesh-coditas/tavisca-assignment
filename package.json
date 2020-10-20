@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.1.5",
     "@angular/router": "~10.1.5",
     "@ngrx/store": "^10.0.1",
+    "@ngrx/store-devtools": "^10.0.1",
     "faker": "^5.1.0",
     "i18next": "^19.8.2",
     "jquery": "^3.5.1",

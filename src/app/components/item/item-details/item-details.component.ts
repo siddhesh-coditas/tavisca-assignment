@@ -1,8 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { CommonDbService } from 'src/app/services/common-db.service';
 import { LocalServiceService } from 'src/app/services/local-service.service';
+import { AddToCart } from '../../common/cart/state/cart-action';
 import { ItemCardModel } from '../item-card/item-card.model';
+
+interface CartState {
+  item: ItemCardModel
+}
 
 @Component({
   selector: 'app-item-details',
@@ -27,14 +33,15 @@ export class ItemDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private commonDb: CommonDbService,
-    public locService: LocalServiceService
+    public locService: LocalServiceService,
+    private store: Store<CartState>
   ) {
 
   }
 
   ngOnInit(): void {
     this.itemId = this.route.snapshot.paramMap.get('id');
-    this.commonDb.getSpecificItem(this.itemId).subscribe((data: ItemCardModel)=>{
+    this.commonDb.getSpecificItem(this.itemId).subscribe((data: ItemCardModel) => {
       this.item = data;
     });
   }
@@ -44,7 +51,7 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   additemToCart() {
-    // 
+    this.store.dispatch(AddToCart({item: this.item}));
   }
 
 }

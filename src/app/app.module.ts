@@ -10,7 +10,8 @@ import { HeaderComponent } from './components/common/header/header.component';
 import { CartComponent } from './components/common/cart/cart.component';
 import { ItemDetailsComponent } from './components/item/item-details/item-details.component';
 import { StoreModule } from '@ngrx/store';
-import { CartReducer } from './components/common/cart/cart-reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools'
+import { CartReducer } from './components/common/cart/state/cart-reducer';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,11 @@ import { CartReducer } from './components/common/cart/cart-reducer';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ message: CartReducer })
+    StoreModule.forRoot({ message: CartReducer }),
+    StoreDevtoolsModule.instrument({
+      name: "E-kart",
+      logOnly: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
