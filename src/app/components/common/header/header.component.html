@@ -1,0 +1,14 @@
+<div class="header-container">
+  <div class="title-container">
+    <h1>Title</h1>
+  </div>
+  <div class="theme-toggle-container">
+    <custom-toggle></custom-toggle>
+    <button (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
+    <div *ngIf="showMenu" class="ham-menu-list">
+      <button (click)='openCart()' class="ham-menu-item">Cart</button>
+      <button class="ham-menu-item">Profile</button>
+      <button class="ham-menu-item">Logout</button>
+    </div>
+  </div>
+</div>
