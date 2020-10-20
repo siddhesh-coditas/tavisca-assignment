@@ -4,4 +4,5 @@ export class ItemCardModel {
     public description: string = "";
     public imgUrl: string = "";
     public price: string = "";
+    public cartView: boolean = false;
 }

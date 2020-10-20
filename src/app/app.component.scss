@@ -1,0 +1,8 @@
+.column-view {
+  display: grid;
+  grid-template-columns: auto;
+
+  &.two-column-view {
+    grid-template-columns: auto 220px;
+  }
+}

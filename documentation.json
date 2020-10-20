@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "CommonDbService",
-            "id": "injectable-CommonDbService-bfab53a1ae3c44278defa87caedf571c",
+            "id": "injectable-CommonDbService-b6e9146f36f53754bcfb314e77ba4773",
             "file": "src/app/services/common-db.service.ts",
             "properties": [
                 {
@@ -52,7 +52,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CommonDbService {\n\n  private baseUrl = \"http://localhost:3000/\"\n\n  constructor(private http: HttpClient) {}\n\n  getAllItems() {\n    const url = \"items\";\n    return this.http.get(url);\n  }\n\n  getSpecificItem(id: number) {\n    const url = this.baseUrl + `items/${id}`;\n    return this.http.get(url);\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { HttpClient } from '@angular/common/http';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class CommonDbService {\r\n\r\n  private baseUrl = \"http://localhost:3000/\"\r\n\r\n  constructor(private http: HttpClient) {}\r\n\r\n  getAllItems() {\r\n    const url = this.baseUrl + \"items\";\r\n    return this.http.get(url);\r\n  }\r\n\r\n  getSpecificItem(id: number) {\r\n    const url = this.baseUrl + `items/${id}`;\r\n    return this.http.get(url);\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -77,7 +77,7 @@
         },
         {
             "name": "LocalServiceService",
-            "id": "injectable-LocalServiceService-5f0d18a5212f8bf2d7ddf2a6569b9086",
+            "id": "injectable-LocalServiceService-db0c923a4962c570932640359b9704ef",
             "file": "src/app/services/local-service.service.ts",
             "properties": [],
             "methods": [
@@ -107,7 +107,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport i18next from 'i18next';\nimport localization from '../../assets/localization-en.json';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class LocalServiceService {\n  constructor() {\n    i18next.init(\n      {\n        lng: 'en',\n        debug: true,\n        resources: {\n          en: {\n            translation: localization,\n          },\n        },\n      },\n      function (err, t) {\n        // initialized and ready to go!\n        // document.getElementById('output').innerHTML = i18next.t('key');\n        console.log(i18next);\n      }\n    );\n  }\n\n  getLocalText(key?: string) {\n    return key !== undefined ? i18next.t(key) : '';\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport i18next from 'i18next';\r\nimport localization from '../../assets/localization-en.json';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class LocalServiceService {\r\n  constructor() {\r\n    i18next.init(\r\n      {\r\n        lng: 'en',\r\n        debug: true,\r\n        resources: {\r\n          en: {\r\n            translation: localization,\r\n          },\r\n        },\r\n      },\r\n      function (err, t) {\r\n        // initialized and ready to go!\r\n        // document.getElementById('output').innerHTML = i18next.t('key');\r\n        console.log(i18next);\r\n      }\r\n    );\r\n  }\r\n\r\n  getLocalText(key?: string) {\r\n    return key !== undefined ? i18next.t(key) : '';\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -120,10 +120,10 @@
     "classes": [
         {
             "name": "AppPage",
-            "id": "class-AppPage-a0db91bfa3b9914e9048612074084ee6",
+            "id": "class-AppPage-b0dda38f970a6690b77b35dfb293b3ac",
             "file": "e2e/src/app.po.ts",
             "type": "class",
-            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl) as Promise<unknown>;\n  }\n\n  getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText() as Promise<string>;\n  }\n}\n",
+            "sourceCode": "import { browser, by, element } from 'protractor';\r\n\r\nexport class AppPage {\r\n  navigateTo(): Promise<unknown> {\r\n    return browser.get(browser.baseUrl) as Promise<unknown>;\r\n  }\r\n\r\n  getTitleText(): Promise<string> {\r\n    return element(by.css('app-root .content span')).getText() as Promise<string>;\r\n  }\r\n}\r\n",
             "properties": [],
             "methods": [
                 {
@@ -224,7 +224,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-1d45d394971eafb00fbcf9127f78d551",
+            "id": "component-AppComponent-3cc5916ab9fe12cc85f6382b792f87cc",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -242,23 +242,14 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "item",
-                    "defaultValue": "{\n    id: 0,\n    name: 'Intelligent Granite Salad',\n    description:\n      \"Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\",\n    imgUrl: 'http://placeimg.com/640/480',\n    price: '683.00',\n  }",
-                    "type": "object",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { LocalServiceService } from './services/local-service.service';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  item = {\n    id: 0,\n    name: 'Intelligent Granite Salad',\n    description:\n      \"Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\",\n    imgUrl: 'http://placeimg.com/640/480',\n    price: '683.00',\n  };\n\n  constructor(private locService: LocalServiceService) {}\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  \r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -267,31 +258,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [
-                    {
-                        "name": "locService",
-                        "type": "LocalServiceService"
-                    }
-                ],
-                "line": 17,
-                "jsdoctags": [
-                    {
-                        "name": "locService",
-                        "type": "LocalServiceService",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "templateData": "<div>test</div>\r\n<!-- <app-item-card [item]=\"item\"></app-item-card> -->\r\n<app-item-list></app-item-list>"
+            "templateData": "<!-- <app-item-card [item]=\"item\"></app-item-card> -->\r\n<app-item-list></app-item-list>"
         },
         {
             "name": "ItemCardComponent",
-            "id": "component-ItemCardComponent-d9ca76856d3767415e7a74f967612ab3",
+            "id": "component-ItemCardComponent-d6b0099f637df4b39f557d2ab3307216",
             "file": "src/app/components/item-card/item-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -339,11 +310,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\nimport { LocalServiceService } from '../../services/local-service.service';\nimport { ItemCardModel } from './item-card.model';\n\n@Component({\n  selector: 'app-item-card',\n  templateUrl: './item-card.component.html',\n  styleUrls: ['./item-card.component.scss']\n})\nexport class ItemCardComponent implements OnInit {\n\n  @Input() item: ItemCardModel;\n\n  constructor(private locService: LocalServiceService) { }\n\n  ngOnInit(): void {\n    \n  }\n\n  ngAfterViewInit() {\n    const temp = this.locService.getLocalText('test-1');\n    console.log(temp);\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { LocalServiceService } from '../../services/local-service.service';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n\r\n  constructor(private locService: LocalServiceService) { }\r\n\r\n  ngOnInit(): void {\r\n    \r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    const temp = this.locService.getLocalText('test-1');\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".item-card {\r\n  display: grid;\r\n  grid-template-columns: 170px 1fr;\r\n  align-items: center;\r\n  padding: 10px;\r\n  border: 1px solid;\r\n\r\n  .item-img-container {\r\n    margin-right: 10px;\r\n\r\n    .item-img {\r\n      width: 100%;\r\n    }\r\n  }\r\n}\r\n",
+                    "data": ".item-card {\r\n  display: grid;\r\n  grid-template-columns: 170px 1fr;\r\n  align-items: flex-start;\r\n  padding: 10px;\r\n  border: 1px solid;\r\n\r\n  .item-img-container {\r\n    margin-right: 10px;\r\n\r\n    .item-img {\r\n      width: 100%;\r\n    }\r\n  }\r\n\r\n  .item-details {\r\n    .item-description {\r\n      font-size: 12px;\r\n      color: #666666;\r\n    }\r\n\r\n    & > * {\r\n      margin-bottom: 8px;\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./item-card.component.scss"
                 }
             ],
@@ -371,11 +342,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-card\">\n  <div class=\"item-img-container\">\n    <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\n  </div>\n  <div class=\"item-details\">\n    <div class=\"item-title\">\n      <span>{{ item.name }}</span>\n    </div>\n    <div class=\"item-details\">\n      <span>{{ item.description }}</span>\n    </div>\n    <div class=\"item-price\">\n      <span>{{ item.price }}</span>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-card\">\r\n  <div class=\"item-img-container\">\r\n    <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\r\n  </div>\r\n  <div class=\"item-details\">\r\n    <div class=\"item-title\">\r\n      <span>{{ item.name }}</span>\r\n    </div>\r\n    <div class=\"item-description\">\r\n      <span>{{ item.description }}</span>\r\n    </div>\r\n    <div class=\"item-price\">\r\n      <span>{{ item.price }}</span>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "ItemListComponent",
-            "id": "component-ItemListComponent-f7bcdc866b1103b5e662c3c2334f7c46",
+            "id": "component-ItemListComponent-cd03839ad5afcc8beb01a891de157dc4",
             "file": "src/app/components/item-list/item-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -418,11 +389,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { CommonDbService } from 'src/app/services/common-db.service';\nimport { ItemCardModel } from '../item-card/item-card.model';\n\n@Component({\n  selector: 'app-item-list',\n  templateUrl: './item-list.component.html',\n  styleUrls: ['./item-list.component.scss']\n})\nexport class ItemListComponent implements OnInit {\n\n  itemLists: ItemCardModel[] = [];\n\n  constructor(private commonDb: CommonDbService) { }\n\n  ngOnInit(): void {\n    this.commonDb.getAllItems().subscribe((data: ItemCardModel[])=>{\n      this.itemLists = data;\n    });\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-list',\r\n  templateUrl: './item-list.component.html',\r\n  styleUrls: ['./item-list.component.scss']\r\n})\r\nexport class ItemListComponent implements OnInit {\r\n\r\n  itemLists: ItemCardModel[] = [];\r\n\r\n  constructor(private commonDb: CommonDbService) { }\r\n\r\n  ngOnInit(): void {\r\n    this.commonDb.getAllItems().subscribe((data: ItemCardModel[])=>{\r\n      this.itemLists = data;\r\n    });\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".item-card-list {\r\n  display: grid;\r\n  grid-template-columns: auto auto;\r\n  align-items: center;\r\n  gap: 10px;\r\n  padding: 10px;\r\n\r\n  app-item-card {\r\n    display: grid;\r\n    height: 100%;\r\n  }\r\n}\r\n",
                     "styleUrl": "./item-list.component.scss"
                 }
             ],
@@ -450,7 +421,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-card-list\">\n    <div *ngFor=\"let item of itemLists\">\n        <app-item-card [item]=\"item\"></app-item-card>\n    </div>\n</div>"
+            "templateData": "<div class=\"item-card-list\">\r\n    <app-item-card *ngFor=\"let item of itemLists\" [item]=\"item\"></app-item-card>\r\n</div>"
         }
     ],
     "modules": [
@@ -555,7 +526,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "environment",
@@ -563,7 +534,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "require",
@@ -578,7 +549,7 @@
                 "subtype": "variable",
                 "file": "src/stories/item-card.stories.ts",
                 "type": "Story<ItemCardComponent>",
-                "defaultValue": "(args: ItemCardComponent) => ({\n  component: ItemCardComponent,\n  props: args,\n})"
+                "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -600,7 +571,7 @@
                     "subtype": "variable",
                     "file": "src/stories/item-card.stories.ts",
                     "type": "Story<ItemCardComponent>",
-                    "defaultValue": "(args: ItemCardComponent) => ({\n  component: ItemCardComponent,\n  props: args,\n})"
+                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  props: args,\r\n})"
                 }
             ],
             "src/test.ts": [
@@ -627,7 +598,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
+                    "defaultValue": "{\r\n  production: true\r\n}"
                 }
             ],
             "src/environments/environment.ts": [
@@ -637,7 +608,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.ts",
                     "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "{\r\n  production: false\r\n}"
                 }
             ]
         },
@@ -678,7 +649,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

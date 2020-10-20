@@ -1,0 +1,13 @@
+<div class="cart-container">
+    <div class="cart-title-container">Items in Cart</div>
+    <div class="cart-items-list">
+        <app-item-card [item]="item" *ngFor="let item of cartItems"></app-item-card>
+    </div>
+    <div *ngIf="showTotal" class="cart-total-container">
+        <span class="total-price-label">Total Price: </span>
+        <span class="total-price-value">{{getTotalCartPrice()}}</span>
+    </div>
+    <div class="cart-toolbar">
+        <button (click)="closeCart()" class="close-cart">✕</button>
+    </div>
+</div>

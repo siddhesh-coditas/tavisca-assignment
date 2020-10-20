@@ -1,2 +1,9 @@
-<!-- <app-item-card [item]="item"></app-item-card> -->
-<app-item-list></app-item-list>
+<div class="column-view" [ngClass]="{'two-column-view': isCartVisible()}">
+  <div class="column">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="column" *ngIf="isCartVisible()">
+    <app-cart></app-cart>
+  </div>
+</div>

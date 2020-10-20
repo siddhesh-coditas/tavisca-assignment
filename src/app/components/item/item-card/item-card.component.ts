@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { LocalServiceService } from '../../services/local-service.service';
+import { LocalServiceService } from '../../../services/local-service.service';
 import { ItemCardModel } from './item-card.model';
 
 @Component({
