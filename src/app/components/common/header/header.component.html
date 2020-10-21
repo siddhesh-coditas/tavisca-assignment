@@ -3,12 +3,13 @@
     <h1>E-mart</h1>
   </div>
   <div class="theme-toggle-container">
-    <custom-toggle></custom-toggle>
-    <button (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
+    <!-- <custom-toggle ></custom-toggle> -->
+    <button (click)="toggleTheme()">Theme</button>
+    <button *ngIf="!showHamBtn" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
     <div *ngIf="showMenu" class="ham-menu-list">
       <button (click)='openCart()' class="ham-menu-item">Cart</button>
       <button class="ham-menu-item">Profile</button>
-      <button class="ham-menu-item">Logout</button>
+      <button (click)='logoutCurrUser()' class="ham-menu-item">Logout</button>
     </div>
   </div>
 </div>

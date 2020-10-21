@@ -12,6 +12,9 @@ import { ItemDetailsComponent } from './components/item/item-details/item-detail
 import { StoreModule } from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 import { CartReducer } from './components/common/cart/state/cart-reducer';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { CartReducer } from './components/common/cart/state/cart-reducer';
     ItemListComponent,
     HeaderComponent,
     CartComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ allItems: CartReducer }),
     StoreDevtoolsModule.instrument({
       name: "E-kart",

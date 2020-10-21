@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  background-color: var(--foreground-secondary);
+  color: var(--foreground-default);
   border-bottom: 3px solid #333;
 
   h1 {
