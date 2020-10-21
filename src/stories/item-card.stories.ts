@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import {ItemCardComponent} from '../app/components/item-card/item-card.component';
+import {ItemCardComponent} from '../app/components/item/item-card/item-card.component';
 
 export default {
   title: 'Example/Card',
@@ -19,6 +19,7 @@ Basic.args = {
     "name": "Intelligent Granite Salad",
     "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     "imgUrl": "http://placeimg.com/640/480",
-    "price": "683.00"
+    "price": "683.00",
+    "cartView": false
   }
 };

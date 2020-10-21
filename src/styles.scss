@@ -1,8 +1,20 @@
+:root {
+  /* Colors */
+  --foreground-default: #08090a;
+  --foreground-secondary: #41474d;
+  --foreground-tertiary: #797c80;
+  --foreground-quaternary: #f4faff;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
 
   * {
     user-select: none;
+  }
+
+  button:focus {
+    outline: 2px solid rgb(100, 100, 223) !important;
   }
 }
