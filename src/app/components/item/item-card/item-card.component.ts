@@ -1,7 +1,12 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { UserService } from 'src/app/services/user.service';
 import { LocalServiceService } from '../../../services/local-service.service';
+import { AddToCart, CartState, DeleteItem } from '../../common/cart/state/cart-action';
 import { ItemCardModel } from './item-card.model';
+
+declare var $: any;
 
 @Component({
   selector: 'app-item-card',
@@ -14,19 +19,37 @@ export class ItemCardComponent implements OnInit {
 
   constructor(
     public locService: LocalServiceService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private userService: UserService,
+    private store: Store<CartState>
+  ) {
+    this.validateLoggedInUser();
+  }
 
   ngOnInit(): void {
 
   }
 
-  ngAfterViewInit() {
-    const temp = this.locService.getLocalText('test-1');
+  openItemDetails(): void {
+    this.router.navigateByUrl(`item/${this.item.id}`);
   }
 
-  openItemDetails() {
-    this.router.navigateByUrl(`item/${this.item.id}`);
+  openItemOnKeydown(event): void {
+    if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {
+      this.openItemDetails();
+    }
+  }
+
+  removeFromCart(event): void {
+    event.stopPropagation();
+    this.store.dispatch(DeleteItem({ id: this.item.id }));
+  }
+
+  validateLoggedInUser(): void {
+    const user = this.userService.getUserId();
+    if (user === null) {
+      this.router.navigateByUrl('login');
+    }
   }
 
 }

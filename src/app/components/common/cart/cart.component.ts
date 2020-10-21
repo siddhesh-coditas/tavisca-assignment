@@ -2,8 +2,9 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CartService } from 'src/app/services/cart.service';
 import { CommonDbService } from 'src/app/services/common-db.service';
+import { LocalServiceService } from 'src/app/services/local-service.service';
 import { ItemCardModel } from '../../item/item-card/item-card.model';
-import { CartState, GetItems } from './state/cart-action';
+import { CartState } from './state/cart-action';
 
 @Component({
   selector: 'app-cart',
@@ -17,8 +18,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private dbService: CommonDbService,
-    private store: Store<CartState>
+    private store: Store<CartState>,
+    public locService: LocalServiceService
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +39,8 @@ export class CartComponent implements OnInit {
   }
 
   getTotalCartPrice() {
-    return this.cartItems.length ? this.cartItems.map((e) => { return Number(e.price) })
-      .reduce((e, n) => e + n) : 0
+    const value = this.cartItems.length ? this.cartItems.map((e) => Number(e.price))
+      .reduce((e, n) => e + n) : 0;
+    return this.locService.getCurrencyText(value);
   }
 }

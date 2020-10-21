@@ -15,6 +15,7 @@ export const AddToCart = createAction(
   props<{ item: ItemCardModel }>()
 );
 
-export const GetItems = createAction(
-  CART_ACTIONS.GET_ITEMS
+export const DeleteItem = createAction(
+  CART_ACTIONS.GET_ITEMS,
+  props<{ id: number }>()
 );

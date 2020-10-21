@@ -1,4 +1,5 @@
-<div class="item-card" (click)="openItemDetails()" [ngClass]="{'cart-view-item': item.cartView}">
+<div class="item-card" (click)="openItemDetails()" (keydown)="openItemOnKeydown($event)" [tabindex]="item.cartView ? -1 : 0"
+  [ngClass]="{'cart-view-item': item.cartView}">
   <div class="item-img-container">
     <img class="item-img" src="{{ item.imgUrl }}" alt="{{ item.name }}" />
   </div>
@@ -12,5 +13,8 @@
     <div class="item-price">
       <span>{{ locService.getCurrencyText(item.price) }}</span>
     </div>
+  </div>
+  <div *ngIf="item.cartView" class="cart-delete-container">
+    <button (click)="removeFromCart($event)" class="cart-del-btn">✖</button>
   </div>
 </div>
