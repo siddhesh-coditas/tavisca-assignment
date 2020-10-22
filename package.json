@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "server": "json-server database/generate.js",
     "build": "ng build",
     "test": "jest",
     "test:coverage": "jest --coverage",
