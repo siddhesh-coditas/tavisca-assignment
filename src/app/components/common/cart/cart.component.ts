@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CartService } from 'src/app/services/cart.service';
-import { CommonDbService } from 'src/app/services/common-db.service';
 import { LocalServiceService } from 'src/app/services/local-service.service';
 import { ItemCardModel } from '../../item/item-card/item-card.model';
 import { CartState } from './state/cart-action';

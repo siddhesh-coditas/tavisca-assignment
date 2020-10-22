@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { CommonDbService } from 'src/app/services/common-db.service';
 import { UserService } from 'src/app/services/user.service';
 import { LocalServiceService } from '../../../services/local-service.service';
-import { AddToCart, CartState, DeleteItem } from '../../common/cart/state/cart-action';
+import { CartState, DeleteItem } from '../../common/cart/state/cart-action';
 import { ItemCardModel } from './item-card.model';
 
 declare var $: any;

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { UserModel } from '../components/user/user.model';
 
 @Injectable({
   providedIn: 'root'

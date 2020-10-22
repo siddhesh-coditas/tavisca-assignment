@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ItemCardModel } from '../components/item/item-card/item-card.model';
 import { UserModel } from '../components/user/user.model';
 
 @Injectable({

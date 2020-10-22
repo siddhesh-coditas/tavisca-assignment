@@ -1,4 +1,4 @@
-<div class="item-card" (click)="openItemDetails($event)" (keydown)="openItemOnKeydown($event)"
+<div class="item-card" (click)="openItemDetails()" (keydown)="openItemOnKeydown($event)"
   [tabindex]="item.cartView ? -1 : 0" [ngClass]="{'cart-view-item': item.cartView}">
   <div class="item-img-container">
     <img class="item-img" src="{{ item.imgUrl }}" alt="{{ item.name }}" />

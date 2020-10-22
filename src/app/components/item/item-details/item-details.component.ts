@@ -6,7 +6,6 @@ import { CommonDbService } from 'src/app/services/common-db.service';
 import { LocalServiceService } from 'src/app/services/local-service.service';
 import { UserService } from 'src/app/services/user.service';
 import { AddToCart, CartState } from '../../common/cart/state/cart-action';
-import { UserModel } from '../../user/user.model';
 import { ItemCardModel } from '../item-card/item-card.model';
 
 @Component({
