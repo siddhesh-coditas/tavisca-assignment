@@ -4,11 +4,11 @@
   </div>
   <div class="theme-toggle-container">
     <custom-toggle [customClick]="toggleTheme.bind(this)" [theme]="getTheme()"></custom-toggle>
+    <button (click)='addProduct()' class="action-btn">Add Product</button>
     <!-- <button (click)="toggleTheme()">Theme</button> -->
     <button *ngIf="!showHamBtn" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
     <div *ngIf="showMenu" class="ham-menu-list">
       <button (click)='openCart()' class="ham-menu-item">Cart</button>
-      <button class="ham-menu-item">Profile</button>
       <button (click)='logoutCurrUser()' class="ham-menu-item">Logout</button>
     </div>
   </div>

@@ -23,6 +23,21 @@ export class CommonDbService {
     return this.http.get(url);
   }
 
+  addItem(item) {
+    const url = this.baseUrl + `items`;
+    return this.http.post(url, item);
+  }
+
+  updateItem(item) {
+    const url = this.baseUrl + `items/${item.id}`;
+    return this.http.put(url, item);
+  }
+
+  deleteItemById(id) {
+    const url = this.baseUrl + `items/${id}`;
+    return this.http.delete(url, id);
+  }
+
   getUserByItem(id: string) {
     const url = this.baseUrl + `users/${id}`;
     return this.http.get(url);

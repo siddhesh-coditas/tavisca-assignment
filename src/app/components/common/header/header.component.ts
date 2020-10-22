@@ -62,6 +62,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  addProduct(): void {
+    this.router.navigateByUrl('add');
+    this.hideHamMenu();
+  }
+
   getTheme() {
     return this.themeService.getActiveTheme().name;
   }

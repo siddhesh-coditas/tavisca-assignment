@@ -6,7 +6,7 @@
     <div class="item-img-container">
       <img class="item-img" src="{{ item.imgUrl }}" alt="{{ item.name }}" />
     </div>
-    <div class="item-description-container">
+    <div *ngIf="!isUpdateMode" class="item-description-container">
       <div class="item-title">
         <span>{{ item.name }}</span>
       </div>
@@ -18,9 +18,28 @@
         <span class="price-value">{{ locService.getCurrencyText(item.price) }}</span>
       </div>
     </div>
+    <div *ngIf="isUpdateMode">
+      <form [formGroup]="updateForm" (submit)="onUpdate()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Description</label>
+          <textarea class="form-control" id="description" style="resize: none;" formControlName="description" id="" cols="30" rows="10"></textarea>
+          <!-- <input type="text" class="form-control" id="description" formControlName="description"> -->
+        </div>
+        <div class="form-group">
+          <label for="phone">Price</label>
+          <input type="text" class="form-control" id="price" formControlName="price">
+        </div>
+        <button class="action-btn" type="submit">Submit</button>
+      </form>
+    </div>
   </div>
   <div class="action-buttons">
+    <button *ngIf="!isUpdateMode" (click)="updateProduct()" class="action-btn">Update Item</button>
+    <button (click)="deleteItem()" class="action-btn">Delete Item</button>
     <button (click)="additemToCart()" class="action-btn">Add to Cart</button>
-    <!-- <button class="action-btn">Add to WishList</button> -->
   </div>
 </div>

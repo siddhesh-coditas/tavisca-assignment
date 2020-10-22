@@ -27,11 +27,22 @@
 
     .item-price {
       color: var(--foreground-text-primary);
+      display: flex;
+      justify-content: space-between;
     }
 
     &>* {
       margin-bottom: 8px;
     }
+  }
+
+  .update-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--foreground-text-primary);
+    font-weight: 700;
+    border-bottom: 2px solid var(--foreground-text-primary);
   }
 
   &.cart-view-item {

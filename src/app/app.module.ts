@@ -15,6 +15,7 @@ import { CartReducer } from './components/common/cart/state/cart-reducer';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddIemComponent } from './components/item/add-iem/add-iem.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CartComponent,
     ItemDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddIemComponent
   ],
   imports: [
     BrowserModule,

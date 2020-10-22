@@ -1,5 +1,5 @@
-<div class="item-card" (click)="openItemDetails()" (keydown)="openItemOnKeydown($event)" [tabindex]="item.cartView ? -1 : 0"
-  [ngClass]="{'cart-view-item': item.cartView}">
+<div class="item-card" (click)="openItemDetails($event)" (keydown)="openItemOnKeydown($event)"
+  [tabindex]="item.cartView ? -1 : 0" [ngClass]="{'cart-view-item': item.cartView}">
   <div class="item-img-container">
     <img class="item-img" src="{{ item.imgUrl }}" alt="{{ item.name }}" />
   </div>
@@ -12,6 +12,10 @@
     </div>
     <div class="item-price">
       <span>{{ locService.getCurrencyText(item.price) }}</span>
+      <div class="action-btn-container" *ngIf="!item.cartView">
+        <button class="update-btn" (click)="onUpdate()">Update</button>
+        <!-- <button class="delete-item-btn" (click)="onDelete($event)">Delete</button> -->
+      </div>
     </div>
   </div>
   <div *ngIf="item.cartView" class="cart-delete-container">

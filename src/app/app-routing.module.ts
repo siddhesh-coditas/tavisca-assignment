@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddIemComponent } from './components/item/add-iem/add-iem.component';
 import { ItemDetailsComponent } from './components/item/item-details/item-details.component';
 import { ItemListComponent } from './components/item/item-list/item-list.component';
 import { LoginComponent } from './components/user/login/login.component';
@@ -24,8 +25,16 @@ const routes: Routes = [
     component: ItemListComponent
   },
   {
+    path: 'item/:id/:isUpdateMode',
+    component: ItemDetailsComponent
+  },
+  {
     path: 'item/:id',
     component: ItemDetailsComponent
+  },
+  {
+    path: 'add',
+    component: AddIemComponent
   }
 ];
 

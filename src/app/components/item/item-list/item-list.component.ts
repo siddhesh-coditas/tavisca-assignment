@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonDbService } from 'src/app/services/common-db.service';
 import { UserService } from 'src/app/services/user.service';
-import { UserModel } from '../../user/user.model';
 import { ItemCardModel } from '../item-card/item-card.model';
 
 @Component({
@@ -16,7 +15,6 @@ export class ItemListComponent implements OnInit {
 
   constructor(
     private commonDb: CommonDbService,
-    private route: ActivatedRoute,
     private router: Router,
     private userService: UserService
   ) {

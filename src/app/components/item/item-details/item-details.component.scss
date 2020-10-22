@@ -45,6 +45,7 @@
 
       .item-price {
         color: var(--foreground-text-primary);
+
         .price-label {
           font-size: 18px;
         }
@@ -62,13 +63,27 @@
     gap: 20px;
     justify-content: center;
 
-    .action-btn {
-      outline: none;
-      border: none;
-      padding: 10px 20px;
-      background-color: var(--foreground-secondary);
-      color: white;
-      cursor: pointer;
+  }
+
+  .action-btn {
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    background-color: var(--foreground-secondary);
+    color: white;
+    cursor: pointer;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 250px;
+
+    label {
+      margin-bottom: 5px;
+      font-weight: 700;
+      color: var(--foreground-text-primary);
     }
   }
 }

@@ -1,0 +1,27 @@
+<div class="add-item-container">
+  <h2 class="form-title">Add New Item</h2>
+  <form [formGroup]="addForm" (submit)="onAddItem()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" style="resize: none;" formControlName="description" id=""
+        cols="30" rows="10"></textarea>
+      <!-- <input type="text" class="form-control" id="description" formControlName="description"> -->
+    </div>
+    <div class="form-group">
+      <label for="imgUrl">Image URL</label>
+      <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" formControlName="price">
+    </div>
+    <div class="action-btn-container">
+        <button class="update-btn action-btn" type="submit">Add</button>
+        <button (click)="onCancel()" class="cancel-btn action-btn" type="submit">Cancel</button>
+    </div>
+  </form>
+</div>
