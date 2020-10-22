@@ -1,6 +1,6 @@
 <div class="register-container">
+  <h2 class="form-title">Register</h2>
   <form [formGroup]="registerForm" (submit)="onSubmit()">
-    <div>Register</div>
     <div class="form-group">
       <label for="name">Full Name</label>
       <input type="text" class="form-control" id="name" formControlName="name">
@@ -35,7 +35,9 @@
         <span *ngIf="!registerForm.get('cpassword').errors['validCpass']">Pass is invalid</span>
       </span>
     </div>
-    <button type="submit">Register</button>
+    <button class="register-btn" type="submit">Register</button>
   </form>
-  <button (click)="redirectToLogin()">Go To Login</button>
+  <div class="login-container">
+    <button class="go-to-login-contianer" (click)="redirectToLogin()">Go To Login</button>
+  </div>
 </div>

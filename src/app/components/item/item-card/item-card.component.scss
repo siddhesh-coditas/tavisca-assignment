@@ -1,8 +1,13 @@
 .item-card {
   padding: 10px;
-  border: 1px solid;
+  border: 2px solid var(--foreground-default);
+  background: var(--foreground-tertiary);
+  border-radius: 3px;
 
   .item-img-container {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--foreground-border);
+    margin-bottom: 10px;
 
     .item-img {
       width: 100%;
@@ -10,9 +15,18 @@
   }
 
   .item-details {
+    .item-title {
+      color: var(--foreground-text-primary);
+      font-weight: 700;
+    }
+
     .item-description {
       font-size: 12px;
-      color: #666666;
+      color: var(--foreground-text-secondary);
+    }
+
+    .item-price {
+      color: var(--foreground-text-primary);
     }
 
     &>* {
@@ -24,6 +38,12 @@
     display: grid;
     grid-template-columns: 50px auto 12px;
     gap: 8px;
+
+    .item-img-container {
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
 
     .item-details {
       .item-title {

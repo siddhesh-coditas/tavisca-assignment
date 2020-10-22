@@ -20,7 +20,7 @@ export class ItemListComponent implements OnInit {
     private router: Router,
     private userService: UserService
   ) {
-    this.validateLoggedInUser();
+    // this.validateLoggedInUser();
   }
 
   ngOnInit(): void {

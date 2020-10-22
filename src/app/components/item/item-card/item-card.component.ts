@@ -23,7 +23,7 @@ export class ItemCardComponent implements OnInit {
     private userService: UserService,
     private store: Store<CartState>
   ) {
-    this.validateLoggedInUser();
+    // this.validateLoggedInUser();
   }
 
   ngOnInit(): void {

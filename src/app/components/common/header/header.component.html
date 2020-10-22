@@ -3,8 +3,8 @@
     <h1>E-mart</h1>
   </div>
   <div class="theme-toggle-container">
-    <!-- <custom-toggle ></custom-toggle> -->
-    <button (click)="toggleTheme()">Theme</button>
+    <custom-toggle [customClick]="toggleTheme.bind(this)" [theme]="getTheme()"></custom-toggle>
+    <!-- <button (click)="toggleTheme()">Theme</button> -->
     <button *ngIf="!showHamBtn" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
     <div *ngIf="showMenu" class="ham-menu-list">
       <button (click)='openCart()' class="ham-menu-item">Cart</button>

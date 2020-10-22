@@ -13,7 +13,8 @@ export class ThemeService {
   }
 
   getActiveTheme(): Theme {
-    return this.active;
+    const storedTheme = localStorage.getItem('theme');
+    return storedTheme ? (storedTheme === Light.name ? Light : Dark) : this.active;
   }
 
   isDarkTheme(): boolean {
@@ -30,6 +31,7 @@ export class ThemeService {
 
   setActiveTheme(theme: Theme): void {
     this.active = theme;
+    localStorage.setItem('theme', theme.name);
 
     Object.keys(this.active.properties).forEach(property => {
       document.documentElement.style.setProperty(

@@ -29,7 +29,7 @@ export class ItemDetailsComponent implements OnInit {
     public locService: LocalServiceService,
     private store: Store<CartState>
   ) {
-    this.validateLoggedInUser();
+    // this.validateLoggedInUser();
   }
 
   ngOnInit(): void {

@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: var(--foreground-secondary);
-  color: var(--foreground-default);
-  border-bottom: 3px solid #333;
+  background-color: var(--foreground-default);
+  color: var(--foreground-text-title);
+  border-bottom: 3px solid var(--foreground-secondary);
 
   h1 {
     margin: 0;
@@ -22,29 +22,30 @@
       text-align: center;
       font-size: 22px;
       line-height: 22px;
-      background: white;
+      background: transparent;
       border: none;
       cursor: pointer;
       outline: none;
+      color: #fff;
     }
 
     .ham-menu-list {
       position: absolute;
       background-color: white;
-      top: calc(100% + 10px);
+      top: 100%;
       right: 5px;
       padding: 10px;
-      border: 1px solid;
+      border: 2px solid var(--foreground-secondary);
       display: flex;
 
-      :before {
+      &:before {
         content: "";
         position: absolute;
         top: -20px;
         right: 0;
         border-width: 10px;
         border-style: solid;
-        border-color: transparent transparent #333 transparent;
+        border-color: transparent transparent var(--foreground-secondary) transparent;
       }
 
       .ham-menu-item {
@@ -54,11 +55,12 @@
         background: transparent;
         border: none;
         outline: none;
-        border-bottom: 1px solid transparent;
+        border-bottom: 2px solid transparent;
+        columns: var(--foreground-secondary);
       }
 
       .ham-menu-item:hover {
-        border-bottom: 1px solid #333;
+        border-bottom: 2px solid var(--foreground-secondary);
       }
     }
   }

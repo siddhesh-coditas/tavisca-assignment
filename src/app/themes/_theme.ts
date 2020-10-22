@@ -6,21 +6,27 @@ export interface Theme {
 export const Light: Theme = {
     name: 'light',
     properties: {
-        '--foreground-default': '#08090A',
-        '--foreground-secondary': '#41474D',
-        '--foreground-tertiary': '#797C80',
-        '--foreground-quaternary': '#F4FAFF',
-        '--foreground-light': '#41474D'
+        '--body-background': '#fff',
+        '--foreground-default': '#3f6bc2',
+        '--foreground-secondary': '#214385',
+        '--foreground-tertiary': '#fff',
+        '--foreground-border': '#3f6bc2',
+        '--foreground-text-title': '#fff',
+        '--foreground-text-primary': '#3f6bc2',
+        '--foreground-text-secondary': '#666666'
     }
 };
 
 export const Dark: Theme = {
     name: 'dark',
     properties: {
-        '--foreground-default': '#5C7D99',
-        '--foreground-secondary': '#A3B9CC',
-        '--foreground-tertiary': '#F4FAFF',
-        '--foreground-quaternary': '#E5E5E5',
-        '--foreground-light': '#FFFFFF'
+        '--body-background': '#6a6a6a',
+        '--foreground-default': '#343434',
+        '--foreground-secondary': '#a7a7a7',
+        '--foreground-tertiary': '#a0a0a0',
+        '--foreground-border': '#343434',
+        '--foreground-text-title': '#fff',
+        '--foreground-text-primary': '#343434',
+        '--foreground-text-secondary': '#666666'
     }
 };

@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private userService: UserService
   ) {
+    const theme = this.themeService.getActiveTheme();
+    this.themeService.setActiveTheme(theme);
   }
 
   ngOnInit(): void { }
@@ -58,6 +60,10 @@ export class HeaderComponent implements OnInit {
     } else {
       this.themeService.setDarkTheme();
     }
+  }
+
+  getTheme() {
+    return this.themeService.getActiveTheme().name;
   }
 
 }

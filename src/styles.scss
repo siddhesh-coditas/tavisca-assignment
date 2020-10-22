@@ -1,14 +1,29 @@
 :root {
-  /* Colors */
-  --foreground-default: #08090a;
-  --foreground-secondary: #41474d;
-  --foreground-tertiary: #797c80;
-  --foreground-quaternary: #f4faff;
+  // Light Theme
+  --body-background: #fff;
+  --foreground-default: #3f6bc2;
+  --foreground-secondary: #214385;
+  --foreground-tertiary: #fff;
+  --foreground-border: #3f6bc2;
+  --foreground-text-title: #fff;
+  --foreground-text-primary: #3f6bc2;
+  --foreground-text-secondary: #666666;
+
+  // Dark Theme
+  // --body-background: #6a6a6a;
+  // --foreground-default: #343434;
+  // --foreground-secondary: #a7a7a7;
+  // --foreground-tertiary: #a0a0a0;
+  // --foreground-border: #343434;
+  // --foreground-text-title: #fff;
+  // --foreground-text-primary: #343434;
+  // --foreground-text-secondary: #666666;
 }
 
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: var(--body-background);
 
   * {
     user-select: none;

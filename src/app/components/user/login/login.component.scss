@@ -1,0 +1,50 @@
+.login-container {
+  padding: 10px;
+  border: 2px solid var(--foreground-default);
+  margin: 10px auto;
+  width: 50%;
+  min-width: 275px;
+  max-width: 450px;
+
+  .form-title {
+    color: var(--foreground-text-primary);
+    margin-top: 0;
+  }
+
+  form {
+    margin-bottom: 10px;
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+
+  .login-btn {
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: var(--foreground-default);
+    color: var(--foreground-tertiary);
+    border: none;
+    outline: none;
+  }
+
+  .register-container {
+    width: 100%;
+    text-align: right;
+
+    .go-to-register-btn {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid;
+    }
+  }
+}
