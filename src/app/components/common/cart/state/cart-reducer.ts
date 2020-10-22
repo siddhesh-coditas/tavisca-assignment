@@ -11,6 +11,15 @@ export const CartReducer = createReducer(
         return { ...state, allItems: [...state.allItems, action.item] };
     }),
     on(DeleteItem, (state, action) => {
-        return { allItems: state.allItems.filter((item) => item.id !== action.id) };
+        let isRemoved = false;
+        return {
+            allItems: state.allItems.filter((item) => {
+                if (item.id === action.id && !isRemoved) {
+                    isRemoved = true;
+                    return false;
+                }
+                return true;
+            })
+        };
     })
 );
