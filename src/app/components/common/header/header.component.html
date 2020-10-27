@@ -8,6 +8,8 @@
     <!-- <button (click)="toggleTheme()">Theme</button> -->
     <button *ngIf="!showHamBtn" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
     <div *ngIf="showMenu" class="ham-menu-list">
+      <button (click)='openMyItemPage()' class="ham-menu-item">My items</button>
+      <button (click)='openAllItemPage()' class="ham-menu-item">All items</button>
       <button (click)='openCart()' class="ham-menu-item">Cart</button>
       <button (click)='logoutCurrUser()' class="ham-menu-item">Logout</button>
     </div>

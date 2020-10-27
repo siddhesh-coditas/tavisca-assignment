@@ -1,27 +1,67 @@
-.item-card-list {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  align-items: center;
-  gap: 50px;
-  padding: 20px 150px;
+.item-list-container {
+  padding: 10px 30px 20px 30px;
 
-  app-item-card {
+  .back-btn-container {
+    margin-bottom: 20px;
     display: grid;
-    height: 100%;
+    grid-template-columns: 60px auto;
+    align-items: center;
+    border-bottom: 2px solid var(--foreground-text-primary);
+    padding: 10px;
+
+    button {
+      font-size: 40px;
+      color: var(--foreground-text-primary);
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .list-title {
+      text-align: center;
+      font-size: 20px;
+      color: var(--foreground-text-primary);
+      font-weight: 600;
+    }
   }
 
+  .item-card-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    padding: 20px 150px;
+
+    app-item-card {
+      display: grid;
+      height: 100%;
+    }
+
+  }
+
+  .no-data-container {
+    text-align: center;
+    padding: 20px 50px;
+    color: #aaa;
+    display: grid;
+    grid-template-columns: 60px auto;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-  .item-card-list {
-    grid-template-columns: auto auto auto;
-    padding: 20px 50px;
+  .item-list-container {
+    .item-card-list {
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 20px 50px;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .item-card-list {
-    grid-template-columns: auto auto;
+  .item-list-container {
+    .item-card-list {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
-

@@ -23,7 +23,7 @@ export class ItemDetailsComponent implements OnInit {
   @Input()
   isUpdateMode = false;
 
-  updateForm: FormGroup
+  updateForm: FormGroup;
   private userId;
 
   constructor(
@@ -34,7 +34,7 @@ export class ItemDetailsComponent implements OnInit {
     public locService: LocalServiceService,
     private store: Store<CartState>
   ) {
-    // this.validateLoggedInUser();
+    this.validateLoggedInUser();
     this.updateForm = new FormGroup({
       name: new FormControl(null, []),
       description: new FormControl(null, []),
@@ -44,7 +44,7 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemId = this.route.snapshot.paramMap.get('id');
-    this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'true';
+    this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'edit';
     this.commonDb.getSpecificItem(this.itemId).subscribe((data: ItemCardModel) => {
       this.item = data;
       if (this.isUpdateMode) {
@@ -53,16 +53,16 @@ export class ItemDetailsComponent implements OnInit {
     });
   }
 
-  redirectToListing() {
-    this.router.navigateByUrl('home')
+  redirectToListing(): void {
+    this.router.navigateByUrl('home');
   }
 
-  additemToCart() {
+  additemToCart(): void {
     this.store.dispatch(AddToCart({ item: this.item }));
   }
 
   validateLoggedInUser(): void {
-    const user = this.userService.getUserId();
+    const user = this.userService.getUserData();
     if (user === null) {
       this.router.navigateByUrl('login');
     }
@@ -92,9 +92,20 @@ export class ItemDetailsComponent implements OnInit {
       });
   }
 
-  deleteItem() {
-    this.commonDb.deleteItemById(this.itemId).subscribe(() => {
-      this.router.navigateByUrl('home');
+  deleteItem(): void {
+    const userData = { ...this.userService.getUserData() };
+    this.item.userAccess = null;
+    userData.items = userData.items.filter((id) => id !== this.item.id);
+    this.commonDb.updateUser(userData).subscribe(() => {
+      this.userService.storeUserData(userData);
+      this.commonDb.updateItem(this.item).subscribe(() => {
+        this.router.navigateByUrl('home');
+      });
     });
+  }
+
+  isBtnVisible(): boolean {
+    const userData = this.userService.getUserData();
+    return this.item.userAccess === userData.id;
   }
 }

@@ -43,10 +43,11 @@ export class RegisterComponent implements OnInit {
     const userData: UserModel = {
       name: userDetails.name,
       email: userDetails.email,
-      password: userDetails.password
+      password: userDetails.password,
+      items: []
     };
     this.dbService.registerUser(userData).subscribe((data: UserModel) => {
-      this.userService.loginCurrentUser(data.email);
+      this.userService.loginCurrentUser(data);
       this.router.navigate(['/home'], { queryParams: { id: data.id }});
     });
   }

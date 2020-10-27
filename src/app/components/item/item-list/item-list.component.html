@@ -1,3 +1,18 @@
-<div class="item-card-list">
+<div class="item-list-container">
+  <div class="back-btn-container">
+    <button *ngIf="isAllItem" class="back-btn" (click)="redirectToListing()">←</button>
+    <span aria-hidden="" *ngIf="!isAllItem"></span>
+    <div class="list-title">
+      {{isAllItem ? 'All Items Catalog' : 'My Items'}}
+    </div>
+  </div>
+  <div class="item-card-list" *ngIf="itemLists.length">
     <app-item-card *ngFor="let item of itemLists" [item]="item"></app-item-card>
+  </div>
+  <div class="no-data-container" *ngIf="!itemLists.length">
+    <span aria-hidden="true"></span>
+    <span>
+      {{isAllItem ? 'No item for Items Catalog' : 'No item for My Items'}}
+    </span>
+  </div>
 </div>

@@ -46,6 +46,8 @@
       padding: 10px;
       border: 2px solid var(--foreground-secondary);
       display: flex;
+      flex-direction: column;
+      z-index: 10;
 
       &:before {
         content: "";

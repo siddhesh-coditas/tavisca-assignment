@@ -19,6 +19,15 @@
       display: flex;
       flex-direction: column;
 
+      &.form-row-disp {
+        flex-direction: row;
+        gap: 10px;
+
+        label {
+          margin-bottom: 0;
+        }
+      }
+
       label {
         margin-bottom: 5px;
         color: var(--foreground-text-primary);

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { CommonDbService } from 'src/app/services/common-db.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,15 +17,18 @@ declare var $: any;
 export class ItemCardComponent implements OnInit {
 
   @Input() item: ItemCardModel;
+  isAllItem = false;
 
   constructor(
     public locService: LocalServiceService,
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService,
     private store: Store<CartState>,
     private commonDb: CommonDbService
   ) {
-    // this.validateLoggedInUser();
+    this.validateLoggedInUser();
+    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';
   }
 
   ngOnInit(): void {
@@ -48,19 +51,32 @@ export class ItemCardComponent implements OnInit {
   }
 
   validateLoggedInUser(): void {
-    const user = this.userService.getUserId();
+    const user = this.userService.getUserData();
     if (user === null) {
       this.router.navigateByUrl('login');
     }
   }
 
-  onUpdate() {
-    this.router.navigateByUrl(`item/${this.item.id}/true`);
+  onUpdate(): void {
+    this.router.navigateByUrl(`item/${this.item.id}/edit`);
   }
 
-  onDelete() {
+  onDelete(): void {
     this.commonDb.deleteItemById(this.item.id).subscribe(() => {
       this.router.navigateByUrl('home');
+    });
+  }
+
+  addItemToUser(event): void {
+    event.stopImmediatePropagation();
+    const userData = this.userService.getUserData();
+    userData.items.push(this.item.id);
+    this.item.userAccess = userData.id;
+    this.commonDb.updateUser(userData).subscribe((user) => {
+      this.userService.storeUserData(user);
+      this.commonDb.updateItem(this.item).subscribe(() => {
+        this.router.navigateByUrl('home');
+      });
     });
   }
 

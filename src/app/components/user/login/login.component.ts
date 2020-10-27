@@ -32,13 +32,9 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;
     this.commonDb.getUserByEmail(email, password).subscribe((data: any[]) => {
-      // this.success = data.length === 1;
       if (data.length) {
-        this.userService.loginCurrentUser(email);
-        this.router.navigate(['/home'], { queryParams: { id: data[0].id }});
-        // this.router.navigateByUrl('home', {
-        //   queryParams: { id: data[0].id }
-        // });
+        this.userService.loginCurrentUser(data[0]);
+        this.router.navigateByUrl('home');
       }
     });
   }

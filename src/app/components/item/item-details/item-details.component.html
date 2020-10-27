@@ -37,7 +37,7 @@
       </form>
     </div>
   </div>
-  <div class="action-buttons">
+  <div *ngIf="isBtnVisible()" class="action-buttons">
     <button *ngIf="!isUpdateMode" (click)="updateProduct()" class="action-btn">Update Item</button>
     <button (click)="deleteItem()" class="action-btn">Delete Item</button>
     <button (click)="additemToCart()" class="action-btn">Add to Cart</button>

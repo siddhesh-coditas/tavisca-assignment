@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { ThemeService } from 'src/app/services/theme.service';
 import { UserService } from 'src/app/services/user.service';
-import { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button'
+import { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button';
 
 console.assert(ToggleButtonElement !== undefined);
 
@@ -14,7 +14,7 @@ declare var $: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
   showMenu = false;
   showHamBtn = false;
@@ -27,9 +27,16 @@ export class HeaderComponent implements OnInit {
   ) {
     const theme = this.themeService.getActiveTheme();
     this.themeService.setActiveTheme(theme);
+    this.userService.loginStatus.subscribe((data) => {
+      console.log(data);
+    });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.hideHamMenu();
+    });
+  }
 
   ngAfterViewInit(): void {
     document.addEventListener('click', (event: any) => {
@@ -67,7 +74,17 @@ export class HeaderComponent implements OnInit {
     this.hideHamMenu();
   }
 
-  getTheme() {
+  openAllItemPage(): void {
+    this.hideHamMenu();
+    this.router.navigateByUrl('allitems/all');
+  }
+
+  openMyItemPage(): void {
+    this.hideHamMenu();
+    this.router.navigateByUrl('home');
+  }
+
+  getTheme(): string {
     return this.themeService.getActiveTheme().name;
   }
 

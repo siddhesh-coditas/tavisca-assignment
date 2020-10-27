@@ -3,6 +3,8 @@
   border: 2px solid var(--foreground-default);
   background: var(--foreground-tertiary);
   border-radius: 3px;
+  position: relative;
+  height: 100%;
 
   .item-img-container {
     padding-bottom: 10px;
@@ -29,6 +31,10 @@
       color: var(--foreground-text-primary);
       display: flex;
       justify-content: space-between;
+      position: absolute;
+      bottom: 0;
+      width: calc(100% - 20px);
+      align-items: center;
     }
 
     &>* {
@@ -36,7 +42,7 @@
     }
   }
 
-  .update-btn {
+  .action-btn {
     background-color: transparent;
     border: none;
     outline: none;

@@ -21,6 +21,10 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'allitems/:listMode',
+    component: ItemListComponent
+  },
+  {
     path: 'home',
     component: ItemListComponent
   },

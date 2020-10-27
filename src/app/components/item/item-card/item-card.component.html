@@ -13,8 +13,8 @@
     <div class="item-price">
       <span>{{ locService.getCurrencyText(item.price) }}</span>
       <div class="action-btn-container" *ngIf="!item.cartView">
-        <button class="update-btn" (click)="onUpdate()">Update</button>
-        <!-- <button class="delete-item-btn" (click)="onDelete($event)">Delete</button> -->
+        <button *ngIf="!isAllItem" class="update-btn action-btn" (click)="onUpdate()">Update</button>
+        <button *ngIf="isAllItem" class="add-user-item-btn action-btn" (click)="addItemToUser($event)">Add To My Item</button>
       </div>
     </div>
   </div>

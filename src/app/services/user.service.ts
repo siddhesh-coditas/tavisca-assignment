@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { UserModel } from '../components/user/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,22 @@ import { Observable, of } from 'rxjs';
 export class UserService {
 
   user = null;
-  loginStatus = new Observable();
+  loginStatus = new Observable((observer) => {
+    observer.next(this.getUserData() !== null);
+    return {
+      unsubscribe() { }
+    };
+  });
 
   constructor() { }
 
-  loginCurrentUser(email): void {
-    this.user = email;
-    localStorage.setItem('user', email);
+  loginCurrentUser(data): void {
+    this.storeUserData(data);
+  }
+
+  storeUserData(data) {
+    this.user = data;
+    localStorage.setItem('user', JSON.stringify(this.user));
   }
 
   isUserLoggedIn(email): boolean {
@@ -21,10 +31,15 @@ export class UserService {
   }
 
   lougoutUser(): void {
+    this.user = null;
     localStorage.removeItem('user');
   }
 
-  getUserId() {
+  getUserData(): UserModel | null {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (this.user === null && storedUser !== null) {
+      this.user = storedUser;
+    }
     return this.user;
   }
 

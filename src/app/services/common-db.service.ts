@@ -58,4 +58,9 @@ export class CommonDbService {
       }
     });
   }
+
+  updateUser(user: UserModel) {
+    const url = this.baseUrl + `users/${user.id}`;
+    return this.http.put(url, user);
+  }
 }
