@@ -11,10 +11,9 @@ import { ItemCardModel } from '../item-card/item-card.model';
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',
-  styleUrls: ['./item-details.component.scss']
+  styleUrls: ['./item-details.component.scss'],
 })
 export class ItemDetailsComponent implements OnInit {
-
   @Input()
   item: ItemCardModel;
 
@@ -43,14 +42,25 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemId = this.route.snapshot.paramMap.get('id');
-    this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'edit';
-    this.commonDb.getSpecificItem(this.itemId).subscribe((data: ItemCardModel) => {
-      this.item = data;
-      if (this.isUpdateMode) {
-        this.updateProduct();
-      }
-    });
+    if(!this.item) {
+      this.itemId = this.route.snapshot.paramMap.get('id');
+      this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'edit';
+      this.commonDb.getSpecificItem(this.itemId).subscribe(
+        (data: ItemCardModel) => {
+          this.item = data;
+          if (this.isUpdateMode) {
+            this.updateProduct();
+          }
+        },
+        (err) => {
+          if (err.status === 404) {
+            this.router.navigateByUrl('home');
+          }
+        }
+      );
+    } else {
+      this.itemId = this.item.id.toString();
+    }
   }
 
   redirectToListing(): void {
@@ -84,12 +94,11 @@ export class ItemDetailsComponent implements OnInit {
       name: updatedData.name,
       description: updatedData.description,
       price: Number(updatedData.price).toFixed(2),
-      imgUrl: this.item.imgUrl
+      imgUrl: this.item.imgUrl,
     };
-    this.commonDb.updateItem(this.item)
-      .subscribe((data: ItemCardModel) => {
-        this.isUpdateMode = false;
-      });
+    this.commonDb.updateItem(this.item).subscribe((data: ItemCardModel) => {
+      this.isUpdateMode = false;
+    });
   }
 
   deleteItem(): void {

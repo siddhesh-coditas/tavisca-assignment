@@ -1,17 +1,17 @@
 <div class="header-container">
   <div class="title-container">
-    <h1>E-mart</h1>
+    <h1>{{i18n('title')}}</h1>
   </div>
   <div class="theme-toggle-container">
-    <custom-toggle [customClick]="toggleTheme.bind(this)" [theme]="getTheme()"></custom-toggle>
-    <button (click)='addProduct()' class="action-btn">Add Product</button>
+    <custom-toggle class="custom-toggle-btn" [customClick]="toggleTheme.bind(this)" [theme]="getTheme()"></custom-toggle>
+    <button *ngIf="userService.loginStatus" (click)='addProduct()' class="action-btn">{{i18n('header.add-product-btn')}}</button>
     <!-- <button (click)="toggleTheme()">Theme</button> -->
-    <button *ngIf="!showHamBtn" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
+    <button *ngIf="userService.loginStatus" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
     <div *ngIf="showMenu" class="ham-menu-list">
-      <button (click)='openMyItemPage()' class="ham-menu-item">My items</button>
-      <button (click)='openAllItemPage()' class="ham-menu-item">All items</button>
-      <button (click)='openCart()' class="ham-menu-item">Cart</button>
-      <button (click)='logoutCurrUser()' class="ham-menu-item">Logout</button>
+      <button (click)='openMyItemPage()' class="ham-menu-item">{{i18n('header.ham-menu.my-item')}}</button>
+      <button (click)='openAllItemPage()' class="ham-menu-item">{{i18n('header.ham-menu.all-item')}}</button>
+      <button (click)='openCart()' class="ham-menu-item">{{i18n('header.ham-menu.cart')}}</button>
+      <button (click)='logoutCurrUser()' class="ham-menu-item">{{i18n('header.ham-menu.logout')}}</button>
     </div>
   </div>
 </div>

@@ -1,32 +1,42 @@
 <div class="register-container">
-  <h2 class="form-title">Register</h2>
+  <h2 class="form-title">{{i18n('register.title')}}</h2>
   <form [formGroup]="registerForm" (submit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Full Name</label>
+      <label for="name">{{i18n('register.form.name-label')}}</label>
       <input type="text" class="form-control" id="name" formControlName="name">
     </div>
     <div class="form-group">
-      <label for="email">Email</label>
+      <label for="email">{{i18n('register.form.email-label')}}</label>
       <input type="text" class="form-control" id="email" formControlName="email">
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone</label>
-      <input type="text" class="form-control" id="phone" formControlName="phone">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" formControlName="password">
-    </div>
-    <div class="form-group">
-      <label for="password">Confirm Password</label>
-      <input type="password" class="form-control" id="cpassword" formControlName="cpassword">
-      <span class="help-block" *ngIf="!registerForm.get('cpassword').valid&&registerForm.get('cpassword').touched">
-        <span *ngIf="!registerForm.get('cpassword').errors['validCpass']">Pass is invalid</span>
+      <span class="help-block" *ngIf="!registerForm.get('email').valid&&registerForm.get('email').touched">
+        <span *ngIf="!registerForm.get('email').valid">{{getFormValidationErr('register.errors.email-invalid')}}</span>
       </span>
     </div>
-    <button class="register-btn" type="submit">Register</button>
+    <div class="form-group">
+      <label for="phone">{{i18n('register.form.phone-label')}}</label>
+      <input type="number" class="form-control" id="phone" [pattern]="phonePattern" formControlName="phone">
+      <span class="help-block" *ngIf="!registerForm.get('phone').valid && registerForm.get('phone').touched">
+        <span *ngIf="registerForm.get('phone').errors.pattern">{{getFormValidationErr('register.errors.phone-invalid')}}</span>
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="password">{{i18n('register.form.password-label')}}</label>
+      <input type="password" class="form-control" id="password" formControlName="password" (change)="validatePassword()">
+      <span class="help-block" *ngIf="!registerForm.get('password').valid&&registerForm.get('password').touched">
+        <span *ngIf="validatePassword() == 'min'">{{getFormValidationErr('register.errors.pass-min')}}</span>
+        <span *ngIf="validatePassword() == 'max'">{{getFormValidationErr('register.errors.pass-max')}}</span>
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="password">{{i18n('register.form.confirm-password-label')}}</label>
+      <input type="password" class="form-control" id="cpassword" formControlName="cpassword">
+      <span class="help-block" *ngIf="!registerForm.get('cpassword').valid&&registerForm.get('cpassword').touched">
+        <span *ngIf="!registerForm.get('cpassword').errors['validCpass']">{{getFormValidationErr('register.errors.confirm-pass-invalid')}}</span>
+      </span>
+    </div>
+    <button class="register-btn" [disabled]="!registerForm.valid" type="submit">{{i18n('register.form.register-btn-label')}}</button>
   </form>
   <div class="login-container">
-    <button class="go-to-login-contianer" (click)="redirectToLogin()">Go To Login</button>
+    <button class="go-to-login-contianer" (click)="redirectToLogin()">{{i18n('register.form.go-to-login-link')}}</button>
   </div>
 </div>

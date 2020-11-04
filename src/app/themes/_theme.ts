@@ -13,6 +13,7 @@ export const Light: Theme = {
         '--foreground-border': '#3f6bc2',
         '--foreground-text-title': '#fff',
         '--foreground-text-primary': '#3f6bc2',
+        '--foreground-text-error': '#ff0000',
         '--foreground-text-secondary': '#666666'
     }
 };
@@ -27,6 +28,7 @@ export const Dark: Theme = {
         '--foreground-border': '#343434',
         '--foreground-text-title': '#fff',
         '--foreground-text-primary': '#343434',
+        '--foreground-text-error': '#cacaca',
         '--foreground-text-secondary': '#666666'
     }
 };

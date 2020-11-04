@@ -19,12 +19,38 @@
             "indexSignatures": [],
             "kind": 150,
             "methods": []
+        },
+        {
+            "name": "Theme",
+            "id": "interface-Theme-79ffb1e25500bac7aa85169586e433b9",
+            "file": "src/app/themes/_theme.ts",
+            "type": "interface",
+            "sourceCode": "export interface Theme {\r\n    name: string;\r\n    properties: any;\r\n}\r\n\r\nexport const Light: Theme = {\r\n    name: 'light',\r\n    properties: {\r\n        '--body-background': '#fff',\r\n        '--foreground-default': '#3f6bc2',\r\n        '--foreground-secondary': '#214385',\r\n        '--foreground-tertiary': '#fff',\r\n        '--foreground-border': '#3f6bc2',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#3f6bc2',\r\n        '--foreground-text-error': '#ff0000',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n};\r\n\r\nexport const Dark: Theme = {\r\n    name: 'dark',\r\n    properties: {\r\n        '--body-background': '#6a6a6a',\r\n        '--foreground-default': '#343434',\r\n        '--foreground-secondary': '#a7a7a7',\r\n        '--foreground-tertiary': '#a0a0a0',\r\n        '--foreground-border': '#343434',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#343434',\r\n        '--foreground-text-error': '#cacaca',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n};\r\n",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "properties",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
         }
     ],
     "injectables": [
         {
             "name": "CartService",
-            "id": "injectable-CartService-885cac918df1c7304aa1f0fff15fba75",
+            "id": "injectable-CartService-69ddd4a7784e5688bef36af373f12901",
             "file": "src/app/services/cart.service.ts",
             "properties": [
                 {
@@ -63,7 +89,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CartService {\n\n  cartVisible = false;\n\n  constructor() {}\n\n  getCartVisibilityStatus() {\n    return this.cartVisible;\n  }\n\n  toggleCartVisibilityStatus() {\n    this.cartVisible = !this.cartVisible;\n  }\n\n  closeCart() {\n    this.cartVisible = false;\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class CartService {\r\n\r\n  cartVisible = false;\r\n\r\n  constructor() {}\r\n\r\n  getCartVisibilityStatus() {\r\n    return this.cartVisible;\r\n  }\r\n\r\n  toggleCartVisibilityStatus() {\r\n    this.cartVisible = !this.cartVisible;\r\n  }\r\n\r\n  closeCart() {\r\n    this.cartVisible = false;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -74,16 +100,16 @@
         },
         {
             "name": "CommonDbService",
-            "id": "injectable-CommonDbService-50be918064642255824cd35144a37614",
+            "id": "injectable-CommonDbService-2712361ced270a9634ed3baa643bbbf9",
             "file": "src/app/services/common-db.service.ts",
             "properties": [
                 {
                     "name": "baseUrl",
-                    "defaultValue": "\"http://localhost:3000/\"",
+                    "defaultValue": "'http://localhost:3000/'",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 10,
                     "modifierKind": [
                         112
                     ]
@@ -91,12 +117,56 @@
             ],
             "methods": [
                 {
+                    "name": "addItem",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 24,
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "deleteItemById",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 34,
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "getAllItems",
                     "args": [],
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 13
+                    "line": 14
                 },
                 {
                     "name": "getSpecificItem",
@@ -109,7 +179,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 19,
                     "jsdoctags": [
                         {
                             "name": "id",
@@ -119,10 +189,131 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "getUserByEmail",
+                    "args": [
+                        {
+                            "name": "email",
+                            "type": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 44,
+                    "jsdoctags": [
+                        {
+                            "name": "email",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getUserByItem",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 39,
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerUser",
+                    "args": [
+                        {
+                            "name": "user",
+                            "type": "UserModel"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 53,
+                    "jsdoctags": [
+                        {
+                            "name": "user",
+                            "type": "UserModel",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateItem",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 29,
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateUser",
+                    "args": [
+                        {
+                            "name": "user",
+                            "type": "UserModel"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 62,
+                    "jsdoctags": [
+                        {
+                            "name": "user",
+                            "type": "UserModel",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { HttpClient } from '@angular/common/http';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class CommonDbService {\r\n\r\n  private baseUrl = \"http://localhost:3000/\"\r\n\r\n  constructor(private http: HttpClient) { }\r\n\r\n  getAllItems() {\r\n    const url = this.baseUrl + \"items\";\r\n    return this.http.get(url);\r\n  }\r\n\r\n  getSpecificItem(id: string) {\r\n    const url = this.baseUrl + `items/${id}`;\r\n    return this.http.get(url);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { HttpClient } from '@angular/common/http';\r\nimport { UserModel } from '../components/user/user.model';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class CommonDbService {\r\n\r\n  private baseUrl = 'http://localhost:3000/'\r\n\r\n  constructor(private http: HttpClient) { }\r\n\r\n  getAllItems(): any {\r\n    const url = this.baseUrl + 'items';\r\n    return this.http.get(url);\r\n  }\r\n\r\n  getSpecificItem(id: string) {\r\n    const url = this.baseUrl + `items/${id}`;\r\n    return this.http.get(url);\r\n  }\r\n\r\n  addItem(item) {\r\n    const url = this.baseUrl + `items`;\r\n    return this.http.post(url, item);\r\n  }\r\n\r\n  updateItem(item) {\r\n    const url = this.baseUrl + `items/${item.id}`;\r\n    return this.http.put(url, item);\r\n  }\r\n\r\n  deleteItemById(id) {\r\n    const url = this.baseUrl + `items/${id}`;\r\n    return this.http.delete(url, id);\r\n  }\r\n\r\n  getUserByItem(id: string) {\r\n    const url = this.baseUrl + `users/${id}`;\r\n    return this.http.get(url);\r\n  }\r\n\r\n  getUserByEmail(email, password) {\r\n    const url = this.baseUrl + 'users';\r\n    return this.http.get(url, {\r\n      params: {\r\n        email, password\r\n      }\r\n    });\r\n  }\r\n\r\n  registerUser(user: UserModel) {\r\n    const url = this.baseUrl + 'users';\r\n    return this.http.post(url, user, {\r\n      headers: {\r\n        'Content-Type': 'application/json'\r\n      }\r\n    });\r\n  }\r\n\r\n  updateUser(user: UserModel) {\r\n    const url = this.baseUrl + `users/${user.id}`;\r\n    return this.http.put(url, user);\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -132,7 +323,7 @@
                         "type": "HttpClient"
                     }
                 ],
-                "line": 9,
+                "line": 10,
                 "jsdoctags": [
                     {
                         "name": "http",
@@ -147,7 +338,7 @@
         },
         {
             "name": "LocalServiceService",
-            "id": "injectable-LocalServiceService-514a08e54da86b0a23fe97bffab982df",
+            "id": "injectable-LocalServiceService-4d05d04d3cece9a36944e2d6e3e68f65",
             "file": "src/app/services/local-service.service.ts",
             "properties": [],
             "methods": [
@@ -162,7 +353,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 31,
                     "jsdoctags": [
                         {
                             "name": "value",
@@ -185,7 +376,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 26,
                     "jsdoctags": [
                         {
                             "name": "key",
@@ -199,7 +390,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport i18next from 'i18next';\r\nimport localization from '../../assets/localization-en.json';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class LocalServiceService {\r\n  constructor() {\r\n    i18next.init(\r\n      {\r\n        lng: 'en',\r\n        debug: true,\r\n        resources: {\r\n          en: {\r\n            translation: localization,\r\n          },\r\n        },\r\n      },\r\n      function (err, t) {\r\n        // initialized and ready to go!\r\n        // document.getElementById('output').innerHTML = i18next.t('key');\r\n        console.log(i18next);\r\n      }\r\n    );\r\n  }\r\n\r\n  getLocalText(key?: string) {\r\n    return key !== undefined ? i18next.t(key) : '';\r\n  }\r\n\r\n  getCurrencyText(value): string {\r\n    return '$' + value;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport i18next from 'i18next';\r\nimport localization from '../../assets/localization-en.json';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class LocalServiceService {\r\n  constructor() {\r\n    i18next.init(\r\n      {\r\n        lng: 'en',\r\n        debug: true,\r\n        resources: {\r\n          en: {\r\n            translation: localization,\r\n          },\r\n        },\r\n      },\r\n      function (err, t) {\r\n        console.log(i18next);\r\n      }\r\n    );\r\n  }\r\n\r\n  getLocalText(key?: string) {\r\n    const temp = i18next;\r\n    return key !== undefined ? i18next.t(key) : '';\r\n  }\r\n\r\n  getCurrencyText(value): string {\r\n    return '$' + value;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -207,15 +398,257 @@
                 "line": 8
             },
             "type": "injectable"
+        },
+        {
+            "name": "ThemeService",
+            "id": "injectable-ThemeService-312f5b9e4608acfcc4396879a9c8d6a8",
+            "file": "src/app/services/theme.service.ts",
+            "properties": [
+                {
+                    "name": "active",
+                    "defaultValue": "Light",
+                    "type": "Theme",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "availableThemes",
+                    "defaultValue": "[Light, Dark]",
+                    "type": "Theme[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getActiveTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Theme",
+                    "typeParameters": [],
+                    "line": 15
+                },
+                {
+                    "name": "getAvailableThemes",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Theme[]",
+                    "typeParameters": [],
+                    "line": 11
+                },
+                {
+                    "name": "isDarkTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 20
+                },
+                {
+                    "name": "setActiveTheme",
+                    "args": [
+                        {
+                            "name": "theme",
+                            "type": "Theme"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32,
+                    "jsdoctags": [
+                        {
+                            "name": "theme",
+                            "type": "Theme",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDarkTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24
+                },
+                {
+                    "name": "setLightTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28
+                }
+            ],
+            "description": "",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { Theme, Light, Dark } from '../themes/_theme';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class ThemeService {\r\n  private active: Theme = Light;\r\n  private availableThemes: Theme[] = [Light, Dark];\r\n\r\n  getAvailableThemes(): Theme[] {\r\n    return this.availableThemes;\r\n  }\r\n\r\n  getActiveTheme(): Theme {\r\n    const storedTheme = sessionStorage.getItem('theme');\r\n    return storedTheme ? (storedTheme === Light.name ? Light : Dark) : this.active;\r\n  }\r\n\r\n  isDarkTheme(): boolean {\r\n    return this.active.name === Dark.name;\r\n  }\r\n\r\n  setDarkTheme(): void {\r\n    this.setActiveTheme(Dark);\r\n  }\r\n\r\n  setLightTheme(): void {\r\n    this.setActiveTheme(Light);\r\n  }\r\n\r\n  setActiveTheme(theme: Theme): void {\r\n    this.active = theme;\r\n    sessionStorage.setItem('theme', theme.name);\r\n\r\n    Object.keys(this.active.properties).forEach(property => {\r\n      document.documentElement.style.setProperty(\r\n        property,\r\n        this.active.properties[property]\r\n      );\r\n    });\r\n  }\r\n}\r\n",
+            "type": "injectable"
+        },
+        {
+            "name": "UserService",
+            "id": "injectable-UserService-8d699797ead564db85d76d3dda933d93",
+            "file": "src/app/services/user.service.ts",
+            "properties": [
+                {
+                    "name": "hamBtnVisible",
+                    "defaultValue": "new Subject<boolean>()",
+                    "type": "Subject<boolean>",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "loginStatus",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "user",
+                    "defaultValue": "null",
+                    "type": "null",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getUserData",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "UserModel | null",
+                    "typeParameters": [],
+                    "line": 44
+                },
+                {
+                    "name": "isUserLoggedIn",
+                    "args": [
+                        {
+                            "name": "email",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 34,
+                    "jsdoctags": [
+                        {
+                            "name": "email",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "loginCurrentUser",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "lougoutUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38
+                },
+                {
+                    "name": "storeUserData",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateLoginStatus",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "description": "",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { Observable, of, Subject } from 'rxjs';\r\nimport { UserModel } from '../components/user/user.model';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class UserService {\r\n  user = null;\r\n  loginStatus = false;\r\n\r\n  hamBtnVisible: Subject<boolean> = new Subject<boolean>();\r\n\r\n  constructor() {\r\n    this.hamBtnVisible.subscribe((value) => {\r\n      this.loginStatus = value;\r\n    });\r\n  }\r\n\r\n  updateLoginStatus(value) {\r\n    this.hamBtnVisible.next(value);\r\n  }\r\n\r\n  loginCurrentUser(data): void {\r\n    this.storeUserData(data);\r\n    this.updateLoginStatus(true);\r\n  }\r\n\r\n  storeUserData(data) {\r\n    this.user = data;\r\n    sessionStorage.setItem('user', JSON.stringify(this.user));\r\n  }\r\n\r\n  isUserLoggedIn(email): boolean {\r\n    return sessionStorage.getItem('user') === email;\r\n  }\r\n\r\n  lougoutUser(): void {\r\n    this.user = null;\r\n    sessionStorage.removeItem('user');\r\n    this.updateLoginStatus(false);\r\n  }\r\n\r\n  getUserData(): UserModel | null {\r\n    const storedUser = JSON.parse(sessionStorage.getItem('user'));\r\n    if (this.user === null && storedUser !== null) {\r\n      this.user = storedUser;\r\n    }\r\n    return this.user;\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 12
+            },
+            "type": "injectable"
         }
     ],
     "classes": [
         {
             "name": "AppPage",
-            "id": "class-AppPage-b0dda38f970a6690b77b35dfb293b3ac",
+            "id": "class-AppPage-a0db91bfa3b9914e9048612074084ee6",
             "file": "e2e/src/app.po.ts",
             "type": "class",
-            "sourceCode": "import { browser, by, element } from 'protractor';\r\n\r\nexport class AppPage {\r\n  navigateTo(): Promise<unknown> {\r\n    return browser.get(browser.baseUrl) as Promise<unknown>;\r\n  }\r\n\r\n  getTitleText(): Promise<string> {\r\n    return element(by.css('app-root .content span')).getText() as Promise<string>;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl) as Promise<unknown>;\n  }\n\n  getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText() as Promise<string>;\n  }\n}\n",
             "properties": [],
             "methods": [
                 {
@@ -242,16 +675,94 @@
             "hostListeners": []
         },
         {
+            "name": "BaseComp",
+            "id": "class-BaseComp-3a4f962e2e4662607755b0c914c4847b",
+            "file": "src/app/components/base.ts",
+            "type": "class",
+            "sourceCode": "import { LocalServiceService } from '../services/local-service.service';\r\n\r\nexport class BaseComp {\r\n  i18n: any;\r\n  constructor(public locService: LocalServiceService) {\r\n    this.i18n = this.locService.getLocalText;\r\n  }\r\n\r\n  public getFormValidationErr(key) {\r\n    return this.i18n(key) + this.i18n('common.form-validation.postfix');\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "locService",
+                        "type": "LocalServiceService"
+                    }
+                ],
+                "line": 4,
+                "jsdoctags": [
+                    {
+                        "name": "locService",
+                        "type": "LocalServiceService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "properties": [
+                {
+                    "name": "i18n",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "locService",
+                    "type": "LocalServiceService",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        114
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getFormValidationErr",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 9,
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "key",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
             "name": "ItemCardModel",
-            "id": "class-ItemCardModel-41f37bd88dc39b5fd8836de6062cecdf",
+            "id": "class-ItemCardModel-b3af7831337484633afeea5a223a9760",
             "file": "src/app/components/item/item-card/item-card.model.ts",
             "type": "class",
-            "sourceCode": "export class ItemCardModel {\r\n    public id: number = null;\r\n    public name: string = \"\";\r\n    public description: string = \"\";\r\n    public imgUrl: string = \"\";\r\n    public price: string = \"\";\r\n    public cartView: boolean = false;\r\n}",
+            "sourceCode": "export class ItemCardModel {\r\n    public id: number = null;\r\n    public name = '';\r\n    public description = '';\r\n    public imgUrl = '';\r\n    public price = '';\r\n    public cartView = false;\r\n    public userAccess: number = null;\r\n}\r\n",
             "properties": [
                 {
                     "name": "cartView",
                     "defaultValue": "false",
-                    "type": "boolean",
+                    "type": "",
                     "optional": false,
                     "description": "",
                     "line": 7,
@@ -261,7 +772,7 @@
                 },
                 {
                     "name": "description",
-                    "defaultValue": "\"\"",
+                    "defaultValue": "''",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -283,7 +794,7 @@
                 },
                 {
                     "name": "imgUrl",
-                    "defaultValue": "\"\"",
+                    "defaultValue": "''",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -294,7 +805,7 @@
                 },
                 {
                     "name": "name",
-                    "defaultValue": "\"\"",
+                    "defaultValue": "''",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -305,11 +816,22 @@
                 },
                 {
                     "name": "price",
-                    "defaultValue": "\"\"",
+                    "defaultValue": "''",
                     "type": "string",
                     "optional": false,
                     "description": "",
                     "line": 6,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "userAccess",
+                    "defaultValue": "null",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
                     "modifierKind": [
                         114
                     ]
@@ -324,17 +846,46 @@
         },
         {
             "name": "ToggleButtonElement",
-            "id": "class-ToggleButtonElement-1f7e15a93591d2b8c01350144b29a232",
+            "id": "class-ToggleButtonElement-1a50599d784ff2aa8a607529fe86e188",
             "file": "src/app/elements/toggle-button/toggle-button.ts",
             "type": "class",
-            "sourceCode": "import { LitElement, html, customElement } from 'lit-element';\r\n\r\n@customElement('custom-toggle')\r\nexport class ToggleButtonElement extends LitElement {\r\n    constructor() {\r\n        super();\r\n    }\r\n\r\n    render() {\r\n        return html`<input type=\"checkbox\"> Dark`\r\n    }\r\n}",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\n\r\n@customElement('custom-toggle')\r\nexport class ToggleButtonElement extends LitElement {\r\n  @property()\r\n  theme = 'light';\r\n\r\n  @property()\r\n  customClick = () => null;\r\n\r\n  constructor() {\r\n    super();\r\n  }\r\n\r\n  static get styles() {\r\n    return css`\r\n      button {\r\n        background-color: transparent;\r\n        border: none;\r\n        font-size: 25px;\r\n        color: #fff;\r\n        font-weight: 900;\r\n      }\r\n    `;\r\n  }\r\n\r\n  render() {\r\n    return html`<button\r\n      class=\"${this.theme}\"\r\n      aria-label=\"${this.theme}\"\r\n      @click=\"${this.customClick}\">\r\n      <span aria-hidden=true>\r\n    ${this.theme === 'dark' ? '☼' : '☽'}\r\n    </span>\r\n    </button>`;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 4
+                "line": 10
             },
-            "properties": [],
+            "properties": [
+                {
+                    "name": "customClick",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "theme",
+                    "defaultValue": "'light'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
             "methods": [
                 {
                     "name": "render",
@@ -342,15 +893,234 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 9
+                    "line": 28
                 }
             ],
             "indexSignatures": [],
-            "extends": "LitElement"
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 16
+                    }
+                }
+            }
+        },
+        {
+            "name": "UserModel",
+            "id": "class-UserModel-d6797139c7b21c81d4b2f7cb808783e0",
+            "file": "src/app/components/user/user.model.ts",
+            "type": "class",
+            "sourceCode": "import { ItemCardModel } from '../item/item-card/item-card.model';\r\n\r\nexport class UserModel {\r\n    public id?: number;\r\n    public name: string;\r\n    public email: string;\r\n    public password: string;\r\n    public items: any[];\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "email",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "id",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 4,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "items",
+                    "type": "any[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "password",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        114
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
         }
     ],
     "directives": [],
     "components": [
+        {
+            "name": "AddIemComponent",
+            "id": "component-AddIemComponent-e985dbec90181125f51dd4944bc6964b",
+            "file": "src/app/components/item/add-iem/add-iem.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-add-iem",
+            "styleUrls": [
+                "./add-iem.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./add-iem.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "addForm",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "imageUrl",
+                    "defaultValue": "'https://images-na.ssl-images-amazon.com/images/I/61dwpZr1htL._SL1000_.jpg'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32
+                },
+                {
+                    "name": "onAddItem",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35
+                },
+                {
+                    "name": "onCancel",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 53
+                },
+                {
+                    "name": "redirectToAllitem",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 61
+                },
+                {
+                    "name": "redirectToHome",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup } from '@angular/forms';\r\nimport { Router } from '@angular/router';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-add-iem',\r\n  templateUrl: './add-iem.component.html',\r\n  styleUrls: ['./add-iem.component.scss']\r\n})\r\nexport class AddIemComponent implements OnInit {\r\n\r\n  addForm: FormGroup;\r\n  private imageUrl = 'https://images-na.ssl-images-amazon.com/images/I/61dwpZr1htL._SL1000_.jpg';\r\n\r\n  constructor(\r\n    private router: Router,\r\n    private commonDb: CommonDbService,\r\n    private userService: UserService\r\n  ) {\r\n    this.addForm = new FormGroup({\r\n      name: new FormControl(null, []),\r\n      description: new FormControl(null, []),\r\n      imgUrl: new FormControl(null, []),\r\n      price: new FormControl(null, []),\r\n      userAccess: new FormControl(null, [])\r\n    });\r\n  }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  onAddItem(): void {\r\n    const user = this.userService.getUserData();\r\n    const values = this.addForm.value;\r\n    // values.imgUrl = this.imageUrl;\r\n    values.userAccess = values.userAccess ? user.id : null;\r\n    values.price = Number(values.price).toFixed(2);\r\n    this.commonDb.addItem(values).subscribe((data: ItemCardModel) => {\r\n      if (data.userAccess === user.id) {\r\n        user.items.push(data.id);\r\n        this.commonDb.updateUser(user).subscribe(() => {\r\n          this.redirectToHome();\r\n        });\r\n      } else {\r\n        this.redirectToAllitem();\r\n      }\r\n    });\r\n  }\r\n\r\n  onCancel(): void {\r\n    this.redirectToHome();\r\n  }\r\n\r\n  redirectToHome(): void {\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  redirectToAllitem(): void {\r\n    this.router.navigateByUrl('allitems/all');\r\n  }\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".add-item-container {\r\n  padding: 10px;\r\n  border: 2px solid var(--foreground-default);\r\n  margin: 10px auto;\r\n  width: 50%;\r\n  min-width: 275px;\r\n  max-width: 450px;\r\n\r\n  .form-title {\r\n    color: var(--foreground-text-primary);\r\n    margin-top: 0;\r\n  }\r\n\r\n  form {\r\n    margin-bottom: 10px;\r\n\r\n    .form-group {\r\n      margin-bottom: 20px;\r\n      display: flex;\r\n      flex-direction: column;\r\n\r\n      &.form-row-disp {\r\n        flex-direction: row;\r\n        gap: 10px;\r\n\r\n        label {\r\n          margin-bottom: 0;\r\n        }\r\n      }\r\n\r\n      label {\r\n        margin-bottom: 5px;\r\n        color: var(--foreground-text-primary);\r\n      }\r\n    }\r\n  }\r\n\r\n  .action-btn-container {\r\n    display: flex;\r\n    justify-content: space-around;\r\n\r\n    .action-btn {\r\n      padding: 10px 20px;\r\n      font-size: 16px;\r\n      font-weight: 700;\r\n      background-color: var(--foreground-default);\r\n      color: var(--foreground-tertiary);\r\n      border: none;\r\n      outline: none;\r\n      border-radius: 5px;\r\n    }\r\n  }\r\n}\r\n",
+                    "styleUrl": "./add-iem.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    },
+                    {
+                        "name": "commonDb",
+                        "type": "CommonDbService"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
+                    }
+                ],
+                "line": 16,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "commonDb",
+                        "type": "CommonDbService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"add-item-container\">\r\n  <h2 class=\"form-title\">Add New Item</h2>\r\n  <form [formGroup]=\"addForm\" (submit)=\"onAddItem()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"name\" formControlName=\"name\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"description\">Description</label>\r\n      <textarea class=\"form-control\" id=\"description\" style=\"resize: none;\" formControlName=\"description\" id=\"\"\r\n        cols=\"30\" rows=\"10\"></textarea>\r\n      <!-- <input type=\"text\" class=\"form-control\" id=\"description\" formControlName=\"description\"> -->\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"imgUrl\">Image URL</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"imgUrl\" formControlName=\"imgUrl\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"price\">Price</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"price\" formControlName=\"price\">\r\n    </div>\r\n    <div class=\"form-group form-row-disp\">\r\n      <input type=\"checkbox\" class=\"form-control\" id=\"add-to-user\" formControlName=\"userAccess\">\r\n      <label for=\"add-to-user\">Add to Current user</label>\r\n    </div>\r\n    <div class=\"action-btn-container\">\r\n        <button class=\"update-btn action-btn\" type=\"submit\">Add</button>\r\n        <button (click)=\"onCancel()\" class=\"cancel-btn action-btn\" type=\"submit\">Cancel</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
+        },
         {
             "name": "AppComponent",
             "id": "component-AppComponent-3237ff925660f4b49977ad146bacf7d2",
@@ -420,7 +1190,7 @@
         },
         {
             "name": "CartComponent",
-            "id": "component-CartComponent-7e654189f1ef2d0bfdecc48cfd471ecd",
+            "id": "component-CartComponent-4b59dc459776ab208ee1afec8b0959a9",
             "file": "src/app/components/common/cart/cart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -446,6 +1216,16 @@
                     "optional": false,
                     "description": "",
                     "line": 15
+                },
+                {
+                    "name": "locService",
+                    "type": "LocalServiceService",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "modifierKind": [
+                        114
+                    ]
                 },
                 {
                     "name": "showTotal",
@@ -495,7 +1275,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, AfterViewInit } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { CartService } from 'src/app/services/cart.service';\nimport { CommonDbService } from 'src/app/services/common-db.service';\nimport { ItemCardModel } from '../../item/item-card/item-card.model';\nimport { CartState } from './state/cart-action';\n\n@Component({\n  selector: 'app-cart',\n  templateUrl: './cart.component.html',\n  styleUrls: ['./cart.component.scss']\n})\nexport class CartComponent implements OnInit {\n\n  cartItems: ItemCardModel[] = [];\n  showTotal = false;\n\n  constructor(\n    private cartService: CartService,\n    private dbService: CommonDbService,\n    private store: Store<CartState>\n  ) { }\n\n  ngOnInit(): void {\n  }\n\n  ngAfterViewInit() {\n    this.showTotal = true;\n    this.store.select(state => state.allItems).subscribe((data: any) => {\n      this.cartItems = data.allItems.map((elem) => {\n        return { ...elem, cartView: true };\n      });;\n    });\n  }\n\n  closeCart() {\n    this.cartService.closeCart();\n  }\n\n  getTotalCartPrice() {\n    return this.cartItems.length ? this.cartItems.map((e) => { return Number(e.price) })\n      .reduce((e, n) => e + n) : 0\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit, AfterViewInit } from '@angular/core';\r\nimport { Store } from '@ngrx/store';\r\nimport { CartService } from 'src/app/services/cart.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { ItemCardModel } from '../../item/item-card/item-card.model';\r\nimport { CartState } from './state/cart-action';\r\n\r\n@Component({\r\n  selector: 'app-cart',\r\n  templateUrl: './cart.component.html',\r\n  styleUrls: ['./cart.component.scss']\r\n})\r\nexport class CartComponent implements OnInit {\r\n\r\n  cartItems: ItemCardModel[] = [];\r\n  showTotal = false;\r\n\r\n  constructor(\r\n    private cartService: CartService,\r\n    private store: Store<CartState>,\r\n    public locService: LocalServiceService\r\n  ) { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    this.showTotal = true;\r\n    this.store.select(state => state.allItems).subscribe((data: any) => {\r\n      this.cartItems = data.allItems.map((elem) => {\r\n        return { ...elem, cartView: true };\r\n      });;\r\n    });\r\n  }\r\n\r\n  closeCart() {\r\n    this.cartService.closeCart();\r\n  }\r\n\r\n  getTotalCartPrice() {\r\n    const value = this.cartItems.length ? this.cartItems.map((e) => Number(e.price))\r\n      .reduce((e, n) => e + n) : 0;\r\n    return this.locService.getCurrencyText(value);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -513,12 +1293,12 @@
                         "type": "CartService"
                     },
                     {
-                        "name": "dbService",
-                        "type": "CommonDbService"
-                    },
-                    {
                         "name": "store",
                         "type": "Store<CartState>"
+                    },
+                    {
+                        "name": "locService",
+                        "type": "LocalServiceService"
                     }
                 ],
                 "line": 16,
@@ -531,15 +1311,15 @@
                         }
                     },
                     {
-                        "name": "dbService",
-                        "type": "CommonDbService",
+                        "name": "store",
+                        "type": "Store<CartState>",
                         "tagName": {
                             "text": "param"
                         }
                     },
                     {
-                        "name": "store",
-                        "type": "Store<CartState>",
+                        "name": "locService",
+                        "type": "LocalServiceService",
                         "tagName": {
                             "text": "param"
                         }
@@ -549,11 +1329,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"cart-container\">\n    <div class=\"cart-title-container\">Items in Cart</div>\n    <div class=\"cart-items-list\">\n        <app-item-card [item]=\"item\" *ngFor=\"let item of cartItems\"></app-item-card>\n    </div>\n    <div *ngIf=\"showTotal\" class=\"cart-total-container\">\n        <span class=\"total-price-label\">Total Price: </span>\n        <span class=\"total-price-value\">{{getTotalCartPrice()}}</span>\n    </div>\n    <div class=\"cart-toolbar\">\n        <button (click)=\"closeCart()\" class=\"close-cart\">✕</button>\n    </div>\n</div>"
+            "templateData": "<div class=\"cart-container\">\r\n    <div class=\"cart-title-container\">Items in Cart</div>\r\n    <div class=\"cart-items-list\">\r\n        <app-item-card [item]=\"item\" *ngFor=\"let item of cartItems\"></app-item-card>\r\n    </div>\r\n    <div *ngIf=\"showTotal\" class=\"cart-total-container\">\r\n        <span class=\"total-price-label\">Total Price: </span>\r\n        <span class=\"total-price-value\">{{getTotalCartPrice()}}</span>\r\n    </div>\r\n    <div class=\"cart-toolbar\">\r\n        <button (click)=\"closeCart()\" class=\"close-cart\">✕</button>\r\n    </div>\r\n</div>"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-0153cc34366ed7edaa7889d0b5c4686f",
+            "id": "component-HeaderComponent-3d075fef2ff87a1589faac126c098396",
             "file": "src/app/components/common/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -573,22 +1353,97 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "locService",
+                    "type": "LocalServiceService",
+                    "optional": false,
+                    "description": "",
+                    "line": 28,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "showHamBtn",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
                     "name": "showMenu",
                     "defaultValue": "false",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 20
+                },
+                {
+                    "name": "userService",
+                    "type": "UserService",
+                    "optional": false,
+                    "description": "",
+                    "line": 27,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "i18n",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "inheritance": {
+                        "file": "BaseComp"
+                    }
+                },
+                {
+                    "name": "locService",
+                    "type": "LocalServiceService",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        114
+                    ],
+                    "inheritance": {
+                        "file": "BaseComp"
+                    }
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "addProduct",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 70
+                },
+                {
+                    "name": "getTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 85
+                },
                 {
                     "name": "hideHamMenu",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31
+                    "line": 47
+                },
+                {
+                    "name": "logoutCurrUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -596,7 +1451,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23
+                    "line": 39
                 },
                 {
                     "name": "ngOnInit",
@@ -604,7 +1459,15 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20
+                    "line": 35
+                },
+                {
+                    "name": "openAllItemPage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 75
                 },
                 {
                     "name": "openCart",
@@ -612,7 +1475,51 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35
+                    "line": 51
+                },
+                {
+                    "name": "openMyItemPage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 80
+                },
+                {
+                    "name": "toggleTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 62
+                },
+                {
+                    "name": "getFormValidationErr",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 9,
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "key",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "BaseComp"
+                    }
                 }
             ],
             "hostBindings": [],
@@ -620,11 +1527,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, AfterViewInit } from '@angular/core';\nimport { CartService } from 'src/app/services/cart.service';\nimport { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button'\n\nconsole.assert(ToggleButtonElement !== undefined);\n\ndeclare var $: any;\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n  \n  showMenu = false;\n\n  constructor(private cartService: CartService) { }\n\n  ngOnInit(): void {\n  }\n\n  ngAfterViewInit() {\n    document.addEventListener('click', (event: any)=>{\n      if(!$(event.target).closest('.theme-toggle-container').length) {\n        this.hideHamMenu();\n      }\n    })\n  }\n\n  hideHamMenu() {\n    this.showMenu = false;\n  }\n\n  openCart() {\n    this.cartService.toggleCartVisibilityStatus();\n    this.hideHamMenu();\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit, AfterViewInit } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { CartService } from 'src/app/services/cart.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { ThemeService } from 'src/app/services/theme.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { BaseComp } from '../../base';\r\nimport { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button';\r\n\r\nconsole.assert(ToggleButtonElement !== undefined);\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss'],\r\n})\r\nexport class HeaderComponent extends BaseComp implements OnInit, AfterViewInit {\r\n  showMenu = false;\r\n  showHamBtn = false;\r\n\r\n  constructor(\r\n    private cartService: CartService,\r\n    private themeService: ThemeService,\r\n    private router: Router,\r\n    public userService: UserService,\r\n    public locService: LocalServiceService\r\n  ) {\r\n    super(locService);\r\n    const theme = this.themeService.getActiveTheme();\r\n    this.themeService.setActiveTheme(theme);\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.userService.updateLoginStatus(!!this.userService.getUserData());\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    document.addEventListener('click', (event: any) => {\r\n      if (!$(event.target).closest('.theme-toggle-container').length) {\r\n        this.hideHamMenu();\r\n      }\r\n    });\r\n  }\r\n\r\n  hideHamMenu(): void {\r\n    this.showMenu = false;\r\n  }\r\n\r\n  openCart(): void {\r\n    this.cartService.toggleCartVisibilityStatus();\r\n    this.hideHamMenu();\r\n  }\r\n\r\n  logoutCurrUser(): void {\r\n    this.userService.lougoutUser();\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('login');\r\n  }\r\n\r\n  toggleTheme(): void {\r\n    if (this.themeService.isDarkTheme()) {\r\n      this.themeService.setLightTheme();\r\n    } else {\r\n      this.themeService.setDarkTheme();\r\n    }\r\n  }\r\n\r\n  addProduct(): void {\r\n    this.router.navigateByUrl('add');\r\n    this.hideHamMenu();\r\n  }\r\n\r\n  openAllItemPage(): void {\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('allitems/all');\r\n  }\r\n\r\n  openMyItemPage(): void {\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  getTheme(): string {\r\n    return this.themeService.getActiveTheme().name;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".header-container {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  padding: 10px;\r\n  border-bottom: 3px solid #333;\r\n\r\n  h1 {\r\n    margin: 0;\r\n  }\r\n\r\n  .theme-toggle-container {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 10px;\r\n    position: relative;\r\n\r\n    .ham-menu-button {\r\n      text-align: center;\r\n      font-size: 22px;\r\n      line-height: 22px;\r\n      background: white;\r\n      border: none;\r\n      cursor: pointer;\r\n      outline: none;\r\n    }\r\n\r\n    .ham-menu-list {\r\n      position: absolute;\r\n      background-color: white;\r\n      top: calc(100% + 10px);\r\n      right: 5px;\r\n      padding: 10px;\r\n      border: 1px solid;\r\n      display: flex;\r\n\r\n      :before {\r\n        content: \"\";\r\n        position: absolute;\r\n        top: -20px;\r\n        right: 0;\r\n        border-width: 10px;\r\n        border-style: solid;\r\n        border-color: transparent transparent #333 transparent;\r\n      }\r\n\r\n      .ham-menu-item {\r\n        padding: 5px 10px;\r\n        box-sizing: border-box;\r\n        cursor: pointer;\r\n        background: transparent;\r\n        border: none;\r\n        outline: none;\r\n        border-bottom: 1px solid transparent;\r\n      }\r\n\r\n      .ham-menu-item:hover {\r\n        border-bottom: 1px solid #333;\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                    "data": ".header-container {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  padding: 10px;\r\n  background-color: var(--foreground-default);\r\n  color: var(--foreground-text-title);\r\n  border-bottom: 3px solid var(--foreground-secondary);\r\n\r\n  h1 {\r\n    margin: 0;\r\n  }\r\n\r\n  .theme-toggle-container {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 10px;\r\n    position: relative;\r\n\r\n    .action-btn {\r\n      background: transparent;\r\n      color: var(--foreground-tertiary);\r\n      font-size: 16px;\r\n      border: none;\r\n      border-bottom: 2px solid var(--foreground-tertiary);\r\n      cursor: pointer;\r\n    }\r\n\r\n    .ham-menu-button {\r\n      text-align: center;\r\n      font-size: 22px;\r\n      line-height: 22px;\r\n      background: transparent;\r\n      border: none;\r\n      cursor: pointer;\r\n      outline: none;\r\n      color: #fff;\r\n    }\r\n\r\n    .ham-menu-list {\r\n      position: absolute;\r\n      background-color: white;\r\n      top: 100%;\r\n      right: 5px;\r\n      padding: 10px;\r\n      border: 2px solid var(--foreground-secondary);\r\n      display: flex;\r\n      flex-direction: column;\r\n      z-index: 10;\r\n\r\n      &:before {\r\n        content: \"\";\r\n        position: absolute;\r\n        top: -20px;\r\n        right: 0;\r\n        border-width: 10px;\r\n        border-style: solid;\r\n        border-color: transparent transparent var(--foreground-secondary) transparent;\r\n      }\r\n\r\n      .ham-menu-item {\r\n        padding: 5px 10px;\r\n        box-sizing: border-box;\r\n        cursor: pointer;\r\n        background: transparent;\r\n        border: none;\r\n        outline: none;\r\n        border-bottom: 2px solid transparent;\r\n        columns: var(--foreground-secondary);\r\n        width: 100px;\r\n      }\r\n\r\n      .ham-menu-item:hover {\r\n        border-bottom: 2px solid var(--foreground-secondary);\r\n      }\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -636,9 +1543,25 @@
                     {
                         "name": "cartService",
                         "type": "CartService"
+                    },
+                    {
+                        "name": "themeService",
+                        "type": "ThemeService"
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
+                    },
+                    {
+                        "name": "locService",
+                        "type": "LocalServiceService"
                     }
                 ],
-                "line": 16,
+                "line": 21,
                 "jsdoctags": [
                     {
                         "name": "cartService",
@@ -646,17 +1569,47 @@
                         "tagName": {
                             "text": "param"
                         }
+                    },
+                    {
+                        "name": "themeService",
+                        "type": "ThemeService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "locService",
+                        "type": "LocalServiceService",
+                        "tagName": {
+                            "text": "param"
+                        }
                     }
                 ]
             },
+            "extends": "BaseComp",
             "implements": [
-                "OnInit"
+                "OnInit",
+                "AfterViewInit"
             ],
-            "templateData": "<div class=\"header-container\">\n  <div class=\"title-container\">\n    <h1>E-mart</h1>\n  </div>\n  <div class=\"theme-toggle-container\">\n    <custom-toggle></custom-toggle>\n    <button (click)=\"showMenu = !showMenu\" class=\"ham-menu-button\">☰</button>\n    <div *ngIf=\"showMenu\" class=\"ham-menu-list\">\n      <button (click)='openCart()' class=\"ham-menu-item\">Cart</button>\n      <button class=\"ham-menu-item\">Profile</button>\n      <button class=\"ham-menu-item\">Logout</button>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"header-container\">\r\n  <div class=\"title-container\">\r\n    <h1>{{i18n('title')}}</h1>\r\n  </div>\r\n  <div class=\"theme-toggle-container\">\r\n    <custom-toggle class=\"custom-toggle-btn\" [customClick]=\"toggleTheme.bind(this)\" [theme]=\"getTheme()\"></custom-toggle>\r\n    <button *ngIf=\"userService.loginStatus\" (click)='addProduct()' class=\"action-btn\">{{i18n('header.add-product-btn')}}</button>\r\n    <!-- <button (click)=\"toggleTheme()\">Theme</button> -->\r\n    <button *ngIf=\"userService.loginStatus\" (click)=\"showMenu = !showMenu\" class=\"ham-menu-button\">☰</button>\r\n    <div *ngIf=\"showMenu\" class=\"ham-menu-list\">\r\n      <button (click)='openMyItemPage()' class=\"ham-menu-item\">{{i18n('header.ham-menu.my-item')}}</button>\r\n      <button (click)='openAllItemPage()' class=\"ham-menu-item\">{{i18n('header.ham-menu.all-item')}}</button>\r\n      <button (click)='openCart()' class=\"ham-menu-item\">{{i18n('header.ham-menu.cart')}}</button>\r\n      <button (click)='logoutCurrUser()' class=\"ham-menu-item\">{{i18n('header.ham-menu.logout')}}</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "ItemCardComponent",
-            "id": "component-ItemCardComponent-e6d47491c67cba1f0fa234496b958c6c",
+            "id": "component-ItemCardComponent-60e414e0031b40344f8b06292eadf429",
             "file": "src/app/components/item/item-card/item-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -675,18 +1628,26 @@
             "inputsClass": [
                 {
                     "name": "item",
-                    "line": 15,
+                    "line": 19,
                     "type": "ItemCardModel"
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "isAllItem",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
                     "name": "locService",
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 23,
                     "modifierKind": [
                         114
                     ]
@@ -694,12 +1655,26 @@
             ],
             "methodsClass": [
                 {
-                    "name": "ngAfterViewInit",
-                    "args": [],
+                    "name": "addItemToUser",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27
+                    "line": 70,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "ngOnInit",
@@ -707,7 +1682,23 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23
+                    "line": 34
+                },
+                {
+                    "name": "onDelete",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 64
+                },
+                {
+                    "name": "onUpdate",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 60
                 },
                 {
                     "name": "openItemDetails",
@@ -715,15 +1706,59 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31
+                    "line": 38
+                },
+                {
+                    "name": "openItemOnKeydown",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "removeFromCart",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "validateLoggedInUser",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35
+                    "line": 53
                 }
             ],
             "hostBindings": [],
@@ -731,11 +1766,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { LocalServiceService } from '../../../services/local-service.service';\r\nimport { AddToCart, CartState, DeleteItem } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n\r\n  constructor(\r\n    public locService: LocalServiceService,\r\n    private router: Router,\r\n    private store: Store<CartState>\r\n  ) { }\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    // const temp = this.locService.getLocalText('test-1');\r\n  }\r\n\r\n  openItemDetails() {\r\n    this.router.navigateByUrl(`item/${this.item.id}`);\r\n  }\r\n\r\n  removeFromCart() {\r\n    this.store.dispatch(DeleteItem({ id: this.item.id }));\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { LocalServiceService } from '../../../services/local-service.service';\r\nimport { CartState, DeleteItem } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n  isAllItem = false;\r\n\r\n  constructor(\r\n    public locService: LocalServiceService,\r\n    private router: Router,\r\n    private route: ActivatedRoute,\r\n    private userService: UserService,\r\n    private store: Store<CartState>,\r\n    private commonDb: CommonDbService\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';\r\n  }\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n  openItemDetails(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}`);\r\n  }\r\n\r\n  openItemOnKeydown(event): void {\r\n    if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {\r\n      this.openItemDetails();\r\n    }\r\n  }\r\n\r\n  removeFromCart(event): void {\r\n    event.stopPropagation();\r\n    this.store.dispatch(DeleteItem({ id: this.item.id }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  onUpdate(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}/edit`);\r\n  }\r\n\r\n  onDelete(): void {\r\n    this.commonDb.deleteItemById(this.item.id).subscribe(() => {\r\n      this.router.navigateByUrl('home');\r\n    });\r\n  }\r\n\r\n  addItemToUser(event): void {\r\n    event.stopImmediatePropagation();\r\n    const userData = this.userService.getUserData();\r\n    userData.items.push(this.item.id);\r\n    this.item.userAccess = userData.id;\r\n    this.commonDb.updateUser(userData).subscribe((user) => {\r\n      this.userService.storeUserData(user);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".item-card {\r\n  padding: 10px;\r\n  border: 1px solid;\r\n\r\n  .item-img-container {\r\n\r\n    .item-img {\r\n      width: 100%;\r\n    }\r\n  }\r\n\r\n  .item-details {\r\n    .item-description {\r\n      font-size: 12px;\r\n      color: #666666;\r\n    }\r\n\r\n    &>* {\r\n      margin-bottom: 8px;\r\n    }\r\n  }\r\n\r\n  &.cart-view-item {\r\n    display: grid;\r\n    grid-template-columns: 50px auto 12px;\r\n    gap: 8px;\r\n\r\n    .item-details {\r\n      .item-title {\r\n        font-size: 12px;\r\n      }\r\n\r\n      .item-price {\r\n        font-size: 11px;\r\n        font-weight: 700;\r\n      }\r\n    }\r\n\r\n    .cart-delete-container {\r\n      .cart-del-btn {\r\n        background: transparent;\r\n        border: none;\r\n        outline: none;\r\n        padding: 0;\r\n        cursor: pointer;\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                    "data": ".item-card {\r\n  padding: 10px;\r\n  border: 2px solid var(--foreground-default);\r\n  background: var(--foreground-tertiary);\r\n  border-radius: 3px;\r\n  position: relative;\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n\r\n  .item-img-container {\r\n    padding-bottom: 10px;\r\n    border-bottom: 2px solid var(--foreground-border);\r\n    margin-bottom: 10px;\r\n\r\n    .item-img {\r\n      width: 100%;\r\n    }\r\n  }\r\n\r\n  .item-details {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex-grow: 1;\r\n    height: 100%;\r\n    .item-title {\r\n      color: var(--foreground-text-primary);\r\n      font-weight: 700;\r\n    }\r\n\r\n    .item-description {\r\n      font-size: 12px;\r\n      color: var(--foreground-text-secondary);\r\n    }\r\n\r\n    .item-price {\r\n      color: var(--foreground-text-primary);\r\n      display: flex;\r\n      justify-content: space-between;\r\n      bottom: 0;\r\n      align-items: center;\r\n      flex-grow: 1;\r\n      align-items: flex-end;\r\n      margin-bottom: 0;\r\n    }\r\n\r\n    & > * {\r\n      margin-bottom: 8px;\r\n    }\r\n  }\r\n\r\n  .action-btn {\r\n    background-color: transparent;\r\n    border: none;\r\n    outline: none;\r\n    color: var(--foreground-text-primary);\r\n    font-weight: 700;\r\n    border-bottom: 2px solid var(--foreground-text-primary);\r\n  }\r\n\r\n  &.cart-view-item {\r\n    display: grid;\r\n    grid-template-columns: 50px auto 12px;\r\n    gap: 8px;\r\n\r\n    .item-img-container {\r\n      padding: 0;\r\n      margin: 0;\r\n      border: none;\r\n      display: flex;\r\n    }\r\n\r\n    .item-details {\r\n      .item-title {\r\n        font-size: 12px;\r\n      }\r\n\r\n      .item-price {\r\n        font-size: 11px;\r\n        font-weight: 700;\r\n      }\r\n    }\r\n\r\n    .cart-delete-container {\r\n      .cart-del-btn {\r\n        background: transparent;\r\n        border: none;\r\n        outline: none;\r\n        padding: 0;\r\n        cursor: pointer;\r\n      }\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./item-card.component.scss"
                 }
             ],
@@ -753,11 +1788,23 @@
                         "type": "Router"
                     },
                     {
+                        "name": "route",
+                        "type": "ActivatedRoute"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
+                    },
+                    {
                         "name": "store",
                         "type": "Store<CartState>"
+                    },
+                    {
+                        "name": "commonDb",
+                        "type": "CommonDbService"
                     }
                 ],
-                "line": 15,
+                "line": 20,
                 "jsdoctags": [
                     {
                         "name": "locService",
@@ -774,8 +1821,29 @@
                         }
                     },
                     {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
                         "name": "store",
                         "type": "Store<CartState>",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "commonDb",
+                        "type": "CommonDbService",
                         "tagName": {
                             "text": "param"
                         }
@@ -785,11 +1853,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-card\" (click)=\"openItemDetails()\" [ngClass]=\"{'cart-view-item': item.cartView}\">\r\n  <div class=\"item-img-container\">\r\n    <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\r\n  </div>\r\n  <div class=\"item-details\">\r\n    <div class=\"item-title\">\r\n      <span>{{ item.name }}</span>\r\n    </div>\r\n    <div *ngIf=\"!item.cartView\" class=\"item-description\">\r\n      <span>{{ item.description }}</span>\r\n    </div>\r\n    <div class=\"item-price\">\r\n      <span>{{ locService.getCurrencyText(item.price) }}</span>\r\n    </div>\r\n  </div>\r\n  <div class=\"cart-delete-container\">\r\n    <button (click)=\"removeFromCart()\" class=\"cart-del-btn\">✖</button>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"item-card\" (click)=\"openItemDetails()\" (keydown)=\"openItemOnKeydown($event)\"\r\n  [tabindex]=\"item.cartView ? -1 : 0\" [ngClass]=\"{'cart-view-item': item.cartView}\">\r\n  <div class=\"item-img-container\">\r\n    <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\r\n  </div>\r\n  <div class=\"item-details\">\r\n    <div class=\"item-title\">\r\n      <span>{{ item.name }}</span>\r\n    </div>\r\n    <div *ngIf=\"!item.cartView\" class=\"item-description\">\r\n      <span>{{ item.description }}</span>\r\n    </div>\r\n    <div class=\"item-price\">\r\n      <span>{{ locService.getCurrencyText(item.price) }}</span>\r\n      <div class=\"action-btn-container\" *ngIf=\"!item.cartView\">\r\n        <button *ngIf=\"!isAllItem\" class=\"update-btn action-btn\" (click)=\"onUpdate()\">Update</button>\r\n        <button *ngIf=\"isAllItem\" class=\"add-user-item-btn action-btn\" (click)=\"addItemToUser($event)\">Add To My Item</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"item.cartView\" class=\"cart-delete-container\">\r\n    <button (click)=\"removeFromCart($event)\" class=\"cart-del-btn\">✖</button>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "ItemDetailsComponent",
-            "id": "component-ItemDetailsComponent-39d9dc18d0d33007a7c359b1ccd52db6",
+            "id": "component-ItemDetailsComponent-b12998db1aef09073e31dd224935a545",
             "file": "src/app/components/item/item-details/item-details.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -807,9 +1875,13 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "isUpdateMode",
+                    "defaultValue": "false",
+                    "line": 23
+                },
+                {
                     "name": "item",
-                    "defaultValue": "{\n    \"id\": 0,\n    \"name\": \"Gorgeous Soft Computer\",\n    \"description\": \"Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\",\n    \"imgUrl\": \"http://placeimg.com/640/480/abstract\",\n    \"price\": \"795.00\",\n    \"cartView\": false\n  }",
-                    "line": 17,
+                    "line": 18,
                     "type": "ItemCardModel"
                 }
             ],
@@ -820,16 +1892,33 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 26
+                    "line": 20
                 },
                 {
                     "name": "locService",
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 32,
+                    "line": 33,
                     "modifierKind": [
                         114
+                    ]
+                },
+                {
+                    "name": "updateForm",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "userId",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "modifierKind": [
+                        112
                     ]
                 }
             ],
@@ -840,7 +1929,23 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49
+                    "line": 70
+                },
+                {
+                    "name": "deleteItem",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 104
+                },
+                {
+                    "name": "isBtnVisible",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 116
                 },
                 {
                     "name": "ngOnInit",
@@ -848,7 +1953,15 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38
+                    "line": 44
+                },
+                {
+                    "name": "onUpdate",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 90
                 },
                 {
                     "name": "redirectToListing",
@@ -856,7 +1969,23 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45
+                    "line": 66
+                },
+                {
+                    "name": "updateProduct",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 81
+                },
+                {
+                    "name": "validateLoggedInUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 74
                 }
             ],
             "hostBindings": [],
@@ -864,11 +1993,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { ActivatedRoute, Router } from '@angular/router';\nimport { Store } from '@ngrx/store';\nimport { CommonDbService } from 'src/app/services/common-db.service';\nimport { LocalServiceService } from 'src/app/services/local-service.service';\nimport { AddToCart, CartState } from '../../common/cart/state/cart-action';\nimport { ItemCardModel } from '../item-card/item-card.model';\n\n@Component({\n  selector: 'app-item-details',\n  templateUrl: './item-details.component.html',\n  styleUrls: ['./item-details.component.scss']\n})\nexport class ItemDetailsComponent implements OnInit {\n\n  @Input()\n  item: ItemCardModel = {\n    \"id\": 0,\n    \"name\": \"Gorgeous Soft Computer\",\n    \"description\": \"Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\",\n    \"imgUrl\": \"http://placeimg.com/640/480/abstract\",\n    \"price\": \"795.00\",\n    \"cartView\": false\n  };\n\n  itemId: string;\n\n  constructor(\n    private route: ActivatedRoute,\n    private router: Router,\n    private commonDb: CommonDbService,\n    public locService: LocalServiceService,\n    private store: Store<CartState>\n  ) {\n\n  }\n\n  ngOnInit(): void {\n    this.itemId = this.route.snapshot.paramMap.get('id');\n    this.commonDb.getSpecificItem(this.itemId).subscribe((data: ItemCardModel) => {\n      this.item = data;\n    });\n  }\n\n  redirectToListing() {\n    this.router.navigateByUrl('home')\n  }\n\n  additemToCart() {\n    this.store.dispatch(AddToCart({item: this.item}));\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup } from '@angular/forms';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { AddToCart, CartState } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-details',\r\n  templateUrl: './item-details.component.html',\r\n  styleUrls: ['./item-details.component.scss'],\r\n})\r\nexport class ItemDetailsComponent implements OnInit {\r\n  @Input()\r\n  item: ItemCardModel;\r\n\r\n  itemId: string;\r\n\r\n  @Input()\r\n  isUpdateMode = false;\r\n\r\n  updateForm: FormGroup;\r\n  private userId;\r\n\r\n  constructor(\r\n    private route: ActivatedRoute,\r\n    private router: Router,\r\n    private userService: UserService,\r\n    private commonDb: CommonDbService,\r\n    public locService: LocalServiceService,\r\n    private store: Store<CartState>\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.updateForm = new FormGroup({\r\n      name: new FormControl(null, []),\r\n      description: new FormControl(null, []),\r\n      price: new FormControl(null, []),\r\n    });\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    if(!this.item) {\r\n      this.itemId = this.route.snapshot.paramMap.get('id');\r\n      this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'edit';\r\n      this.commonDb.getSpecificItem(this.itemId).subscribe(\r\n        (data: ItemCardModel) => {\r\n          this.item = data;\r\n          if (this.isUpdateMode) {\r\n            this.updateProduct();\r\n          }\r\n        },\r\n        (err) => {\r\n          if (err.status === 404) {\r\n            this.router.navigateByUrl('home');\r\n          }\r\n        }\r\n      );\r\n    } else {\r\n      this.itemId = this.item.id.toString();\r\n    }\r\n  }\r\n\r\n  redirectToListing(): void {\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  additemToCart(): void {\r\n    this.store.dispatch(AddToCart({ item: this.item }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  updateProduct(): void {\r\n    this.updateForm = new FormGroup({\r\n      name: new FormControl(this.item.name, []),\r\n      description: new FormControl(this.item.description, []),\r\n      price: new FormControl(this.item.price, []),\r\n    });\r\n    this.isUpdateMode = true;\r\n  }\r\n\r\n  onUpdate(): void {\r\n    const updatedData = this.updateForm.value;\r\n    this.item = {\r\n      ...this.item,\r\n      name: updatedData.name,\r\n      description: updatedData.description,\r\n      price: Number(updatedData.price).toFixed(2),\r\n      imgUrl: this.item.imgUrl,\r\n    };\r\n    this.commonDb.updateItem(this.item).subscribe((data: ItemCardModel) => {\r\n      this.isUpdateMode = false;\r\n    });\r\n  }\r\n\r\n  deleteItem(): void {\r\n    const userData = { ...this.userService.getUserData() };\r\n    this.item.userAccess = null;\r\n    userData.items = userData.items.filter((id) => id !== this.item.id);\r\n    this.commonDb.updateUser(userData).subscribe(() => {\r\n      this.userService.storeUserData(userData);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n  isBtnVisible(): boolean {\r\n    const userData = this.userService.getUserData();\r\n    return this.item.userAccess === userData.id;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".item-details-container {\r\n  padding: 10px 30px 20px 30px;\r\n\r\n  .back-btn-container {\r\n    margin-bottom: 20px;\r\n\r\n    button {\r\n      font-size: 40px;\r\n      color: #333;\r\n      background: transparent;\r\n      border: none;\r\n      outline: none;\r\n      cursor: pointer;\r\n    }\r\n  }\r\n\r\n  .item-details {\r\n    display: grid;\r\n    grid-template-columns: 40% auto;\r\n    align-items: flex-start;\r\n    gap: 20px;\r\n    margin-bottom: 20px;\r\n\r\n    .item-img-container {\r\n      text-align: center;\r\n      padding: 10px;\r\n      border: 1px solid #333;\r\n\r\n      .item-img {\r\n        width: 100%;\r\n        max-width: 600px;\r\n      }\r\n    }\r\n\r\n    .item-description-container {\r\n      >*:not(:last-child) {\r\n        margin-bottom: 10px;\r\n      }\r\n\r\n      .item-title {\r\n        font-size: 22px;\r\n        font-weight: 700;\r\n      }\r\n\r\n      .item-price {\r\n        .price-label {\r\n          font-size: 18px;\r\n        }\r\n\r\n        .price-value {\r\n          font-size: 20px;\r\n          font-weight: 700;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  .action-buttons {\r\n    display: flex;\r\n    gap: 20px;\r\n    justify-content: center;\r\n\r\n    .action-btn {\r\n      outline: none;\r\n      border: none;\r\n      padding: 10px 20px;\r\n      background-color: #333;\r\n      color: white;\r\n      cursor: pointer;\r\n    }\r\n  }\r\n}\r\n",
+                    "data": ".item-details-container {\r\n  padding: 10px 30px 20px 30px;\r\n\r\n  .back-btn-container {\r\n    margin-bottom: 20px;\r\n\r\n    button {\r\n      font-size: 40px;\r\n      color: var(--foreground-text-primary);\r\n      background: transparent;\r\n      border: none;\r\n      outline: none;\r\n      cursor: pointer;\r\n    }\r\n  }\r\n\r\n  .item-details {\r\n    display: grid;\r\n    grid-template-columns: 40% auto;\r\n    align-items: flex-start;\r\n    gap: 20px;\r\n    margin-bottom: 20px;\r\n\r\n    .item-img-container {\r\n      text-align: center;\r\n      padding: 10px;\r\n      border: 1px solid #333;\r\n\r\n      .item-img {\r\n        width: 100%;\r\n        max-width: 600px;\r\n      }\r\n    }\r\n\r\n    .item-description-container {\r\n      >*:not(:last-child) {\r\n        margin-bottom: 10px;\r\n      }\r\n\r\n      .item-title {\r\n        font-size: 22px;\r\n        font-weight: 700;\r\n        color: var(--foreground-text-primary);\r\n      }\r\n\r\n      .item-price {\r\n        color: var(--foreground-text-primary);\r\n\r\n        .price-label {\r\n          font-size: 18px;\r\n        }\r\n\r\n        .price-value {\r\n          font-size: 20px;\r\n          font-weight: 700;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  .action-buttons {\r\n    display: flex;\r\n    gap: 20px;\r\n    justify-content: center;\r\n\r\n  }\r\n\r\n  .action-btn {\r\n    outline: none;\r\n    border: none;\r\n    padding: 10px 20px;\r\n    background-color: var(--foreground-secondary);\r\n    color: white;\r\n    cursor: pointer;\r\n  }\r\n\r\n  .form-group {\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-bottom: 20px;\r\n    width: 250px;\r\n\r\n    label {\r\n      margin-bottom: 5px;\r\n      font-weight: 700;\r\n      color: var(--foreground-text-primary);\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./item-details.component.scss"
                 }
             ],
@@ -884,6 +2013,10 @@
                     {
                         "name": "router",
                         "type": "Router"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
                     },
                     {
                         "name": "commonDb",
@@ -915,6 +2048,13 @@
                         }
                     },
                     {
+                        "name": "userService",
+                        "type": "UserService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
                         "name": "commonDb",
                         "type": "CommonDbService",
                         "tagName": {
@@ -940,11 +2080,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-details-container\">\n  <div class=\"back-btn-container\">\n    <button class=\"back-btn\" (click)=\"redirectToListing()\">←</button>\n  </div>\n  <div class=\"item-details\">\n    <div class=\"item-img-container\">\n      <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\n    </div>\n    <div class=\"item-description-container\">\n      <div class=\"item-title\">\n        <span>{{ item.name }}</span>\n      </div>\n      <div *ngIf=\"!item.cartView\" class=\"item-description\">\n        <span>{{ item.description }}</span>\n      </div>\n      <div class=\"item-price\">\n        <span class=\"price-label\">Price: </span>\n        <span class=\"price-value\">{{ locService.getCurrencyText(item.price) }}</span>\n      </div>\n    </div>\n  </div>\n  <div class=\"action-buttons\">\n    <button (click)=\"additemToCart()\" class=\"action-btn\">Add to Cart</button>\n    <button class=\"action-btn\">Add to WishList</button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-details-container\">\r\n  <div class=\"back-btn-container\">\r\n    <button class=\"back-btn\" (click)=\"redirectToListing()\">←</button>\r\n  </div>\r\n  <div class=\"item-details\">\r\n    <div class=\"item-img-container\">\r\n      <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\r\n    </div>\r\n    <div *ngIf=\"!isUpdateMode\" class=\"item-description-container\">\r\n      <div class=\"item-title\">\r\n        <span>{{ item.name }}</span>\r\n      </div>\r\n      <div *ngIf=\"!item.cartView\" class=\"item-description\">\r\n        <span>{{ item.description }}</span>\r\n      </div>\r\n      <div class=\"item-price\">\r\n        <span class=\"price-label\">Price: </span>\r\n        <span class=\"price-value\">{{ locService.getCurrencyText(item.price) }}</span>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"isUpdateMode\">\r\n      <form [formGroup]=\"updateForm\" (submit)=\"onUpdate()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"name\">Name</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"name\" formControlName=\"name\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"email\">Description</label>\r\n          <textarea class=\"form-control\" id=\"description\" style=\"resize: none;\" formControlName=\"description\" id=\"\" cols=\"30\" rows=\"10\"></textarea>\r\n          <!-- <input type=\"text\" class=\"form-control\" id=\"description\" formControlName=\"description\"> -->\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"phone\">Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"price\" formControlName=\"price\">\r\n        </div>\r\n        <button class=\"action-btn\" type=\"submit\">Submit</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"isBtnVisible()\" class=\"action-buttons\">\r\n    <button *ngIf=\"!isUpdateMode\" (click)=\"updateProduct()\" class=\"action-btn\">Update Item</button>\r\n    <button (click)=\"deleteItem()\" class=\"action-btn\">Delete Item</button>\r\n    <button (click)=\"additemToCart()\" class=\"action-btn\">Add to Cart</button>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "ItemListComponent",
-            "id": "component-ItemListComponent-cd03839ad5afcc8beb01a891de157dc4",
+            "id": "component-ItemListComponent-3fb884852c029c893b324195b9a81688",
             "file": "src/app/components/item/item-list/item-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -964,12 +2104,19 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "isAllItem",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
                     "name": "itemLists",
                     "defaultValue": "[]",
                     "type": "ItemCardModel[]",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 14
                 }
             ],
             "methodsClass": [
@@ -979,7 +2126,23 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16
+                    "line": 27
+                },
+                {
+                    "name": "redirectToListing",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52
+                },
+                {
+                    "name": "validateLoggedInUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45
                 }
             ],
             "hostBindings": [],
@@ -987,11 +2150,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-list',\r\n  templateUrl: './item-list.component.html',\r\n  styleUrls: ['./item-list.component.scss']\r\n})\r\nexport class ItemListComponent implements OnInit {\r\n\r\n  itemLists: ItemCardModel[] = [];\r\n\r\n  constructor(private commonDb: CommonDbService) { }\r\n\r\n  ngOnInit(): void {\r\n    this.commonDb.getAllItems().subscribe((data: ItemCardModel[])=>{\r\n      this.itemLists = data;\r\n    });\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-list',\r\n  templateUrl: './item-list.component.html',\r\n  styleUrls: ['./item-list.component.scss']\r\n})\r\nexport class ItemListComponent implements OnInit {\r\n\r\n  itemLists: ItemCardModel[] = [];\r\n  isAllItem: boolean;\r\n\r\n  constructor(\r\n    private commonDb: CommonDbService,\r\n    private router: Router,\r\n    private route: ActivatedRoute,\r\n    private userService: UserService\r\n  ) {\r\n    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';\r\n    this.validateLoggedInUser();\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    const userData = this.userService.getUserData();\r\n    if (this.isAllItem) {\r\n      this.commonDb.getAllItems().subscribe((data: ItemCardModel[]) => {\r\n        this.itemLists = data.filter((item) => {\r\n          // return userData.items.indexOf(item.userAccess) === -1 || item.id == null;\r\n          return item.userAccess === null;\r\n        });\r\n      });\r\n    } else {\r\n      for (const item of userData.items) {\r\n        this.commonDb.getSpecificItem(item).subscribe((data: ItemCardModel) => {\r\n          this.itemLists.push(data);\r\n        });\r\n      }\r\n    }\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  redirectToListing(): void {\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".item-card-list {\r\n  display: grid;\r\n  grid-template-columns: auto auto auto auto;\r\n  align-items: center;\r\n  gap: 50px;\r\n  padding: 20px 150px;\r\n\r\n  app-item-card {\r\n    display: grid;\r\n    height: 100%;\r\n  }\r\n\r\n}\r\n\r\n@media screen and (max-width: 1024px) {\r\n  .item-card-list {\r\n    grid-template-columns: auto auto auto;\r\n    padding: 20px 50px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .item-card-list {\r\n    grid-template-columns: auto auto;\r\n  }\r\n}\r\n\r\n",
+                    "data": ".item-list-container {\r\n  padding: 10px 30px 20px 30px;\r\n\r\n  .back-btn-container {\r\n    margin-bottom: 20px;\r\n    display: grid;\r\n    grid-template-columns: 60px auto;\r\n    align-items: center;\r\n    border-bottom: 2px solid var(--foreground-text-primary);\r\n    padding: 10px;\r\n\r\n    button {\r\n      font-size: 40px;\r\n      color: var(--foreground-text-primary);\r\n      background: transparent;\r\n      border: none;\r\n      outline: none;\r\n      cursor: pointer;\r\n    }\r\n\r\n    .list-title {\r\n      text-align: center;\r\n      font-size: 20px;\r\n      color: var(--foreground-text-primary);\r\n      font-weight: 600;\r\n    }\r\n  }\r\n\r\n  .item-card-list {\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr 1fr 1fr;\r\n    align-items: center;\r\n    gap: 50px;\r\n    padding: 20px 150px;\r\n\r\n    app-item-card {\r\n      display: grid;\r\n      height: 100%;\r\n    }\r\n\r\n  }\r\n\r\n  .no-data-container {\r\n    text-align: center;\r\n    padding: 20px 50px;\r\n    color: #aaa;\r\n    display: grid;\r\n    grid-template-columns: 60px auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 1024px) {\r\n  .item-list-container {\r\n    .item-card-list {\r\n      grid-template-columns: 1fr 1fr 1fr;\r\n      padding: 20px 50px;\r\n    }\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .item-list-container {\r\n    .item-card-list {\r\n      grid-template-columns: 1fr 1fr;\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./item-list.component.scss"
                 }
             ],
@@ -1003,13 +2166,46 @@
                     {
                         "name": "commonDb",
                         "type": "CommonDbService"
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    },
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
                     }
                 ],
-                "line": 12,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "commonDb",
                         "type": "CommonDbService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
                         "tagName": {
                             "text": "param"
                         }
@@ -1019,7 +2215,358 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-card-list\">\r\n    <app-item-card *ngFor=\"let item of itemLists\" [item]=\"item\"></app-item-card>\r\n</div>"
+            "templateData": "<div class=\"item-list-container\">\r\n  <div class=\"back-btn-container\">\r\n    <button *ngIf=\"isAllItem\" class=\"back-btn\" (click)=\"redirectToListing()\">←</button>\r\n    <span aria-hidden=\"\" *ngIf=\"!isAllItem\"></span>\r\n    <div class=\"list-title\">\r\n      {{isAllItem ? 'All Items Catalog' : 'My Items'}}\r\n    </div>\r\n  </div>\r\n  <div class=\"item-card-list\" *ngIf=\"itemLists.length\">\r\n    <app-item-card *ngFor=\"let item of itemLists\" [item]=\"item\"></app-item-card>\r\n  </div>\r\n  <div class=\"no-data-container\" *ngIf=\"!itemLists.length\">\r\n    <span aria-hidden=\"true\"></span>\r\n    <span>\r\n      {{isAllItem ? 'No item for Items Catalog' : 'No item for My Items'}}\r\n    </span>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-56e77c7b2a90c8a71baf083ff5e5a267",
+            "file": "src/app/components/user/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-login",
+            "styleUrls": [
+                "./login.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "loginForm",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "success",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31
+                },
+                {
+                    "name": "redirectToRegister",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormGroup, FormControl, Validators } from '@angular/forms';\r\nimport { Router } from '@angular/router';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss']\r\n})\r\nexport class LoginComponent implements OnInit {\r\n\r\n  loginForm: FormGroup;\r\n  success = false;\r\n\r\n  constructor(\r\n    private commonDb: CommonDbService,\r\n    private router: Router,\r\n    private userService: UserService\r\n  ) {\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.loginForm = new FormGroup({\r\n      email: new FormControl(null, [Validators.required, Validators.email]),\r\n      password: new FormControl(null, [Validators.required])\r\n    });\r\n  }\r\n\r\n  onSubmit(): void {\r\n    const email = this.loginForm.get('email').value;\r\n    const password = this.loginForm.get('password').value;\r\n    this.commonDb.getUserByEmail(email, password).subscribe((data: any[]) => {\r\n      if (data.length) {\r\n        this.userService.loginCurrentUser(data[0]);\r\n        this.router.navigateByUrl('home');\r\n      }\r\n    });\r\n  }\r\n\r\n  redirectToRegister(): void {\r\n    this.router.navigateByUrl('register')\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".login-container {\r\n  padding: 10px;\r\n  border: 2px solid var(--foreground-default);\r\n  margin: 10px auto;\r\n  width: 50%;\r\n  min-width: 275px;\r\n  max-width: 450px;\r\n\r\n  .form-title {\r\n    color: var(--foreground-text-primary);\r\n    margin-top: 0;\r\n  }\r\n\r\n  form {\r\n    margin-bottom: 10px;\r\n\r\n    .form-group {\r\n      margin-bottom: 20px;\r\n      display: flex;\r\n      flex-direction: column;\r\n\r\n      label {\r\n        margin-bottom: 5px;\r\n      }\r\n    }\r\n\r\n    .help-block {\r\n      display: flex;\r\n      gap: 5px;\r\n      color: var(--foreground-text-error);\r\n      font-size: 11px;\r\n      margin-top: 3px;\r\n    }\r\n  }\r\n\r\n\r\n  .login-btn {\r\n    padding: 5px 15px;\r\n    font-size: 14px;\r\n    font-weight: 700;\r\n    background-color: var(--foreground-default);\r\n    color: var(--foreground-tertiary);\r\n    border: none;\r\n    outline: none;\r\n  }\r\n\r\n  .register-container {\r\n    width: 100%;\r\n    text-align: right;\r\n\r\n    .go-to-register-btn {\r\n      background-color: transparent;\r\n      border: none;\r\n      outline: none;\r\n      border-bottom: 1px solid;\r\n    }\r\n  }\r\n}\r\n",
+                    "styleUrl": "./login.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "commonDb",
+                        "type": "CommonDbService"
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "commonDb",
+                        "type": "CommonDbService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"login-container\">\r\n  <h2 class=\"form-title\">Login</h2>\r\n  <form [formGroup]=\"loginForm\" (submit)=\"onSubmit()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">UserName</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"email\" formControlName=\"email\">\r\n      <span class=\"help-block\" *ngIf=\"!loginForm.get('email').valid&&loginForm.get('email').touched\">\r\n        <span *ngIf=\"loginForm.get('email').errors['required']\">Field is required.</span>\r\n        <span *ngIf=\"!loginForm.get('email').valid\">Email is invalid.</span>\r\n      </span>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\" formControlName=\"password\">\r\n    </div>\r\n    <button class=\"login-btn\" type=\"submit\">Login</button>\r\n  </form>\r\n  <div class=\"register-container\">\r\n    <button class=\"go-to-register-btn\" (click)=\"redirectToRegister()\">Go To Register</button>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "RegisterComponent",
+            "id": "component-RegisterComponent-3967a0b0b0ced38d45279a239a9fec09",
+            "file": "src/app/components/user/register/register.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-register",
+            "styleUrls": [
+                "./register.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./register.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "locServ",
+                    "type": "LocalServiceService",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "phonePattern",
+                    "defaultValue": "\"[0-9]{10}\"",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "registerForm",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "i18n",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "inheritance": {
+                        "file": "BaseComp"
+                    }
+                },
+                {
+                    "name": "locService",
+                    "type": "LocalServiceService",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        114
+                    ],
+                    "inheritance": {
+                        "file": "BaseComp"
+                    }
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48
+                },
+                {
+                    "name": "passwordValidator",
+                    "args": [
+                        {
+                            "name": "control",
+                            "type": "AbstractControl"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 39,
+                    "jsdoctags": [
+                        {
+                            "name": "control",
+                            "type": "AbstractControl",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "redirectToLogin",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 64
+                },
+                {
+                    "name": "validatePassword",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "false | \"min\" | \"max\"",
+                    "typeParameters": [],
+                    "line": 68
+                },
+                {
+                    "name": "getFormValidationErr",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 9,
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "key",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "BaseComp"
+                    }
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';\r\nimport { Router } from '@angular/router';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { BaseComp } from '../../base';\r\nimport { UserModel } from '../user.model';\r\n\r\n@Component({\r\n  selector: 'app-register',\r\n  templateUrl: './register.component.html',\r\n  styleUrls: ['./register.component.scss']\r\n})\r\nexport class RegisterComponent extends BaseComp implements OnInit {\r\n\r\n  registerForm: FormGroup;\r\n  phonePattern = \"[0-9]{10}\";\r\n\r\n  constructor(\r\n    private router: Router,\r\n    private dbService: CommonDbService,\r\n    private userService: UserService,\r\n    public locServ: LocalServiceService\r\n  ) {\r\n    super(locServ);\r\n    this.registerForm = new FormGroup({\r\n      name: new FormControl(null, [Validators.required]),\r\n      email: new FormControl(null, [Validators.email, Validators.required]),\r\n      phone: new FormControl(null, []),\r\n      password: new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(16)]),\r\n      cpassword: new FormControl(null, [Validators.required, this.passwordValidator.bind(this)])\r\n    });\r\n  }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  passwordValidator(control: AbstractControl): any {\r\n    const isvalid = control.value !== null && this.registerForm.get('password').value === control.value;\r\n    if(isvalid) {\r\n      control.setErrors({\r\n        validCpass: isvalid\r\n      });\r\n    }\r\n  }\r\n\r\n  onSubmit() {\r\n    const userDetails = this.registerForm.value;\r\n    if(this.registerForm.valid) {\r\n      const userData: UserModel = {\r\n        name: userDetails.name,\r\n        email: userDetails.email,\r\n        password: userDetails.password,\r\n        items: []\r\n      };\r\n      this.dbService.registerUser(userData).subscribe((data: UserModel) => {\r\n        this.userService.loginCurrentUser(data);\r\n        this.router.navigate(['/home'], { queryParams: { id: data.id }});\r\n      });\r\n    }\r\n  }\r\n\r\n  redirectToLogin(): void {\r\n    this.router.navigateByUrl('login');\r\n  }\r\n\r\n  validatePassword() {\r\n    if (!this.registerForm.get('password').valid) {\r\n      const minErr = this.registerForm.get('password').errors.minlength;\r\n      if(!!minErr) {\r\n        const length = minErr.actualLength;\r\n        const minlength = minErr.requiredLength;\r\n        return length < minlength ? \"min\" : null; \r\n      }\r\n      const maxErr = this.registerForm.get('password').errors.maxlength;\r\n      if(!!maxErr) {\r\n        const length = maxErr.actualLength;\r\n        const maxlength = maxErr.requiredLength;\r\n        return length > maxlength ? \"max\" : null; \r\n      }\r\n      return false;\r\n    }\r\n    return null;\r\n  }\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".register-container {\r\n  padding: 10px;\r\n  border: 2px solid var(--foreground-default);\r\n  margin: 10px auto;\r\n  width: 50%;\r\n  min-width: 275px;\r\n  max-width: 450px;\r\n\r\n  .form-title {\r\n    color: var(--foreground-text-primary);\r\n    margin-top: 0;\r\n  }\r\n\r\n  form {\r\n    margin-bottom: 10px;\r\n\r\n    .form-group {\r\n      margin-bottom: 20px;\r\n      display: flex;\r\n      flex-direction: column;\r\n\r\n      label {\r\n        margin-bottom: 5px;\r\n      }\r\n    }\r\n\r\n    .help-block {\r\n      display: flex;\r\n      gap: 5px;\r\n      color: var(--foreground-text-error);\r\n      font-size: 11px;\r\n      margin-top: 3px;\r\n    }\r\n\r\n    input[type=\"number\"]::-webkit-inner-spin-button,\r\n    input[type=\"number\"]::-webkit-outer-spin-button {\r\n      appearance: none;\r\n    }\r\n  }\r\n\r\n  .register-btn {\r\n    padding: 5px 15px;\r\n    font-size: 14px;\r\n    font-weight: 700;\r\n    background-color: var(--foreground-default);\r\n    color: var(--foreground-tertiary);\r\n    border: none;\r\n    outline: none;\r\n\r\n    &:disabled {\r\n      opacity: 0.5;\r\n      cursor: default;\r\n    }\r\n  }\r\n\r\n  .login-container {\r\n    width: 100%;\r\n    text-align: right;\r\n\r\n    .go-to-login-contianer {\r\n      background-color: transparent;\r\n      border: none;\r\n      outline: none;\r\n      border-bottom: 1px solid;\r\n    }\r\n  }\r\n}\r\n",
+                    "styleUrl": "./register.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    },
+                    {
+                        "name": "dbService",
+                        "type": "CommonDbService"
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService"
+                    },
+                    {
+                        "name": "locServ",
+                        "type": "LocalServiceService"
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "dbService",
+                        "type": "CommonDbService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "locServ",
+                        "type": "LocalServiceService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": "BaseComp",
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"register-container\">\r\n  <h2 class=\"form-title\">{{i18n('register.title')}}</h2>\r\n  <form [formGroup]=\"registerForm\" (submit)=\"onSubmit()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">{{i18n('register.form.name-label')}}</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"name\" formControlName=\"name\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">{{i18n('register.form.email-label')}}</label>\r\n      <input type=\"text\" class=\"form-control\" id=\"email\" formControlName=\"email\">\r\n      <span class=\"help-block\" *ngIf=\"!registerForm.get('email').valid&&registerForm.get('email').touched\">\r\n        <span *ngIf=\"!registerForm.get('email').valid\">{{getFormValidationErr('register.errors.email-invalid')}}</span>\r\n      </span>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"phone\">{{i18n('register.form.phone-label')}}</label>\r\n      <input type=\"number\" class=\"form-control\" id=\"phone\" [pattern]=\"phonePattern\" formControlName=\"phone\">\r\n      <span class=\"help-block\" *ngIf=\"!registerForm.get('phone').valid && registerForm.get('phone').touched\">\r\n        <span *ngIf=\"registerForm.get('phone').errors.pattern\">{{getFormValidationErr('register.errors.phone-invalid')}}</span>\r\n      </span>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"password\">{{i18n('register.form.password-label')}}</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\" formControlName=\"password\" (change)=\"validatePassword()\">\r\n      <span class=\"help-block\" *ngIf=\"!registerForm.get('password').valid&&registerForm.get('password').touched\">\r\n        <span *ngIf=\"validatePassword() == 'min'\">{{getFormValidationErr('register.errors.pass-min')}}</span>\r\n        <span *ngIf=\"validatePassword() == 'max'\">{{getFormValidationErr('register.errors.pass-max')}}</span>\r\n      </span>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"password\">{{i18n('register.form.confirm-password-label')}}</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"cpassword\" formControlName=\"cpassword\">\r\n      <span class=\"help-block\" *ngIf=\"!registerForm.get('cpassword').valid&&registerForm.get('cpassword').touched\">\r\n        <span *ngIf=\"!registerForm.get('cpassword').errors['validCpass']\">{{getFormValidationErr('register.errors.confirm-pass-invalid')}}</span>\r\n      </span>\r\n    </div>\r\n    <button class=\"register-btn\" [disabled]=\"!registerForm.valid\" type=\"submit\">{{i18n('register.form.register-btn-label')}}</button>\r\n  </form>\r\n  <div class=\"login-container\">\r\n    <button class=\"go-to-login-contianer\" (click)=\"redirectToLogin()\">{{i18n('register.form.go-to-login-link')}}</button>\r\n  </div>\r\n</div>\r\n"
         }
     ],
     "modules": [
@@ -1033,6 +2580,9 @@
                 {
                     "type": "declarations",
                     "elements": [
+                        {
+                            "name": "AddIemComponent"
+                        },
                         {
                             "name": "AppComponent"
                         },
@@ -1050,6 +2600,12 @@
                         },
                         {
                             "name": "ItemListComponent"
+                        },
+                        {
+                            "name": "LoginComponent"
+                        },
+                        {
+                            "name": "RegisterComponent"
                         }
                     ]
                 },
@@ -1126,6 +2682,13 @@
                 "type": "any"
             },
             {
+                "name": "$",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/item/item-card/item-card.component.ts",
+                "type": "any"
+            },
+            {
                 "name": "AddToCart",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1135,6 +2698,22 @@
             },
             {
                 "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/item-detail.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/item-card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Cart",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/item-card.stories.ts",
@@ -1147,15 +2726,15 @@
                 "subtype": "variable",
                 "file": "src/app/components/common/cart/state/cart-reducer.ts",
                 "type": "",
-                "defaultValue": "createReducer(\r\n    initState,\r\n    on(AddToCart, (state, action: any) => {\r\n        return {...state, allItems: [...state.allItems, action.item]};\r\n    }),\r\n    on(DeleteItem, (state) => {\r\n        return state;\r\n    })\r\n)"
+                "defaultValue": "createReducer(\r\n    initState,\r\n    on(AddToCart, (state, action: any) => {\r\n        return { ...state, allItems: [...state.allItems, action.item] };\r\n    }),\r\n    on(DeleteItem, (state, action) => {\r\n        let isRemoved = false;\r\n        return {\r\n            allItems: state.allItems.filter((item) => {\r\n                if (item.id === action.id && !isRemoved) {\r\n                    isRemoved = true;\r\n                    return false;\r\n                }\r\n                return true;\r\n            })\r\n        };\r\n    })\r\n)"
             },
             {
-                "name": "context",
+                "name": "Dark",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/test.ts",
-                "type": "",
-                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                "file": "src/app/themes/_theme.ts",
+                "type": "Theme",
+                "defaultValue": "{\r\n    name: 'dark',\r\n    properties: {\r\n        '--body-background': '#6a6a6a',\r\n        '--foreground-default': '#343434',\r\n        '--foreground-secondary': '#a7a7a7',\r\n        '--foreground-tertiary': '#a0a0a0',\r\n        '--foreground-border': '#343434',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#343434',\r\n        '--foreground-text-error': '#cacaca',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n}"
             },
             {
                 "name": "DeleteItem",
@@ -1171,7 +2750,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "type": "object",
-                "defaultValue": "{\r\n  production: true\r\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
@@ -1179,7 +2758,7 @@
                 "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "type": "object",
-                "defaultValue": "{\r\n  production: false\r\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "initState",
@@ -1190,11 +2769,20 @@
                 "defaultValue": "{\r\n    allItems: []\r\n}"
             },
             {
-                "name": "require",
+                "name": "Light",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/test.ts",
-                "type": "literal type"
+                "file": "src/app/themes/_theme.ts",
+                "type": "Theme",
+                "defaultValue": "{\r\n    name: 'light',\r\n    properties: {\r\n        '--body-background': '#fff',\r\n        '--foreground-default': '#3f6bc2',\r\n        '--foreground-secondary': '#214385',\r\n        '--foreground-tertiary': '#fff',\r\n        '--foreground-border': '#3f6bc2',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#3f6bc2',\r\n        '--foreground-text-error': '#ff0000',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/item-detail.stories.ts",
+                "type": "Story<ItemDetailsComponent>",
+                "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -1202,7 +2790,7 @@
                 "subtype": "variable",
                 "file": "src/stories/item-card.stories.ts",
                 "type": "Story<ItemCardComponent>",
-                "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  props: args,\r\n})"
+                "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -1245,6 +2833,15 @@
                     "type": "any"
                 }
             ],
+            "src/app/components/item/item-card/item-card.component.ts": [
+                {
+                    "name": "$",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/item/item-card/item-card.component.ts",
+                    "type": "any"
+                }
+            ],
             "src/app/components/common/cart/state/cart-action.ts": [
                 {
                     "name": "AddToCart",
@@ -1263,9 +2860,35 @@
                     "defaultValue": "createAction(\r\n  CART_ACTIONS.GET_ITEMS,\r\n  props<{ id: number }>()\r\n)"
                 }
             ],
+            "src/stories/item-detail.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/item-detail.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/item-detail.stories.ts",
+                    "type": "Story<ItemDetailsComponent>",
+                    "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
             "src/stories/item-card.stories.ts": [
                 {
                     "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/item-card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Cart",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/item-card.stories.ts",
@@ -1278,7 +2901,7 @@
                     "subtype": "variable",
                     "file": "src/stories/item-card.stories.ts",
                     "type": "Story<ItemCardComponent>",
-                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  props: args,\r\n})"
+                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/components/common/cart/state/cart-reducer.ts": [
@@ -1288,7 +2911,7 @@
                     "subtype": "variable",
                     "file": "src/app/components/common/cart/state/cart-reducer.ts",
                     "type": "",
-                    "defaultValue": "createReducer(\r\n    initState,\r\n    on(AddToCart, (state, action: any) => {\r\n        return {...state, allItems: [...state.allItems, action.item]};\r\n    }),\r\n    on(DeleteItem, (state) => {\r\n        return state;\r\n    })\r\n)"
+                    "defaultValue": "createReducer(\r\n    initState,\r\n    on(AddToCart, (state, action: any) => {\r\n        return { ...state, allItems: [...state.allItems, action.item] };\r\n    }),\r\n    on(DeleteItem, (state, action) => {\r\n        let isRemoved = false;\r\n        return {\r\n            allItems: state.allItems.filter((item) => {\r\n                if (item.id === action.id && !isRemoved) {\r\n                    isRemoved = true;\r\n                    return false;\r\n                }\r\n                return true;\r\n            })\r\n        };\r\n    })\r\n)"
                 },
                 {
                     "name": "initState",
@@ -1299,21 +2922,22 @@
                     "defaultValue": "{\r\n    allItems: []\r\n}"
                 }
             ],
-            "src/test.ts": [
+            "src/app/themes/_theme.ts": [
                 {
-                    "name": "context",
+                    "name": "Dark",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/test.ts",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                    "file": "src/app/themes/_theme.ts",
+                    "type": "Theme",
+                    "defaultValue": "{\r\n    name: 'dark',\r\n    properties: {\r\n        '--body-background': '#6a6a6a',\r\n        '--foreground-default': '#343434',\r\n        '--foreground-secondary': '#a7a7a7',\r\n        '--foreground-tertiary': '#a0a0a0',\r\n        '--foreground-border': '#343434',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#343434',\r\n        '--foreground-text-error': '#cacaca',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n}"
                 },
                 {
-                    "name": "require",
+                    "name": "Light",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/test.ts",
-                    "type": "literal type"
+                    "file": "src/app/themes/_theme.ts",
+                    "type": "Theme",
+                    "defaultValue": "{\r\n    name: 'light',\r\n    properties: {\r\n        '--body-background': '#fff',\r\n        '--foreground-default': '#3f6bc2',\r\n        '--foreground-secondary': '#214385',\r\n        '--foreground-tertiary': '#fff',\r\n        '--foreground-border': '#3f6bc2',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#3f6bc2',\r\n        '--foreground-text-error': '#ff0000',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n}"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -1323,7 +2947,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.prod.ts",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: true\r\n}"
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/environments/environment.ts": [
@@ -1333,7 +2957,7 @@
                     "subtype": "variable",
                     "file": "src/environments/environment.ts",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: false\r\n}"
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ]
         },
@@ -1374,15 +2998,35 @@
                     {
                         "path": "",
                         "pathMatch": "full",
-                        "redirectTo": "home"
+                        "redirectTo": "login"
+                    },
+                    {
+                        "path": "login",
+                        "component": "LoginComponent"
+                    },
+                    {
+                        "path": "register",
+                        "component": "RegisterComponent"
+                    },
+                    {
+                        "path": "allitems/:listMode",
+                        "component": "ItemListComponent"
                     },
                     {
                         "path": "home",
                         "component": "ItemListComponent"
                     },
                     {
+                        "path": "item/:id/:isUpdateMode",
+                        "component": "ItemDetailsComponent"
+                    },
+                    {
                         "path": "item/:id",
                         "component": "ItemDetailsComponent"
+                    },
+                    {
+                        "path": "add",
+                        "component": "AddIemComponent"
                     }
                 ],
                 "kind": "module"
@@ -1422,12 +3066,21 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/base.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "BaseComp",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/common/cart/cart.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "CartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1485,7 +3138,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
@@ -1499,12 +3152,31 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/item/add-iem/add-iem.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AddIemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/item/item-card/item-card.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ItemCardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/13",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/item/item-card/item-card.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "$",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1513,7 +3185,7 @@
                 "linktype": "classe",
                 "name": "ItemCardModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -1522,7 +3194,7 @@
                 "linktype": "component",
                 "name": "ItemDetailsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {
@@ -1531,7 +3203,34 @@
                 "linktype": "component",
                 "name": "ItemListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/user/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/user/register/register.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RegisterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/13",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/user/user.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "UserModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -1540,7 +3239,7 @@
                 "linktype": "classe",
                 "name": "ToggleButtonElement",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -1558,7 +3257,7 @@
                 "linktype": "injectable",
                 "name": "CommonDbService",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
@@ -1568,6 +3267,53 @@
                 "name": "LocalServiceService",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/theme.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ThemeService",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/user.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "UserService",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/themes/_theme.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Theme",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/themes/_theme.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Dark",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/themes/_theme.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Light",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1605,27 +3351,37 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Cart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/item-card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "src/test.ts",
+                "filePath": "src/stories/item-detail.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "context",
+                "name": "Basic",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "src/test.ts",
+                "filePath": "src/stories/item-detail.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "require",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

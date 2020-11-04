@@ -1,8 +1,10 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { LocalServiceService } from 'src/app/services/local-service.service';
 import { ThemeService } from 'src/app/services/theme.service';
 import { UserService } from 'src/app/services/user.service';
+import { BaseComp } from '../../base';
 import { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button';
 
 console.assert(ToggleButtonElement !== undefined);
@@ -12,10 +14,9 @@ declare var $: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
-
+export class HeaderComponent extends BaseComp implements OnInit, AfterViewInit {
   showMenu = false;
   showHamBtn = false;
 
@@ -23,19 +24,16 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     private cartService: CartService,
     private themeService: ThemeService,
     private router: Router,
-    private userService: UserService
+    public userService: UserService,
+    public locService: LocalServiceService
   ) {
+    super(locService);
     const theme = this.themeService.getActiveTheme();
     this.themeService.setActiveTheme(theme);
-    this.userService.loginStatus.subscribe((data) => {
-      console.log(data);
-    });
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe(() => {
-      this.hideHamMenu();
-    });
+    this.userService.updateLoginStatus(!!this.userService.getUserData());
   }
 
   ngAfterViewInit(): void {
@@ -87,5 +85,4 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   getTheme(): string {
     return this.themeService.getActiveTheme().name;
   }
-
 }

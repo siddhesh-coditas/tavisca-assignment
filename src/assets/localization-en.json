@@ -1,8 +1,37 @@
 {
-    "title": "Application",
-    "test-1": "test-content-1",
-    "test-2": "test-content-2",
-    "test-3": "test-content-3",
-    "test-4": "test-content-4",
-    "test-5": "test-content-5"
+  "title": "E-mart",
+  "common": {
+      "form-validation": {
+        "postfix": "!"
+      }
+  },
+  "header": {
+    "add-product-btn": "Add Product",
+    "theme-toggle-label": "Theme toggle",
+    "ham-menu": {
+      "my-item": "My Items",
+      "all-item": "All Items",
+      "cart": "Cart",
+      "logout": "Logout"
+    }
+  },
+  "register": {
+    "title": "Register",
+    "form": {
+      "name-label": "Full Name",
+      "email-label": "Email",
+      "phone-label": "Phone",
+      "password-label": "Password",
+      "confirm-password-label": "Confirm Password",
+      "register-btn-label": "Register",
+      "go-to-login-link": "Go To Login"
+    },
+    "errors": {
+      "phone-invalid": "Phone is Invalid",
+      "email-invalid": "Email is Invalid",
+      "pass-min": "Password length should be more than 4 characters",
+      "pass-max": "Password length should be less than 16 characters",
+      "confirm-pass-invalid": "Password doesn't match"
+    }
+  }
 }
