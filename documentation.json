@@ -338,7 +338,7 @@
         },
         {
             "name": "LocalServiceService",
-            "id": "injectable-LocalServiceService-4d05d04d3cece9a36944e2d6e3e68f65",
+            "id": "injectable-LocalServiceService-514a08e54da86b0a23fe97bffab982df",
             "file": "src/app/services/local-service.service.ts",
             "properties": [],
             "methods": [
@@ -353,7 +353,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 32,
                     "jsdoctags": [
                         {
                             "name": "value",
@@ -376,7 +376,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 28,
                     "jsdoctags": [
                         {
                             "name": "key",
@@ -390,7 +390,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport i18next from 'i18next';\r\nimport localization from '../../assets/localization-en.json';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class LocalServiceService {\r\n  constructor() {\r\n    i18next.init(\r\n      {\r\n        lng: 'en',\r\n        debug: true,\r\n        resources: {\r\n          en: {\r\n            translation: localization,\r\n          },\r\n        },\r\n      },\r\n      function (err, t) {\r\n        console.log(i18next);\r\n      }\r\n    );\r\n  }\r\n\r\n  getLocalText(key?: string) {\r\n    const temp = i18next;\r\n    return key !== undefined ? i18next.t(key) : '';\r\n  }\r\n\r\n  getCurrencyText(value): string {\r\n    return '$' + value;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport i18next from 'i18next';\r\nimport localization from '../../assets/localization-en.json';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class LocalServiceService {\r\n  constructor() {\r\n    i18next.init(\r\n      {\r\n        lng: 'en',\r\n        debug: true,\r\n        resources: {\r\n          en: {\r\n            translation: localization,\r\n          },\r\n        },\r\n      },\r\n      function (err, t) {\r\n        // initialized and ready to go!\r\n        // document.getElementById('output').innerHTML = i18next.t('key');\r\n        console.log(i18next);\r\n      }\r\n    );\r\n  }\r\n\r\n  getLocalText(key?: string) {\r\n    return key !== undefined ? i18next.t(key) : '';\r\n  }\r\n\r\n  getCurrencyText(value): string {\r\n    return '$' + value;\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1609,7 +1609,7 @@
         },
         {
             "name": "ItemCardComponent",
-            "id": "component-ItemCardComponent-60e414e0031b40344f8b06292eadf429",
+            "id": "component-ItemCardComponent-2565b0cf7353e72e64863ca954b9b12b",
             "file": "src/app/components/item/item-card/item-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1635,6 +1635,30 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "cartView",
+                    "defaultValue": "false",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "description",
+                    "defaultValue": "''",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "imgUrl",
+                    "defaultValue": "''",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
                     "name": "isAllItem",
                     "defaultValue": "false",
                     "type": "",
@@ -1647,10 +1671,26 @@
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 29,
                     "modifierKind": [
                         114
                     ]
+                },
+                {
+                    "name": "name",
+                    "defaultValue": "\"\"",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "price",
+                    "defaultValue": "''",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
                 }
             ],
             "methodsClass": [
@@ -1665,7 +1705,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 70,
+                    "line": 76,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -1682,7 +1722,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 34
+                    "line": 40
                 },
                 {
                     "name": "onDelete",
@@ -1690,7 +1730,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 64
+                    "line": 70
                 },
                 {
                     "name": "onUpdate",
@@ -1698,7 +1738,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 60
+                    "line": 66
                 },
                 {
                     "name": "openItemDetails",
@@ -1706,32 +1746,10 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38
+                    "line": 44
                 },
                 {
                     "name": "openItemOnKeydown",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 42,
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "removeFromCart",
                     "args": [
                         {
                             "name": "event",
@@ -1753,12 +1771,45 @@
                     ]
                 },
                 {
+                    "name": "removeFromCart",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setParameters",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 89,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
                     "name": "validateLoggedInUser",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53
+                    "line": 59
                 }
             ],
             "hostBindings": [],
@@ -1766,7 +1817,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { LocalServiceService } from '../../../services/local-service.service';\r\nimport { CartState, DeleteItem } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n  isAllItem = false;\r\n\r\n  constructor(\r\n    public locService: LocalServiceService,\r\n    private router: Router,\r\n    private route: ActivatedRoute,\r\n    private userService: UserService,\r\n    private store: Store<CartState>,\r\n    private commonDb: CommonDbService\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';\r\n  }\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n  openItemDetails(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}`);\r\n  }\r\n\r\n  openItemOnKeydown(event): void {\r\n    if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {\r\n      this.openItemDetails();\r\n    }\r\n  }\r\n\r\n  removeFromCart(event): void {\r\n    event.stopPropagation();\r\n    this.store.dispatch(DeleteItem({ id: this.item.id }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  onUpdate(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}/edit`);\r\n  }\r\n\r\n  onDelete(): void {\r\n    this.commonDb.deleteItemById(this.item.id).subscribe(() => {\r\n      this.router.navigateByUrl('home');\r\n    });\r\n  }\r\n\r\n  addItemToUser(event): void {\r\n    event.stopImmediatePropagation();\r\n    const userData = this.userService.getUserData();\r\n    userData.items.push(this.item.id);\r\n    this.item.userAccess = userData.id;\r\n    this.commonDb.updateUser(userData).subscribe((user) => {\r\n      this.userService.storeUserData(user);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { LocalServiceService } from '../../../services/local-service.service';\r\nimport { CartState, DeleteItem } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n  isAllItem = false;\r\n\r\n  cartView: boolean = false;\r\n  name = \"\";\r\n  description = '';\r\n  price = '';\r\n  imgUrl = '';\r\n\r\n  constructor(\r\n    public locService: LocalServiceService,\r\n    private router: Router,\r\n    private route: ActivatedRoute,\r\n    private userService: UserService,\r\n    private store: Store<CartState>,\r\n    private commonDb: CommonDbService\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.setParameters();\r\n  }\r\n\r\n  openItemDetails(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}`);\r\n  }\r\n\r\n  openItemOnKeydown(event): void {\r\n    if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {\r\n      this.openItemDetails();\r\n    }\r\n  }\r\n\r\n  removeFromCart(event): void {\r\n    event.stopPropagation();\r\n    this.store.dispatch(DeleteItem({ id: this.item.id }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  onUpdate(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}/edit`);\r\n  }\r\n\r\n  onDelete(): void {\r\n    this.commonDb.deleteItemById(this.item.id).subscribe(() => {\r\n      this.router.navigateByUrl('home');\r\n    });\r\n  }\r\n\r\n  addItemToUser(event): void {\r\n    event.stopImmediatePropagation();\r\n    const userData = this.userService.getUserData();\r\n    userData.items.push(this.item.id);\r\n    this.item.userAccess = userData.id;\r\n    this.commonDb.updateUser(userData).subscribe((user) => {\r\n      this.userService.storeUserData(user);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n  private setParameters() {\r\n    this.name = this.item.name;\r\n    this.description = this.item.description;\r\n    this.price = this.item.price;\r\n    this.imgUrl = this.item.imgUrl;\r\n    this.cartView = this.item.cartView;\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1804,7 +1855,7 @@
                         "type": "CommonDbService"
                     }
                 ],
-                "line": 20,
+                "line": 26,
                 "jsdoctags": [
                     {
                         "name": "locService",
@@ -1853,7 +1904,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-card\" (click)=\"openItemDetails()\" (keydown)=\"openItemOnKeydown($event)\"\r\n  [tabindex]=\"item.cartView ? -1 : 0\" [ngClass]=\"{'cart-view-item': item.cartView}\">\r\n  <div class=\"item-img-container\">\r\n    <img class=\"item-img\" src=\"{{ item.imgUrl }}\" alt=\"{{ item.name }}\" />\r\n  </div>\r\n  <div class=\"item-details\">\r\n    <div class=\"item-title\">\r\n      <span>{{ item.name }}</span>\r\n    </div>\r\n    <div *ngIf=\"!item.cartView\" class=\"item-description\">\r\n      <span>{{ item.description }}</span>\r\n    </div>\r\n    <div class=\"item-price\">\r\n      <span>{{ locService.getCurrencyText(item.price) }}</span>\r\n      <div class=\"action-btn-container\" *ngIf=\"!item.cartView\">\r\n        <button *ngIf=\"!isAllItem\" class=\"update-btn action-btn\" (click)=\"onUpdate()\">Update</button>\r\n        <button *ngIf=\"isAllItem\" class=\"add-user-item-btn action-btn\" (click)=\"addItemToUser($event)\">Add To My Item</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"item.cartView\" class=\"cart-delete-container\">\r\n    <button (click)=\"removeFromCart($event)\" class=\"cart-del-btn\">✖</button>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"item-card\" (click)=\"openItemDetails()\" (keydown)=\"openItemOnKeydown($event)\"\r\n  [tabindex]=\"cartView ? -1 : 0\" [ngClass]=\"{'cart-view-item': cartView}\">\r\n  <div class=\"item-img-container\">\r\n    <img class=\"item-img\" src=\"{{ imgUrl }}\" alt=\"{{ name }}\" />\r\n  </div>\r\n  <div class=\"item-details\">\r\n    <div class=\"item-title\">\r\n      <span>{{ name }}</span>\r\n    </div>\r\n    <div *ngIf=\"!cartView\" class=\"item-description\">\r\n      <span>{{ description }}</span>\r\n    </div>\r\n    <div class=\"item-price\">\r\n      <span>{{ locService.getCurrencyText(price) }}</span>\r\n      <div class=\"action-btn-container\" *ngIf=\"!cartView\">\r\n        <button *ngIf=\"!isAllItem\" class=\"update-btn action-btn\" (click)=\"onUpdate()\">Update</button>\r\n        <button *ngIf=\"isAllItem\" class=\"add-user-item-btn action-btn\" (click)=\"addItemToUser($event)\">Add To My Item</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"cartView\" class=\"cart-delete-container\">\r\n    <button (click)=\"removeFromCart($event)\" class=\"cart-del-btn\">✖</button>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "ItemDetailsComponent",
@@ -2700,7 +2751,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/item-detail.stories.ts",
+                "file": "src/stories/header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2713,10 +2764,10 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Cart",
+                "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/item-card.stories.ts",
+                "file": "src/stories/item-detail.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2780,9 +2831,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/item-detail.stories.ts",
-                "type": "Story<ItemDetailsComponent>",
-                "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                "file": "src/stories/header.stories.ts",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -2791,6 +2842,14 @@
                 "file": "src/stories/item-card.stories.ts",
                 "type": "Story<ItemCardComponent>",
                 "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/item-detail.stories.ts",
+                "type": "Story<ItemDetailsComponent>",
+                "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -2860,6 +2919,42 @@
                     "defaultValue": "createAction(\r\n  CART_ACTIONS.GET_ITEMS,\r\n  props<{ id: number }>()\r\n)"
                 }
             ],
+            "src/stories/header.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/header.stories.ts",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "(args: HeaderComponent) => ({\r\n  component: HeaderComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/stories/item-card.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/item-card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/item-card.stories.ts",
+                    "type": "Story<ItemCardComponent>",
+                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                }
+            ],
             "src/stories/item-detail.stories.ts": [
                 {
                     "name": "Basic",
@@ -2876,32 +2971,6 @@
                     "file": "src/stories/item-detail.stories.ts",
                     "type": "Story<ItemDetailsComponent>",
                     "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
-                }
-            ],
-            "src/stories/item-card.stories.ts": [
-                {
-                    "name": "Basic",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/item-card.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Cart",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/item-card.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/item-card.stories.ts",
-                    "type": "Story<ItemCardComponent>",
-                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/components/common/cart/state/cart-reducer.ts": [
@@ -3166,7 +3235,7 @@
                 "linktype": "component",
                 "name": "ItemCardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/13",
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
@@ -3337,7 +3406,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/item-card.stories.ts",
+                "filePath": "src/stories/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -3347,11 +3416,21 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/item-card.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Cart",
+                "name": "Basic",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

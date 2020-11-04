@@ -7,7 +7,10 @@
     </div>
   </div>
   <div class="item-card-list" *ngIf="itemLists.length">
-    <app-item-card *ngFor="let item of itemLists" [item]="item"></app-item-card>
+    <app-item-card *ngFor="let item of itemLists" [item]="item" 
+    [id]="item.id" [name]="item.name" [description]="item.description" 
+    [price]="item.price" [imgUrl]="item.imgUrl" [cartView]="item.cartView"
+    ></app-item-card>
   </div>
   <div class="no-data-container" *ngIf="!itemLists.length">
     <span aria-hidden="true"></span>

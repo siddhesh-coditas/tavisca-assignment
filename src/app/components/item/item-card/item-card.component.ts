@@ -19,6 +19,13 @@ export class ItemCardComponent implements OnInit {
   @Input() item: ItemCardModel;
   isAllItem = false;
 
+  @Input() id;
+  @Input() cartView = false;
+  @Input() imgUrl = '';
+  @Input() name = '';
+  @Input() description = '';
+  @Input() price = '';
+
   constructor(
     public locService: LocalServiceService,
     private router: Router,
@@ -32,7 +39,6 @@ export class ItemCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   openItemDetails(): void {
