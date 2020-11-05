@@ -10,6 +10,9 @@ export default {
   title: 'Example/Card',
   component: ItemCardComponent,
   decorators: [withKnobs],
+  notes: {
+    markdown: ''
+  }
 } as Meta;
 
 const Template: Story<ItemCardComponent> = (args: ItemCardComponent) => ({
@@ -43,7 +46,7 @@ const Template: Story<ItemCardComponent> = (args: ItemCardComponent) => ({
     }
   },
   props: {
-    id: number('id', args.id),
+    id: args.id,
     name: text('name', args.name),
     description: text('description', args.description),
     imgUrl: text('imgUrl', args.imgUrl),

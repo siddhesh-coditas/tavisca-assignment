@@ -39,14 +39,5 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
 
 export const Basic = Template.bind({});
 Basic.args = {
-  item: {
-    id: 0,
-    name: 'Intelligent Granite Salad',
-    description:
-      "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    imgUrl: 'http://placeimg.com/640/480',
-    price: '683.00',
-    cartView: false,
-  },
-  isUpdateMode: false
+  
 };

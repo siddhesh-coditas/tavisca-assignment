@@ -115,6 +115,6 @@ export class ItemDetailsComponent implements OnInit {
 
   isBtnVisible(): boolean {
     const userData = this.userService.getUserData();
-    return this.item.userAccess === userData.id;
+    return userData && this.item.userAccess === userData.id;
   }
 }
