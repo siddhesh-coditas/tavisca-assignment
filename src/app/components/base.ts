@@ -1,11 +1,15 @@
 import { CustomDropdownElement } from '../elements/custom-dropdown/custom-dropdown';
+import { CustomInputTextElement } from '../elements/custom-input/custom.input';
 import { ItemCardElement } from '../elements/item-card/custom.item-card';
 import { ToggleButtonElement } from '../elements/toggle-button/toggle-button';
 import { LocalServiceService } from '../services/local-service.service';
 
-console.assert(CustomDropdownElement !== undefined);
-console.assert(ToggleButtonElement !== undefined);
-console.assert(ItemCardElement !== undefined);
+const CUSTOM_LIT_ELEMS = [
+  CustomDropdownElement,
+  ToggleButtonElement,
+  ItemCardElement,
+  CustomInputTextElement
+];
 
 export class BaseComp {
   i18n: any;

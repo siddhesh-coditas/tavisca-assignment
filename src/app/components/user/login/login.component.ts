@@ -42,4 +42,15 @@ export class LoginComponent implements OnInit {
   redirectToRegister(): void {
     this.router.navigateByUrl('register')
   }
-}
+
+  valueChange(event): void {
+    this.loginForm.controls[event.detail.name].setValue(event.detail.value);
+    if(!this.loginForm.controls[event.detail.name].touched) {
+      this.loginForm.controls[event.detail.name].markAsTouched()
+    }
+  }
+
+  isValidEmail(): boolean {
+    return !this.loginForm.get('email').valid&&this.loginForm.get('email').touched;
+  }
+ }
