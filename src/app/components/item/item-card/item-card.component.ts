@@ -43,9 +43,14 @@ export class ItemCardComponent implements OnInit {
 
   openItemDetails(): void {
     this.router.navigateByUrl(`item/${this.item.id}`);
+    this.router.navigate([`item/${this.item.id}`], {
+      state: {
+        item: this.item
+      }
+    })
   }
 
-  openItemOnKeydown(event): void {
+  openItemOnKeydown(event?): void {
     if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {
       this.openItemDetails();
     }

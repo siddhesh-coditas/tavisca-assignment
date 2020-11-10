@@ -1,4 +1,11 @@
+import { CustomDropdownElement } from '../elements/custom-dropdown/custom-dropdown';
+import { ItemCardElement } from '../elements/item-card/custom.item-card';
+import { ToggleButtonElement } from '../elements/toggle-button/toggle-button';
 import { LocalServiceService } from '../services/local-service.service';
+
+console.assert(CustomDropdownElement !== undefined);
+console.assert(ToggleButtonElement !== undefined);
+console.assert(ItemCardElement !== undefined);
 
 export class BaseComp {
   i18n: any;

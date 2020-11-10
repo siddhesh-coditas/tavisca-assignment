@@ -1,4 +1,4 @@
-<div class="item-card" (click)="openItemDetails()" (keydown)="openItemOnKeydown($event)"
+<!-- <div class="item-card" (click)="openItemDetails()" (keydown)="openItemOnKeydown($event)"
   [tabindex]="cartView ? -1 : 0" [ngClass]="{'cart-view-item': cartView}">
   <div class="item-img-container">
     <img class="item-img" src="{{ imgUrl }}" alt="{{ name }}" />
@@ -21,4 +21,8 @@
   <div *ngIf="cartView" class="cart-delete-container">
     <button (click)="removeFromCart($event)" class="cart-del-btn">✖</button>
   </div>
-</div>
+</div> -->
+
+<cc-item-card [cardClick]="openItemDetails.bind(this)" 
+[cardKeydown]="openItemOnKeydown.bind(this)" 
+[item]="item"></cc-item-card>

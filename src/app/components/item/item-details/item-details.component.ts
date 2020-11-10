@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -28,11 +29,13 @@ export class ItemDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
     private userService: UserService,
     private commonDb: CommonDbService,
     public locService: LocalServiceService,
     private store: Store<CartState>
   ) {
+    this.item = history.state.item;
     this.validateLoggedInUser();
     this.updateForm = new FormGroup({
       name: new FormControl(null, []),
@@ -64,7 +67,8 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   redirectToListing(): void {
-    this.router.navigateByUrl('home');
+    // this.router.navigateByUrl('home');
+    this.location.back();
   }
 
   additemToCart(): void {
