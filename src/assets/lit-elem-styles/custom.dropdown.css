@@ -1,0 +1,71 @@
+.hide {
+  display: none;
+}
+.custom-dropdown {
+  position: relative;
+}
+.dd-btn-label {
+  background-color: var(--foreground-tertiary);
+  color: var(--foreground-text-primary);
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 2px solid var(--foreground-secondary);
+}
+.dd-option-list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  background: var(--foreground-tertiary);
+  padding: 2px;
+  border: 2px solid var(--foreground-secondary);
+}
+.dd-option-list.hide {
+  display: none;
+}
+.dd-option-item {
+  list-style-type: none;
+}
+.dd-option-item custom-button {
+  width: 100%;
+}
+
+/* Option List Arrow */
+.dd-option-list.arrow::before {
+  content: "";
+  position: absolute;
+  border-width: 10px;
+  border-style: solid;
+}
+.dd-option-list.arrow.top {
+  top: calc(100% + 10px);
+}
+.dd-option-list.arrow.top.left {
+  left: calc(50% - 10px);
+}
+.dd-option-list.arrow.top.right {
+  right: calc(50% - 10px);
+}
+
+/* Arrow Heads */
+.dd-option-list.arrow.right::before {
+  top: 0;
+  right: -20px;
+  border-color: transparent transparent transparent var(--foreground-secondary);
+}
+.dd-option-list.arrow.left::before {
+  top: 0;
+  left: -20px;
+  border-color: transparent var(--foreground-secondary) transparent transparent;
+}
+.dd-option-list.arrow.bottom::before {
+  bottom: -20px;
+  left: 0;
+  border-color: var(--foreground-secondary) transparent transparent transparent;
+}
+.dd-option-list.arrow.top::before {
+  top: -20px;
+  left: 0;
+  border-color: transparent transparent var(--foreground-secondary) transparent;
+}

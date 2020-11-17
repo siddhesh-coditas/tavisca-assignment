@@ -46,7 +46,8 @@
 
   .register-container {
     width: 100%;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 
     .go-to-register-btn {
       background-color: transparent;

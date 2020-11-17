@@ -37,10 +37,10 @@ export class RegisterComponent extends BaseComp implements OnInit {
   }
 
   passwordValidator(control: AbstractControl): any {
-    const isvalid = control.value !== null && this.registerForm.get('password').value === control.value;
-    if(isvalid) {
+    if(!!this.registerForm) {
+      const isvalid = this.registerForm.get('password').value === control.value;
       control.setErrors({
-        validCpass: isvalid
+        validCpass: !isvalid
       });
     }
   }
@@ -82,6 +82,13 @@ export class RegisterComponent extends BaseComp implements OnInit {
       return false;
     }
     return null;
+  }
+
+  valueChange(event): void {
+    this.registerForm.controls[event.detail.name].setValue(event.detail.value);
+    if(!this.registerForm.controls[event.detail.name].touched) {
+      this.registerForm.controls[event.detail.name].markAsTouched()
+    }
   }
 
 }

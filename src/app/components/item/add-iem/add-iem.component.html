@@ -5,12 +5,9 @@
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" formControlName="name">
     </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea class="form-control" id="description" style="resize: none;" formControlName="description" id=""
-        cols="30" rows="10"></textarea>
-      <!-- <input type="text" class="form-control" id="description" formControlName="description"> -->
-    </div>
+
+    <custom-itextinput [inputId]="'description'" [inputName]="'description'" [inputLabel]="'Description'" [inputType]="'textarea'" [isResizable]="'true'" [rows]="10" [cols]="30" [inputPlaceholder]="'Enter description'"></custom-itextinput>
+
     <div class="form-group">
       <label for="imgUrl">Image URL</label>
       <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">

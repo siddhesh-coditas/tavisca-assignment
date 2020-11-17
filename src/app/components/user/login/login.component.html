@@ -1,17 +1,19 @@
 <div class="login-container">
   <h2 class="form-title">Login</h2>
-  <form [formGroup]="loginForm" (submit)="onSubmit()">
-    <custom-itextinput (input-val-change)="valueChange($event)" [inputId]="'username'" [inputName]="'email'" [inputLabel]="'Username'" [inputType]="'text'" [inputPlaceholder]="'Enter Username'">
+  <form #loginFormElem="ngForm" [formGroup]="loginForm">
+    <custom-itextinput (onInput)="valueChange($event)" [inputId]="'username'" [inputName]="'email'" [inputLabel]="'Username'" [inputType]="'text'" [inputPlaceholder]="'Enter Username'">
       <span class="help-block" *ngIf="isValidEmail()">
         <span *ngIf="loginForm.get('email').errors['required']">Field is required.</span>
         <span *ngIf="!loginForm.get('email').valid">Email is invalid.</span>
       </span>
     </custom-itextinput>
     
-    <custom-itextinput (input-val-change)="valueChange($event)" [inputId]="'password'" [inputName]="'password'" [inputLabel]="'Password'" [inputType]="'password'" [inputPlaceholder]="'Enter Password'"></custom-itextinput>
-    <button class="login-btn" type="submit">Login</button>
+    <custom-itextinput (onInput)="valueChange($event)" [inputId]="'password'" [inputName]="'password'" [inputLabel]="'Password'" [inputType]="'password'" [inputPlaceholder]="'Enter Password'"></custom-itextinput>
+    
+    <custom-button (customBtnTrigger)="onSubmit()" [btnId]="'login'" [btnName]="'login'" [btnLabel]="'Login'"></custom-button>
   </form>
   <div class="register-container">
-    <button class="go-to-register-btn" (click)="redirectToRegister()">Go To Register</button>
+    <custom-button (customBtnTrigger)="redirectToRegister()" btnType="link" btnId='go-to-register' btnName='go-to-register' btnLabel='Go To Register'></custom-button>
   </div>
 </div>
+<!-- validation using regex -->

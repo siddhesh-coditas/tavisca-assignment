@@ -1,0 +1,16 @@
+.custom-input-element {
+  color: var(--foreground-text-primary);
+  margin-bottom: 10px;
+}
+
+.custom-input-element fieldset {
+  border-color: var(--foreground-border);
+  border-radius: 4px;
+}
+
+.custom-input-element fieldset input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}

@@ -11,7 +11,7 @@ export class CustomInputTextElement extends LitElement {
   inputLabel: string;
   @property()
   inputType: string;
-  @property()
+  @property({reflect: true})
   inputPlaceholder: string;
   @property()
   isResizable: boolean;
@@ -20,20 +20,16 @@ export class CustomInputTextElement extends LitElement {
   @property()
   rows: number;
 
-
-  @property()
-  cardClick = () => null;
+  // add value prop
+  // reflect true
 
   constructor() {
     super();
   }
 
-  static get styles() {
-    return css``;
-  }
-
   render() {
     return html`
+      <link href="assets/lit-elem-styles/custom.input.css" rel="stylesheet">
       <div class="custom-input-element">
         ${this.getInputTemplate(this.inputType)}
       </div>
@@ -51,7 +47,7 @@ export class CustomInputTextElement extends LitElement {
                 <textarea
                 style="resize: ${!this.isResizable ? 'none' : 'auto'};"
                 cols="${this.cols ? this.cols : 30 }" rows="${this.rows ? this.rows : 30 }"
-                @input=${this.inputHandler}
+                @input=${this.onInputChange}
                 id="custom-input-${this.inputId}"
                 name="${this.inputName}"
                 placeholder="${this.inputPlaceholder}"></textarea>
@@ -68,7 +64,7 @@ export class CustomInputTextElement extends LitElement {
                 <label class="custom-input-label" for="custom-input-${this.inputId}">${this.inputLabel}</label>
                 </legend>
                 <input
-                @input=${this.inputHandler}
+                @input=${this.onInputChange}
                 id="custom-input-${this.inputId}"
                 name="${this.inputName}"
                 type="${this.inputType}"
@@ -79,9 +75,9 @@ export class CustomInputTextElement extends LitElement {
     }
   }
 
-  inputHandler(event) {
+  onInputChange(event) {
     this.dispatchEvent(
-      new CustomEvent('input-val-change', {
+      new CustomEvent('onInput', {
         detail: { 
             value: event.composedPath()[0].value,
             name: this.inputName

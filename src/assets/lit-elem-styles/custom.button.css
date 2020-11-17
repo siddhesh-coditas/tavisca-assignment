@@ -1,0 +1,28 @@
+:host {
+  width: fit-content;
+  display: block;
+}
+.custom-button-element button {
+  padding: 5px 15px;
+  outline: none;
+  border: none;
+  width: 100%;
+  white-space: nowrap;
+}
+.custom-button-element button:not(:disabled) {
+  cursor: pointer;
+}
+.custom-button-element button.button-primary {
+  background-color: var(--foreground-default);
+  color: var(--foreground-text-title);
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.custom-button-element button.button-link {
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--foreground-text-primary);
+  border-bottom: 2px solid var(--foreground-border);
+}

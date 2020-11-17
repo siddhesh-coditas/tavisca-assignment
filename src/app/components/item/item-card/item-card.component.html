@@ -22,7 +22,6 @@
     <button (click)="removeFromCart($event)" class="cart-del-btn">✖</button>
   </div>
 </div> -->
-
-<cc-item-card [cardClick]="openItemDetails.bind(this)" 
-[cardKeydown]="openItemOnKeydown.bind(this)" 
+<cc-item-card (openCardDetail)="openItemDetails()" 
+(addItemToUser)="addItemToUser($event)" (updateItem)="onUpdate()" [isAllItem]="isAllItem" 
 [item]="item"></cc-item-card>
