@@ -6,12 +6,8 @@
     <custom-toggle class="custom-toggle-btn" [customClick]="toggleTheme.bind(this)" [theme]="getTheme()"></custom-toggle>
     <button *ngIf="userService.loginStatus" (click)='addProduct()' class="action-btn">{{i18n('header.add-product-btn')}}</button>
     <!-- <button (click)="toggleTheme()">Theme</button> -->
-    <button *ngIf="userService.loginStatus" (click)="showMenu = !showMenu" class="ham-menu-button">☰</button>
-    <div *ngIf="showMenu" class="ham-menu-list">
-      <button (click)='openMyItemPage()' class="ham-menu-item">{{i18n('header.ham-menu.my-item')}}</button>
-      <button (click)='openAllItemPage()' class="ham-menu-item">{{i18n('header.ham-menu.all-item')}}</button>
-      <button (click)='openCart()' class="ham-menu-item">{{i18n('header.ham-menu.cart')}}</button>
-      <button (click)='logoutCurrUser()' class="ham-menu-item">{{i18n('header.ham-menu.logout')}}</button>
-    </div>
+    <custom-dropdown *ngIf="userService.loginStatus" [btnLabel]="'☰'" (onDropdownOptionSelected)="onDropdownOption($event.detail.value)"
+     [ariaLabel]="'test label'" [optionList]="optionList"
+     [addArrowHead]='true' [side]='side'></custom-dropdown>
   </div>
 </div>

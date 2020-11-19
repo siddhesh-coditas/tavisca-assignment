@@ -1,5 +1,5 @@
 .hide {
-  display: none;
+  display: none !important;
 }
 .custom-dropdown {
   position: relative;
@@ -10,6 +10,7 @@
   font-size: 12px;
   padding: 4px 8px;
   border: 2px solid var(--foreground-secondary);
+  box-sizing: border-box;
 }
 .dd-option-list {
   position: absolute;
@@ -17,7 +18,7 @@
   flex-direction: column;
   gap: 2px;
   margin: 0;
-  background: var(--foreground-tertiary);
+  background: var(--foreground-secondary);
   padding: 2px;
   border: 2px solid var(--foreground-secondary);
 }
@@ -31,30 +32,61 @@
   width: 100%;
 }
 
+.dd-option-list.right {
+  top: 0;
+  left: 100%;
+}
+.dd-option-list.left {
+  top: 0;
+  right: 100%;
+}
+.dd-option-list.top {
+  top: 100%;
+}
+.dd-option-list.top.right {
+  left: 50%;
+}
+.dd-option-list.top.left {
+  right: 50%;
+}
+
 /* Option List Arrow */
+.dd-option-list.arrow {
+  top: calc(100% + 10px);
+}
 .dd-option-list.arrow::before {
   content: "";
   position: absolute;
   border-width: 10px;
   border-style: solid;
+  top: -20px;
+  border-color: transparent transparent var(--foreground-secondary) transparent;
+}
+.dd-option-list.arrow.right {
+  top: 0;
+  left: calc(100% + 10px);
+}
+.dd-option-list.arrow.left {
+  top: 0;
+  right: calc(100% + 10px);
 }
 .dd-option-list.arrow.top {
   top: calc(100% + 10px);
 }
-.dd-option-list.arrow.top.left {
+.dd-option-list.arrow.top.right {
   left: calc(50% - 10px);
 }
-.dd-option-list.arrow.top.right {
+.dd-option-list.arrow.top.left {
   right: calc(50% - 10px);
 }
 
 /* Arrow Heads */
-.dd-option-list.arrow.right::before {
+.dd-option-list.arrow.left::before {
   top: 0;
   right: -20px;
   border-color: transparent transparent transparent var(--foreground-secondary);
 }
-.dd-option-list.arrow.left::before {
+.dd-option-list.arrow.right::before {
   top: 0;
   left: -20px;
   border-color: transparent var(--foreground-secondary) transparent transparent;
@@ -66,6 +98,13 @@
 }
 .dd-option-list.arrow.top::before {
   top: -20px;
+  border-color: transparent transparent var(--foreground-secondary) transparent;
+}
+.dd-option-list.arrow.top.left::before {
+  right: 0;
+  border-color: transparent transparent var(--foreground-secondary) transparent;
+}
+.dd-option-list.arrow.top.right::before {
   left: 0;
   border-color: transparent transparent var(--foreground-secondary) transparent;
 }

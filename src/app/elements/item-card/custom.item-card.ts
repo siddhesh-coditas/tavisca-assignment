@@ -17,7 +17,7 @@ export class ItemCardElement extends LitElement {
   render() {
     return html`
       <link rel='stylesheet' href='assets/lit-elem-styles/custom.item-card.css'>
-      <div @click="${this.inputHandler}" @keydown="${this.inputHandler}" class="custom-item-card" tabindex="0">
+      <div @click="${this.openCardDetail}" @keydown="${this.openCardDetail}" class="custom-item-card" tabindex="0">
         <div class="item-image-container">
             <img class="item-img" src="${this.item.imgUrl}" alt="${this.item.name}" />
         </div>
@@ -26,10 +26,10 @@ export class ItemCardElement extends LitElement {
             <div class="item-desc">${this.item.description}</div>
             <div class="item-price">
               <span>$${this.item.price}</span>
-              <div class="action-btn-container" *ngIf="!cartView">
+              <div class="action-btn-container">
                   ${this.isAllItem 
-                  ? html`<custom-button @customBtnTrigger="${this.addItemToUser}" btnType="link" btnId='go-to-register' btnName='go-to-register' btnLabel='Add To My Item'></custom-button>` 
-                  : html`<custom-button @customBtnTrigger="${this.onUpdate}" btnType="link" btnId='go-to-register' btnName='go-to-register' btnLabel='Update'></custom-button>`}
+                  ? html`<custom-button @customBtnTrigger="${this.addItemToUser.bind(this)}" btnType="link" btnId='go-to-register' btnName='go-to-register' btnLabel='Add To My Item'></custom-button>` 
+                  : html`<custom-button @customBtnTrigger="${this.onUpdate.bind(this)}" btnType="link" btnId='go-to-register' btnName='go-to-register' btnLabel='Update'></custom-button>`}
               </div>
             </div>
         </div>
@@ -37,19 +37,24 @@ export class ItemCardElement extends LitElement {
     `;
   }
 
-  inputHandler() {
-    this.dispatchEvent(
-      new CustomEvent('openCardDetail', {})
-    );
+  openCardDetail(event) {
+    if (event.type === 'click' || (event.type === 'keydown' && (event.keyCode === 32 || event.keyCode === 13))) {
+      event.stopImmediatePropagation();
+      this.dispatchEvent(
+        new CustomEvent('openCardDetail', {})
+      );
+    }
   }
 
-  addItemToUser() {
+  addItemToUser(event) {
+    event.stopImmediatePropagation();
     this.dispatchEvent(
       new CustomEvent('addItemToUser', {})
     );
   }
 
-  onUpdate() {
+  onUpdate(event) {
+    event.stopImmediatePropagation();
     this.dispatchEvent(
       new CustomEvent('updateItem', {})
     );

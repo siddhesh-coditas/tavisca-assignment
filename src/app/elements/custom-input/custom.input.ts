@@ -45,7 +45,7 @@ export class CustomInputTextElement extends LitElement {
                 <label class="custom-input-label" for="custom-input-${this.inputId}">${this.inputLabel}</label>
                 </legend>
                 <textarea
-                style="resize: ${!this.isResizable ? 'none' : 'auto'};"
+                style="resize: ${!this.isResizable ? 'none' : 'auto'}; width: 100%;"
                 cols="${this.cols ? this.cols : 30 }" rows="${this.rows ? this.rows : 30 }"
                 @input=${this.onInputChange}
                 id="custom-input-${this.inputId}"

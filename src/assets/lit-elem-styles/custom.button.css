@@ -3,17 +3,24 @@
   display: block;
 }
 .custom-button-element button {
-  padding: 5px 15px;
-  outline: none;
+  padding: 3px 0;
+  outline: 1px solid transparent;
   border: none;
   width: 100%;
   white-space: nowrap;
+}
+.custom-button-element button:focus {
+  outline: 1px solid var(--foreground-tertiary);
+}
+.custom-button-element button.button-link:focus {
+  outline: 1px solid var(--foreground-border);
 }
 .custom-button-element button:not(:disabled) {
   cursor: pointer;
 }
 .custom-button-element button.button-primary {
   background-color: var(--foreground-default);
+  padding: 5px 15px;
   color: var(--foreground-text-title);
   border-radius: 2px;
   font-size: 12px;

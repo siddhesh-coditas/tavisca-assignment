@@ -676,10 +676,10 @@
         },
         {
             "name": "BaseComp",
-            "id": "class-BaseComp-3a4f962e2e4662607755b0c914c4847b",
+            "id": "class-BaseComp-5920eca6744b126e4b364f79a68fb0ad",
             "file": "src/app/components/base.ts",
             "type": "class",
-            "sourceCode": "import { LocalServiceService } from '../services/local-service.service';\r\n\r\nexport class BaseComp {\r\n  i18n: any;\r\n  constructor(public locService: LocalServiceService) {\r\n    this.i18n = this.locService.getLocalText;\r\n  }\r\n\r\n  public getFormValidationErr(key) {\r\n    return this.i18n(key) + this.i18n('common.form-validation.postfix');\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CustomDropdownElement } from '../elements/custom-dropdown/custom-dropdown';\r\nimport { ItemCardElement } from '../elements/item-card/custom.item-card';\r\nimport { ToggleButtonElement } from '../elements/toggle-button/toggle-button';\r\nimport { LocalServiceService } from '../services/local-service.service';\r\n\r\nconsole.assert(CustomDropdownElement !== undefined);\r\nconsole.assert(ToggleButtonElement !== undefined);\r\nconsole.assert(ItemCardElement !== undefined);\r\n\r\nexport class BaseComp {\r\n  i18n: any;\r\n  constructor(public locService: LocalServiceService) {\r\n    this.i18n = this.locService.getLocalText;\r\n  }\r\n\r\n  public getFormValidationErr(key) {\r\n    return this.i18n(key) + this.i18n('common.form-validation.postfix');\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -689,7 +689,7 @@
                         "type": "LocalServiceService"
                     }
                 ],
-                "line": 4,
+                "line": 11,
                 "jsdoctags": [
                     {
                         "name": "locService",
@@ -706,14 +706,14 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 4
+                    "line": 11
                 },
                 {
                     "name": "locService",
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 5,
+                    "line": 12,
                     "modifierKind": [
                         114
                     ]
@@ -731,7 +731,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 9,
+                    "line": 16,
                     "modifierKind": [
                         114
                     ],
@@ -751,6 +751,207 @@
             "outputsClass": [],
             "hostBindings": [],
             "hostListeners": []
+        },
+        {
+            "name": "CustomDropdownElement",
+            "id": "class-CustomDropdownElement-fa34777579ecbc9d3876d64a819a1eb6",
+            "file": "src/app/elements/custom-dropdown/custom-dropdown.ts",
+            "type": "class",
+            "sourceCode": "import { css, html, LitElement } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { CustomOptionModel } from './dropdown-option-model';\r\n\r\n@customElement('custom-dropdown')\r\nexport class CustomDropdownElement extends LitElement {\r\n  @property()\r\n  btnLabel: string;\r\n\r\n  @property()\r\n  ariaLabel = '';\r\n\r\n  @property()\r\n  optionList: any[] = [];\r\n\r\n  @property()\r\n  onClick = () => null;\r\n\r\n  constructor() {\r\n    super();\r\n  }\r\n\r\n  static get styles() {\r\n    return css`\r\n      .custom-dropdown {\r\n        position: relative;\r\n      }\r\n      .option-list {\r\n        position: absolute;\r\n        display: flex;\r\n        margin: 0;\r\n        padding: 0;\r\n      }\r\n      .option-item {\r\n        list-style-type: none;\r\n      }\r\n    `;\r\n  }\r\n\r\n  render() {\r\n    return html`<div class=\"custom-dropdown\">\r\n      <div class=\"dd-btn-label\" role=\"combobox\" aria-label=\"${this.ariaLabel}\">\r\n        ${this.btnLabel}\r\n      </div>\r\n      <ul class=\"option-list\" role=\"listbox\">\r\n        ${this.optionList.length ? this.optionList.map(\r\n          (e: CustomOptionModel) =>\r\n            html`<li\r\n              class=\"option-item\"\r\n              role=\"option\"\r\n              @click=\"${e.callback}\"\r\n              value=${e.value}\r\n            >\r\n              ${e.label}\r\n            </li>`\r\n        ): []}\r\n      </ul>\r\n    </div>`;\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 17
+            },
+            "properties": [
+                {
+                    "name": "ariaLabel",
+                    "defaultValue": "''",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "btnLabel",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "onClick",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "optionList",
+                    "defaultValue": "[]",
+                    "type": "any[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 40
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 23
+                    }
+                }
+            }
+        },
+        {
+            "name": "CustomOptionModel",
+            "id": "class-CustomOptionModel-dd77838d1abd9e05923f478092b5186c",
+            "file": "src/app/elements/custom-dropdown/dropdown-option-model.ts",
+            "type": "class",
+            "sourceCode": "export class CustomOptionModel {\r\n    public label: string;\r\n    public value: string;\r\n    public callback? = () => {console.log('null')};\r\n}",
+            "properties": [
+                {
+                    "name": "callback",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 4,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "label",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "modifierKind": [
+                        114
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "ItemCardElement",
+            "id": "class-ItemCardElement-919bf15d42c695defad88979860c0a83",
+            "file": "src/app/elements/item-card/custom.item-card.ts",
+            "type": "class",
+            "sourceCode": "import { html, LitElement, css } from 'lit-element';\r\nimport { customElement, property } from 'lit-element/lib/decorators';\r\nimport { ItemCardModel } from 'src/app/components/item/item-card/item-card.model';\r\n\r\n@customElement('cc-item-card')\r\nexport class ItemCardElement extends LitElement {\r\n  @property()\r\n  item: ItemCardModel;\r\n\r\n  constructor() {\r\n    super();\r\n  }\r\n\r\n  static get styles() {\r\n    return css`\r\n    .custom-item-card {\r\n        border: 2px solid var(--foreground-border);\r\n        border-radius: 15px 0 15px 0;\r\n        padding: 10px;\r\n        margin: auto;\r\n        color: var(--foreground-text-primary);\r\n        outline: none;\r\n    }\r\n    .custom-item-card:focus {\r\n        border-color: red;\r\n    }\r\n    .custom-item-card .item-image-container {\r\n        border-bottom: 2px solid var(--foreground-border);\r\n        padding-bottom: 5px;\r\n        margin-bottom: 5px;\r\n        text-align: center;\r\n    }\r\n    .custom-item-card .item-detail-container>*:not(:last-child) {\r\n        margin-bottom: 5px\r\n    }\r\n    .custom-item-card .item-detail-container .item-name {\r\n        font-weight: 700;\r\n        margin-botton: 5px;\r\n    }\r\n    .custom-item-card .item-detail-container .item-desc {\r\n        font-size: 12px;\r\n        color: var(--foreground-text-secondary); \r\n    }\r\n    `;\r\n  }\r\n\r\n  render() {\r\n    return html`\r\n      <div class=\"custom-item-card\" tabindex=\"0\" @click=${this.onCardClick.bind(this)}>\r\n        <div class=\"item-image-container\">\r\n            <img class=\"item-img\" src=\"${this.item.imgUrl}\" alt=\"${this.item.name}\" />\r\n        </div>\r\n        <div class=\"item-detail-container\">\r\n            <div class=\"item-name\">${this.item.name}</div>\r\n            <div class=\"item-desc\">${this.item.description}</div>\r\n            <div class=\"item-price\">$${this.item.price}</div>\r\n        </div>\r\n      </div>\r\n    `;\r\n  }\r\n\r\n  private onCardClick() {\r\n    console.log('done');\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "properties": [
+                {
+                    "name": "item",
+                    "type": "ItemCardModel",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "decorators": [
+                        {
+                            "name": "property",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "onCardClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 62,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "render",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 47
+                }
+            ],
+            "indexSignatures": [],
+            "extends": "LitElement",
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "",
+                        "returnType": "",
+                        "line": 14
+                    }
+                }
+            }
         },
         {
             "name": "ItemCardModel",
@@ -1329,11 +1530,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"cart-container\">\r\n    <div class=\"cart-title-container\">Items in Cart</div>\r\n    <div class=\"cart-items-list\">\r\n        <app-item-card [item]=\"item\" *ngFor=\"let item of cartItems\"></app-item-card>\r\n    </div>\r\n    <div *ngIf=\"showTotal\" class=\"cart-total-container\">\r\n        <span class=\"total-price-label\">Total Price: </span>\r\n        <span class=\"total-price-value\">{{getTotalCartPrice()}}</span>\r\n    </div>\r\n    <div class=\"cart-toolbar\">\r\n        <button (click)=\"closeCart()\" class=\"close-cart\">✕</button>\r\n    </div>\r\n</div>"
+            "templateData": "<div class=\"cart-container\">\r\n    <div class=\"cart-title-container\">Items in Cart</div>\r\n    <div class=\"cart-items-list\">\r\n        <app-item-card [item]=\"item\" *ngFor=\"let item of cartItems\"\r\n        [id]=\"item.id\" [name]=\"item.name\" [description]=\"item.description\" \r\n        [price]=\"item.price\" [imgUrl]=\"item.imgUrl\" [cartView]=\"item.cartView\"\r\n        ></app-item-card>\r\n    </div>\r\n    <div *ngIf=\"showTotal\" class=\"cart-total-container\">\r\n        <span class=\"total-price-label\">Total Price: </span>\r\n        <span class=\"total-price-value\">{{getTotalCartPrice()}}</span>\r\n    </div>\r\n    <div class=\"cart-toolbar\">\r\n        <button (click)=\"closeCart()\" class=\"close-cart\">✕</button>\r\n    </div>\r\n</div>"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-3d075fef2ff87a1589faac126c098396",
+            "id": "component-HeaderComponent-abeda8acca68220f2d339583570fd644",
             "file": "src/app/components/common/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1357,10 +1558,18 @@
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 36,
                     "modifierKind": [
                         114
                     ]
+                },
+                {
+                    "name": "optionList",
+                    "defaultValue": "[\r\n    {label: 'a', value: '1', callback: ()=>{console.log('a')}},\r\n    {label: 'b', value: '2'},\r\n    {label: 'c', value: '3'},\r\n    {label: 'd', value: '4'},\r\n    {label: 'e', value: '5'},\r\n  ]",
+                    "type": "CustomOptionModel[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
                 },
                 {
                     "name": "showHamBtn",
@@ -1383,7 +1592,7 @@
                     "type": "UserService",
                     "optional": false,
                     "description": "",
-                    "line": 27,
+                    "line": 35,
                     "modifierKind": [
                         114
                     ]
@@ -1393,7 +1602,7 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 11,
                     "inheritance": {
                         "file": "BaseComp"
                     }
@@ -1403,7 +1612,7 @@
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 5,
+                    "line": 12,
                     "modifierKind": [
                         114
                     ],
@@ -1419,7 +1628,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 70
+                    "line": 78
                 },
                 {
                     "name": "getTheme",
@@ -1427,7 +1636,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 85
+                    "line": 93
                 },
                 {
                     "name": "hideHamMenu",
@@ -1435,7 +1644,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47
+                    "line": 55
                 },
                 {
                     "name": "logoutCurrUser",
@@ -1443,7 +1652,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56
+                    "line": 64
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -1451,7 +1660,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39
+                    "line": 47
                 },
                 {
                     "name": "ngOnInit",
@@ -1459,7 +1668,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35
+                    "line": 43
                 },
                 {
                     "name": "openAllItemPage",
@@ -1467,7 +1676,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 75
+                    "line": 83
                 },
                 {
                     "name": "openCart",
@@ -1475,7 +1684,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51
+                    "line": 59
                 },
                 {
                     "name": "openMyItemPage",
@@ -1483,7 +1692,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 80
+                    "line": 88
                 },
                 {
                     "name": "toggleTheme",
@@ -1491,7 +1700,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62
+                    "line": 70
                 },
                 {
                     "name": "getFormValidationErr",
@@ -1504,7 +1713,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 9,
+                    "line": 16,
                     "modifierKind": [
                         114
                     ],
@@ -1527,7 +1736,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, AfterViewInit } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { CartService } from 'src/app/services/cart.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { ThemeService } from 'src/app/services/theme.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { BaseComp } from '../../base';\r\nimport { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button';\r\n\r\nconsole.assert(ToggleButtonElement !== undefined);\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss'],\r\n})\r\nexport class HeaderComponent extends BaseComp implements OnInit, AfterViewInit {\r\n  showMenu = false;\r\n  showHamBtn = false;\r\n\r\n  constructor(\r\n    private cartService: CartService,\r\n    private themeService: ThemeService,\r\n    private router: Router,\r\n    public userService: UserService,\r\n    public locService: LocalServiceService\r\n  ) {\r\n    super(locService);\r\n    const theme = this.themeService.getActiveTheme();\r\n    this.themeService.setActiveTheme(theme);\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.userService.updateLoginStatus(!!this.userService.getUserData());\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    document.addEventListener('click', (event: any) => {\r\n      if (!$(event.target).closest('.theme-toggle-container').length) {\r\n        this.hideHamMenu();\r\n      }\r\n    });\r\n  }\r\n\r\n  hideHamMenu(): void {\r\n    this.showMenu = false;\r\n  }\r\n\r\n  openCart(): void {\r\n    this.cartService.toggleCartVisibilityStatus();\r\n    this.hideHamMenu();\r\n  }\r\n\r\n  logoutCurrUser(): void {\r\n    this.userService.lougoutUser();\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('login');\r\n  }\r\n\r\n  toggleTheme(): void {\r\n    if (this.themeService.isDarkTheme()) {\r\n      this.themeService.setLightTheme();\r\n    } else {\r\n      this.themeService.setDarkTheme();\r\n    }\r\n  }\r\n\r\n  addProduct(): void {\r\n    this.router.navigateByUrl('add');\r\n    this.hideHamMenu();\r\n  }\r\n\r\n  openAllItemPage(): void {\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('allitems/all');\r\n  }\r\n\r\n  openMyItemPage(): void {\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  getTheme(): string {\r\n    return this.themeService.getActiveTheme().name;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit, AfterViewInit } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { CartService } from 'src/app/services/cart.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { ThemeService } from 'src/app/services/theme.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { BaseComp } from '../../base';\r\nimport { ToggleButtonElement } from 'src/app/elements/toggle-button/toggle-button';\r\nimport { CustomDropdownElement } from 'src/app/elements/custom-dropdown/custom-dropdown';\r\nimport { CustomOptionModel } from 'src/app/elements/custom-dropdown/dropdown-option-model';\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss'],\r\n})\r\nexport class HeaderComponent extends BaseComp implements OnInit, AfterViewInit {\r\n  showMenu = false;\r\n  showHamBtn = false;\r\n\r\n  optionList: CustomOptionModel[] = [\r\n    {label: 'a', value: '1', callback: ()=>{console.log('a')}},\r\n    {label: 'b', value: '2'},\r\n    {label: 'c', value: '3'},\r\n    {label: 'd', value: '4'},\r\n    {label: 'e', value: '5'},\r\n  ];\r\n\r\n  constructor(\r\n    private cartService: CartService,\r\n    private themeService: ThemeService,\r\n    private router: Router,\r\n    public userService: UserService,\r\n    public locService: LocalServiceService\r\n  ) {\r\n    super(locService);\r\n    const theme = this.themeService.getActiveTheme();\r\n    this.themeService.setActiveTheme(theme);\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.userService.updateLoginStatus(!!this.userService.getUserData());\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    document.addEventListener('click', (event: any) => {\r\n      if (!$(event.target).closest('.theme-toggle-container').length) {\r\n        this.hideHamMenu();\r\n      }\r\n    });\r\n  }\r\n\r\n  hideHamMenu(): void {\r\n    this.showMenu = false;\r\n  }\r\n\r\n  openCart(): void {\r\n    this.cartService.toggleCartVisibilityStatus();\r\n    this.hideHamMenu();\r\n  }\r\n\r\n  logoutCurrUser(): void {\r\n    this.userService.lougoutUser();\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('login');\r\n  }\r\n\r\n  toggleTheme(): void {\r\n    if (this.themeService.isDarkTheme()) {\r\n      this.themeService.setLightTheme();\r\n    } else {\r\n      this.themeService.setDarkTheme();\r\n    }\r\n  }\r\n\r\n  addProduct(): void {\r\n    this.router.navigateByUrl('add');\r\n    this.hideHamMenu();\r\n  }\r\n\r\n  openAllItemPage(): void {\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('allitems/all');\r\n  }\r\n\r\n  openMyItemPage(): void {\r\n    this.hideHamMenu();\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  getTheme(): string {\r\n    return this.themeService.getActiveTheme().name;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1561,7 +1770,7 @@
                         "type": "LocalServiceService"
                     }
                 ],
-                "line": 21,
+                "line": 29,
                 "jsdoctags": [
                     {
                         "name": "cartService",
@@ -1605,11 +1814,11 @@
                 "OnInit",
                 "AfterViewInit"
             ],
-            "templateData": "<div class=\"header-container\">\r\n  <div class=\"title-container\">\r\n    <h1>{{i18n('title')}}</h1>\r\n  </div>\r\n  <div class=\"theme-toggle-container\">\r\n    <custom-toggle class=\"custom-toggle-btn\" [customClick]=\"toggleTheme.bind(this)\" [theme]=\"getTheme()\"></custom-toggle>\r\n    <button *ngIf=\"userService.loginStatus\" (click)='addProduct()' class=\"action-btn\">{{i18n('header.add-product-btn')}}</button>\r\n    <!-- <button (click)=\"toggleTheme()\">Theme</button> -->\r\n    <button *ngIf=\"userService.loginStatus\" (click)=\"showMenu = !showMenu\" class=\"ham-menu-button\">☰</button>\r\n    <div *ngIf=\"showMenu\" class=\"ham-menu-list\">\r\n      <button (click)='openMyItemPage()' class=\"ham-menu-item\">{{i18n('header.ham-menu.my-item')}}</button>\r\n      <button (click)='openAllItemPage()' class=\"ham-menu-item\">{{i18n('header.ham-menu.all-item')}}</button>\r\n      <button (click)='openCart()' class=\"ham-menu-item\">{{i18n('header.ham-menu.cart')}}</button>\r\n      <button (click)='logoutCurrUser()' class=\"ham-menu-item\">{{i18n('header.ham-menu.logout')}}</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"header-container\">\r\n  <div class=\"title-container\">\r\n    <h1>{{i18n('title')}}</h1>\r\n  </div>\r\n  <custom-dropdown [btnLabel]=\"'Test'\" [ariaLabel]=\"'test label'\" [optionList]=\"optionList\"></custom-dropdown>\r\n  <div class=\"theme-toggle-container\">\r\n    <custom-toggle class=\"custom-toggle-btn\" [customClick]=\"toggleTheme.bind(this)\" [theme]=\"getTheme()\"></custom-toggle>\r\n    <button *ngIf=\"userService.loginStatus\" (click)='addProduct()' class=\"action-btn\">{{i18n('header.add-product-btn')}}</button>\r\n    <!-- <button (click)=\"toggleTheme()\">Theme</button> -->\r\n    <button *ngIf=\"userService.loginStatus\" (click)=\"showMenu = !showMenu\" class=\"ham-menu-button\">☰</button>\r\n    <div *ngIf=\"showMenu\" class=\"ham-menu-list\">\r\n      <button (click)='openMyItemPage()' class=\"ham-menu-item\">{{i18n('header.ham-menu.my-item')}}</button>\r\n      <button (click)='openAllItemPage()' class=\"ham-menu-item\">{{i18n('header.ham-menu.all-item')}}</button>\r\n      <button (click)='openCart()' class=\"ham-menu-item\">{{i18n('header.ham-menu.cart')}}</button>\r\n      <button (click)='logoutCurrUser()' class=\"ham-menu-item\">{{i18n('header.ham-menu.logout')}}</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "ItemCardComponent",
-            "id": "component-ItemCardComponent-2565b0cf7353e72e64863ca954b9b12b",
+            "id": "component-ItemCardComponent-6e58209ba881e177e495e0c0041a9809",
             "file": "src/app/components/item/item-card/item-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1627,37 +1836,42 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "item",
-                    "line": 19,
-                    "type": "ItemCardModel"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
                     "name": "cartView",
                     "defaultValue": "false",
-                    "type": "boolean",
-                    "optional": false,
-                    "description": "",
-                    "line": 22
+                    "line": 23
                 },
                 {
                     "name": "description",
                     "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 24
+                    "line": 26
+                },
+                {
+                    "name": "id",
+                    "line": 22
                 },
                 {
                     "name": "imgUrl",
                     "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 26
+                    "line": 24
                 },
+                {
+                    "name": "item",
+                    "line": 19,
+                    "type": "ItemCardModel"
+                },
+                {
+                    "name": "name",
+                    "defaultValue": "''",
+                    "line": 25
+                },
+                {
+                    "name": "price",
+                    "defaultValue": "''",
+                    "line": 27
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
                     "name": "isAllItem",
                     "defaultValue": "false",
@@ -1671,26 +1885,10 @@
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 30,
                     "modifierKind": [
                         114
                     ]
-                },
-                {
-                    "name": "name",
-                    "defaultValue": "\"\"",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 23
-                },
-                {
-                    "name": "price",
-                    "defaultValue": "''",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 25
                 }
             ],
             "methodsClass": [
@@ -1722,7 +1920,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40
+                    "line": 41
                 },
                 {
                     "name": "onDelete",
@@ -1793,17 +1991,6 @@
                     ]
                 },
                 {
-                    "name": "setParameters",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 89,
-                    "modifierKind": [
-                        112
-                    ]
-                },
-                {
                     "name": "validateLoggedInUser",
                     "args": [],
                     "optional": false,
@@ -1817,7 +2004,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { LocalServiceService } from '../../../services/local-service.service';\r\nimport { CartState, DeleteItem } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n  isAllItem = false;\r\n\r\n  cartView: boolean = false;\r\n  name = \"\";\r\n  description = '';\r\n  price = '';\r\n  imgUrl = '';\r\n\r\n  constructor(\r\n    public locService: LocalServiceService,\r\n    private router: Router,\r\n    private route: ActivatedRoute,\r\n    private userService: UserService,\r\n    private store: Store<CartState>,\r\n    private commonDb: CommonDbService\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.setParameters();\r\n  }\r\n\r\n  openItemDetails(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}`);\r\n  }\r\n\r\n  openItemOnKeydown(event): void {\r\n    if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {\r\n      this.openItemDetails();\r\n    }\r\n  }\r\n\r\n  removeFromCart(event): void {\r\n    event.stopPropagation();\r\n    this.store.dispatch(DeleteItem({ id: this.item.id }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  onUpdate(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}/edit`);\r\n  }\r\n\r\n  onDelete(): void {\r\n    this.commonDb.deleteItemById(this.item.id).subscribe(() => {\r\n      this.router.navigateByUrl('home');\r\n    });\r\n  }\r\n\r\n  addItemToUser(event): void {\r\n    event.stopImmediatePropagation();\r\n    const userData = this.userService.getUserData();\r\n    userData.items.push(this.item.id);\r\n    this.item.userAccess = userData.id;\r\n    this.commonDb.updateUser(userData).subscribe((user) => {\r\n      this.userService.storeUserData(user);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n  private setParameters() {\r\n    this.name = this.item.name;\r\n    this.description = this.item.description;\r\n    this.price = this.item.price;\r\n    this.imgUrl = this.item.imgUrl;\r\n    this.cartView = this.item.cartView;\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit, AfterViewInit } from '@angular/core';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { LocalServiceService } from '../../../services/local-service.service';\r\nimport { CartState, DeleteItem } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from './item-card.model';\r\n\r\ndeclare var $: any;\r\n\r\n@Component({\r\n  selector: 'app-item-card',\r\n  templateUrl: './item-card.component.html',\r\n  styleUrls: ['./item-card.component.scss']\r\n})\r\nexport class ItemCardComponent implements OnInit {\r\n\r\n  @Input() item: ItemCardModel;\r\n  isAllItem = false;\r\n\r\n  @Input() id;\r\n  @Input() cartView = false;\r\n  @Input() imgUrl = '';\r\n  @Input() name = '';\r\n  @Input() description = '';\r\n  @Input() price = '';\r\n\r\n  constructor(\r\n    public locService: LocalServiceService,\r\n    private router: Router,\r\n    private route: ActivatedRoute,\r\n    private userService: UserService,\r\n    private store: Store<CartState>,\r\n    private commonDb: CommonDbService\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.isAllItem = this.route.snapshot.paramMap.get('listMode') === 'all';\r\n  }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  openItemDetails(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}`);\r\n  }\r\n\r\n  openItemOnKeydown(event): void {\r\n    if ((event.keyCode === 13 || event.keyCode === 32) && !$(event.target).hasClass('cart-del-btn')) {\r\n      this.openItemDetails();\r\n    }\r\n  }\r\n\r\n  removeFromCart(event): void {\r\n    event.stopPropagation();\r\n    this.store.dispatch(DeleteItem({ id: this.item.id }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  onUpdate(): void {\r\n    this.router.navigateByUrl(`item/${this.item.id}/edit`);\r\n  }\r\n\r\n  onDelete(): void {\r\n    this.commonDb.deleteItemById(this.item.id).subscribe(() => {\r\n      this.router.navigateByUrl('home');\r\n    });\r\n  }\r\n\r\n  addItemToUser(event): void {\r\n    event.stopImmediatePropagation();\r\n    const userData = this.userService.getUserData();\r\n    userData.items.push(this.item.id);\r\n    this.item.userAccess = userData.id;\r\n    this.commonDb.updateUser(userData).subscribe((user) => {\r\n      this.userService.storeUserData(user);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1855,7 +2042,7 @@
                         "type": "CommonDbService"
                     }
                 ],
-                "line": 26,
+                "line": 27,
                 "jsdoctags": [
                     {
                         "name": "locService",
@@ -1908,7 +2095,7 @@
         },
         {
             "name": "ItemDetailsComponent",
-            "id": "component-ItemDetailsComponent-b12998db1aef09073e31dd224935a545",
+            "id": "component-ItemDetailsComponent-184d4622c2bb293050d7641604c9daa9",
             "file": "src/app/components/item/item-details/item-details.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2044,7 +2231,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup } from '@angular/forms';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { AddToCart, CartState } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-details',\r\n  templateUrl: './item-details.component.html',\r\n  styleUrls: ['./item-details.component.scss'],\r\n})\r\nexport class ItemDetailsComponent implements OnInit {\r\n  @Input()\r\n  item: ItemCardModel;\r\n\r\n  itemId: string;\r\n\r\n  @Input()\r\n  isUpdateMode = false;\r\n\r\n  updateForm: FormGroup;\r\n  private userId;\r\n\r\n  constructor(\r\n    private route: ActivatedRoute,\r\n    private router: Router,\r\n    private userService: UserService,\r\n    private commonDb: CommonDbService,\r\n    public locService: LocalServiceService,\r\n    private store: Store<CartState>\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.updateForm = new FormGroup({\r\n      name: new FormControl(null, []),\r\n      description: new FormControl(null, []),\r\n      price: new FormControl(null, []),\r\n    });\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    if(!this.item) {\r\n      this.itemId = this.route.snapshot.paramMap.get('id');\r\n      this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'edit';\r\n      this.commonDb.getSpecificItem(this.itemId).subscribe(\r\n        (data: ItemCardModel) => {\r\n          this.item = data;\r\n          if (this.isUpdateMode) {\r\n            this.updateProduct();\r\n          }\r\n        },\r\n        (err) => {\r\n          if (err.status === 404) {\r\n            this.router.navigateByUrl('home');\r\n          }\r\n        }\r\n      );\r\n    } else {\r\n      this.itemId = this.item.id.toString();\r\n    }\r\n  }\r\n\r\n  redirectToListing(): void {\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  additemToCart(): void {\r\n    this.store.dispatch(AddToCart({ item: this.item }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  updateProduct(): void {\r\n    this.updateForm = new FormGroup({\r\n      name: new FormControl(this.item.name, []),\r\n      description: new FormControl(this.item.description, []),\r\n      price: new FormControl(this.item.price, []),\r\n    });\r\n    this.isUpdateMode = true;\r\n  }\r\n\r\n  onUpdate(): void {\r\n    const updatedData = this.updateForm.value;\r\n    this.item = {\r\n      ...this.item,\r\n      name: updatedData.name,\r\n      description: updatedData.description,\r\n      price: Number(updatedData.price).toFixed(2),\r\n      imgUrl: this.item.imgUrl,\r\n    };\r\n    this.commonDb.updateItem(this.item).subscribe((data: ItemCardModel) => {\r\n      this.isUpdateMode = false;\r\n    });\r\n  }\r\n\r\n  deleteItem(): void {\r\n    const userData = { ...this.userService.getUserData() };\r\n    this.item.userAccess = null;\r\n    userData.items = userData.items.filter((id) => id !== this.item.id);\r\n    this.commonDb.updateUser(userData).subscribe(() => {\r\n      this.userService.storeUserData(userData);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n  isBtnVisible(): boolean {\r\n    const userData = this.userService.getUserData();\r\n    return this.item.userAccess === userData.id;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { FormControl, FormGroup } from '@angular/forms';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { Store } from '@ngrx/store';\r\nimport { CommonDbService } from 'src/app/services/common-db.service';\r\nimport { LocalServiceService } from 'src/app/services/local-service.service';\r\nimport { UserService } from 'src/app/services/user.service';\r\nimport { AddToCart, CartState } from '../../common/cart/state/cart-action';\r\nimport { ItemCardModel } from '../item-card/item-card.model';\r\n\r\n@Component({\r\n  selector: 'app-item-details',\r\n  templateUrl: './item-details.component.html',\r\n  styleUrls: ['./item-details.component.scss'],\r\n})\r\nexport class ItemDetailsComponent implements OnInit {\r\n  @Input()\r\n  item: ItemCardModel;\r\n\r\n  itemId: string;\r\n\r\n  @Input()\r\n  isUpdateMode = false;\r\n\r\n  updateForm: FormGroup;\r\n  private userId;\r\n\r\n  constructor(\r\n    private route: ActivatedRoute,\r\n    private router: Router,\r\n    private userService: UserService,\r\n    private commonDb: CommonDbService,\r\n    public locService: LocalServiceService,\r\n    private store: Store<CartState>\r\n  ) {\r\n    this.validateLoggedInUser();\r\n    this.updateForm = new FormGroup({\r\n      name: new FormControl(null, []),\r\n      description: new FormControl(null, []),\r\n      price: new FormControl(null, []),\r\n    });\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    if(!this.item) {\r\n      this.itemId = this.route.snapshot.paramMap.get('id');\r\n      this.isUpdateMode = this.route.snapshot.paramMap.get('isUpdateMode') === 'edit';\r\n      this.commonDb.getSpecificItem(this.itemId).subscribe(\r\n        (data: ItemCardModel) => {\r\n          this.item = data;\r\n          if (this.isUpdateMode) {\r\n            this.updateProduct();\r\n          }\r\n        },\r\n        (err) => {\r\n          if (err.status === 404) {\r\n            this.router.navigateByUrl('home');\r\n          }\r\n        }\r\n      );\r\n    } else {\r\n      this.itemId = this.item.id.toString();\r\n    }\r\n  }\r\n\r\n  redirectToListing(): void {\r\n    this.router.navigateByUrl('home');\r\n  }\r\n\r\n  additemToCart(): void {\r\n    this.store.dispatch(AddToCart({ item: this.item }));\r\n  }\r\n\r\n  validateLoggedInUser(): void {\r\n    const user = this.userService.getUserData();\r\n    if (user === null) {\r\n      this.router.navigateByUrl('login');\r\n    }\r\n  }\r\n\r\n  updateProduct(): void {\r\n    this.updateForm = new FormGroup({\r\n      name: new FormControl(this.item.name, []),\r\n      description: new FormControl(this.item.description, []),\r\n      price: new FormControl(this.item.price, []),\r\n    });\r\n    this.isUpdateMode = true;\r\n  }\r\n\r\n  onUpdate(): void {\r\n    const updatedData = this.updateForm.value;\r\n    this.item = {\r\n      ...this.item,\r\n      name: updatedData.name,\r\n      description: updatedData.description,\r\n      price: Number(updatedData.price).toFixed(2),\r\n      imgUrl: this.item.imgUrl,\r\n    };\r\n    this.commonDb.updateItem(this.item).subscribe((data: ItemCardModel) => {\r\n      this.isUpdateMode = false;\r\n    });\r\n  }\r\n\r\n  deleteItem(): void {\r\n    const userData = { ...this.userService.getUserData() };\r\n    this.item.userAccess = null;\r\n    userData.items = userData.items.filter((id) => id !== this.item.id);\r\n    this.commonDb.updateUser(userData).subscribe(() => {\r\n      this.userService.storeUserData(userData);\r\n      this.commonDb.updateItem(this.item).subscribe(() => {\r\n        this.router.navigateByUrl('home');\r\n      });\r\n    });\r\n  }\r\n\r\n  isBtnVisible(): boolean {\r\n    const userData = this.userService.getUserData();\r\n    return userData && this.item.userAccess === userData.id;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2266,7 +2453,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-list-container\">\r\n  <div class=\"back-btn-container\">\r\n    <button *ngIf=\"isAllItem\" class=\"back-btn\" (click)=\"redirectToListing()\">←</button>\r\n    <span aria-hidden=\"\" *ngIf=\"!isAllItem\"></span>\r\n    <div class=\"list-title\">\r\n      {{isAllItem ? 'All Items Catalog' : 'My Items'}}\r\n    </div>\r\n  </div>\r\n  <div class=\"item-card-list\" *ngIf=\"itemLists.length\">\r\n    <app-item-card *ngFor=\"let item of itemLists\" [item]=\"item\"></app-item-card>\r\n  </div>\r\n  <div class=\"no-data-container\" *ngIf=\"!itemLists.length\">\r\n    <span aria-hidden=\"true\"></span>\r\n    <span>\r\n      {{isAllItem ? 'No item for Items Catalog' : 'No item for My Items'}}\r\n    </span>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"item-list-container\">\r\n  <div class=\"back-btn-container\">\r\n    <button *ngIf=\"isAllItem\" class=\"back-btn\" (click)=\"redirectToListing()\">←</button>\r\n    <span aria-hidden=\"\" *ngIf=\"!isAllItem\"></span>\r\n    <div class=\"list-title\">\r\n      {{isAllItem ? 'All Items Catalog' : 'My Items'}}\r\n    </div>\r\n  </div>\r\n  <!-- <cc-item-card [item]=\"itemLists[0]\"></cc-item-card> -->\r\n  <div class=\"item-card-list\" *ngIf=\"itemLists.length\">\r\n    <!-- <app-item-card *ngFor=\"let item of itemLists\" [item]=\"item\" \r\n    [id]=\"item.id\" [name]=\"item.name\" [description]=\"item.description\" \r\n    [price]=\"item.price\" [imgUrl]=\"item.imgUrl\" [cartView]=\"item.cartView\"\r\n    ></app-item-card> -->\r\n    <cc-item-card *ngFor=\"let item of itemLists\" [item]=\"item\"></cc-item-card>\r\n  </div>\r\n  <div class=\"no-data-container\" *ngIf=\"!itemLists.length\">\r\n    <span aria-hidden=\"true\"></span>\r\n    <span>\r\n      {{isAllItem ? 'No item for Items Catalog' : 'No item for My Items'}}\r\n    </span>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "LoginComponent",
@@ -2443,7 +2630,7 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 11,
                     "inheritance": {
                         "file": "BaseComp"
                     }
@@ -2453,7 +2640,7 @@
                     "type": "LocalServiceService",
                     "optional": false,
                     "description": "",
-                    "line": 5,
+                    "line": 12,
                     "modifierKind": [
                         114
                     ],
@@ -2528,7 +2715,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 9,
+                    "line": 16,
                     "modifierKind": [
                         114
                     ],
@@ -2751,6 +2938,14 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/custom-dropdown.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/header.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -2796,6 +2991,14 @@
                 "defaultValue": "createAction(\r\n  CART_ACTIONS.GET_ITEMS,\r\n  props<{ id: number }>()\r\n)"
             },
             {
+                "name": "dummyUserData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/item-detail.stories.ts",
+                "type": "object",
+                "defaultValue": "{\r\n  \"id\": 100,\r\n  \"name\": \"admin admin\",\r\n  \"email\": \"admin@dev.com\",\r\n  \"password\": \"admin\",\r\n  \"items\": [\r\n    0\r\n  ]\r\n}"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2828,6 +3031,22 @@
                 "defaultValue": "{\r\n    name: 'light',\r\n    properties: {\r\n        '--body-background': '#fff',\r\n        '--foreground-default': '#3f6bc2',\r\n        '--foreground-secondary': '#214385',\r\n        '--foreground-tertiary': '#fff',\r\n        '--foreground-border': '#3f6bc2',\r\n        '--foreground-text-title': '#fff',\r\n        '--foreground-text-primary': '#3f6bc2',\r\n        '--foreground-text-error': '#ff0000',\r\n        '--foreground-text-secondary': '#666666'\r\n    }\r\n}"
             },
             {
+                "name": "optionList",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/custom-dropdown.stories.ts",
+                "type": "CustomOptionModel[]",
+                "defaultValue": "[\r\n    {label: 'a', value: '1', callback: ()=>{console.log('a')}},\r\n    {label: 'b', value: '2'},\r\n    {label: 'c', value: '3'},\r\n    {label: 'd', value: '4'},\r\n    {label: 'e', value: '5'},\r\n  ]"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/custom-dropdown.stories.ts",
+                "type": "Story<CustomDropdownElement>",
+                "defaultValue": "(\r\n  args: CustomDropdownElement\r\n) => ({\r\n  component: CustomDropdownElement,\r\n  moduleMetadata: {\r\n      schemas: [\r\n          CUSTOM_ELEMENTS_SCHEMA\r\n      ]\r\n  },\r\n  props: {\r\n    optionList: optionList\r\n  },\r\n  template: `Test\r\n  <custom-dropdown btnLabel=\"Test\" ariaLabel=\"test label\"></custom-dropdown>`,\r\n})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2841,7 +3060,7 @@
                 "subtype": "variable",
                 "file": "src/stories/item-card.stories.ts",
                 "type": "Story<ItemCardComponent>",
-                "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  parameters: {\r\n    docs: { \r\n      page: null \r\n    }\r\n  },\r\n  props: {\r\n    id: args.id,\r\n    name: text('name', args.name),\r\n    description: text('description', args.description),\r\n    imgUrl: text('imgUrl', args.imgUrl),\r\n    price: text('price', args.price),\r\n    cartView: boolean('cartView', args.cartView),\r\n  }\r\n})"
             },
             {
                 "name": "Template",
@@ -2849,7 +3068,7 @@
                 "subtype": "variable",
                 "file": "src/stories/item-detail.stories.ts",
                 "type": "Story<ItemDetailsComponent>",
-                "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      StoreModule.forRoot({ allItems: CartReducer }),\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -2919,6 +3138,32 @@
                     "defaultValue": "createAction(\r\n  CART_ACTIONS.GET_ITEMS,\r\n  props<{ id: number }>()\r\n)"
                 }
             ],
+            "src/stories/custom-dropdown.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/custom-dropdown.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "optionList",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/custom-dropdown.stories.ts",
+                    "type": "CustomOptionModel[]",
+                    "defaultValue": "[\r\n    {label: 'a', value: '1', callback: ()=>{console.log('a')}},\r\n    {label: 'b', value: '2'},\r\n    {label: 'c', value: '3'},\r\n    {label: 'd', value: '4'},\r\n    {label: 'e', value: '5'},\r\n  ]"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/custom-dropdown.stories.ts",
+                    "type": "Story<CustomDropdownElement>",
+                    "defaultValue": "(\r\n  args: CustomDropdownElement\r\n) => ({\r\n  component: CustomDropdownElement,\r\n  moduleMetadata: {\r\n      schemas: [\r\n          CUSTOM_ELEMENTS_SCHEMA\r\n      ]\r\n  },\r\n  props: {\r\n    optionList: optionList\r\n  },\r\n  template: `Test\r\n  <custom-dropdown btnLabel=\"Test\" ariaLabel=\"test label\"></custom-dropdown>`,\r\n})"
+                }
+            ],
             "src/stories/header.stories.ts": [
                 {
                     "name": "Basic",
@@ -2952,7 +3197,7 @@
                     "subtype": "variable",
                     "file": "src/stories/item-card.stories.ts",
                     "type": "Story<ItemCardComponent>",
-                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                    "defaultValue": "(args: ItemCardComponent) => ({\r\n  component: ItemCardComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  parameters: {\r\n    docs: { \r\n      page: null \r\n    }\r\n  },\r\n  props: {\r\n    id: args.id,\r\n    name: text('name', args.name),\r\n    description: text('description', args.description),\r\n    imgUrl: text('imgUrl', args.imgUrl),\r\n    price: text('price', args.price),\r\n    cartView: boolean('cartView', args.cartView),\r\n  }\r\n})"
                 }
             ],
             "src/stories/item-detail.stories.ts": [
@@ -2965,12 +3210,20 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
+                    "name": "dummyUserData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/item-detail.stories.ts",
+                    "type": "object",
+                    "defaultValue": "{\r\n  \"id\": 100,\r\n  \"name\": \"admin admin\",\r\n  \"email\": \"admin@dev.com\",\r\n  \"password\": \"admin\",\r\n  \"items\": [\r\n    0\r\n  ]\r\n}"
+                },
+                {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/item-detail.stories.ts",
                     "type": "Story<ItemDetailsComponent>",
-                    "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
+                    "defaultValue": "(args: ItemDetailsComponent) => ({\r\n  component: ItemDetailsComponent,\r\n  moduleMetadata: {\r\n    imports: [\r\n      AppModule,\r\n      StoreModule.forRoot({ allItems: CartReducer }),\r\n      RouterModule.forRoot(\r\n        [\r\n          {\r\n            path: '',\r\n            loadChildren: () =>\r\n              import('./../app/app.module').then((m) => m.AppModule),\r\n          },\r\n        ],\r\n        {\r\n          useHash: true,\r\n        }\r\n      ),\r\n    ],\r\n    providers: [\r\n      {\r\n        provide: APP_BASE_HREF,\r\n        userValue: '/',\r\n      },\r\n    ],\r\n  },\r\n  props: args,\r\n})"
                 }
             ],
             "src/app/components/common/cart/state/cart-reducer.ts": [
@@ -3207,7 +3460,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/19",
+                "coverageCount": "0/20",
                 "status": "low"
             },
             {
@@ -3300,6 +3553,33 @@
                 "name": "UserModel",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/elements/custom-dropdown/custom-dropdown.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "CustomDropdownElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/elements/custom-dropdown/dropdown-option-model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "CustomOptionModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/elements/item-card/custom.item-card.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ItemCardElement",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3406,6 +3686,36 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/custom-dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/custom-dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "optionList",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/custom-dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3451,6 +3761,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/item-detail.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dummyUserData",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

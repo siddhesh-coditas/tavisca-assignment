@@ -5,9 +5,7 @@ import { LocalServiceService } from 'src/app/services/local-service.service';
 import { ThemeService } from 'src/app/services/theme.service';
 import { UserService } from 'src/app/services/user.service';
 import { BaseComp } from '../../base';
-import { ToggleButtonElement } from './../../../elements/toggle-button/toggle-button';
-
-console.assert(ToggleButtonElement !== undefined);
+import { CustomOptionModel, DropdownSides } from 'src/app/elements/custom-dropdown/dropdown-model';
 
 declare var $: any;
 
@@ -19,6 +17,14 @@ declare var $: any;
 export class HeaderComponent extends BaseComp implements OnInit, AfterViewInit {
   showMenu = false;
   showHamBtn = false;
+  side = DropdownSides.TOP_LEFT;
+
+  optionList: CustomOptionModel[] = [
+    {label: this.i18n('header.ham-menu.my-item'), value: '1'},
+    {label: this.i18n('header.ham-menu.all-item'), value: '2'},
+    {label: this.i18n('header.ham-menu.cart'), value: '3'},
+    {label: this.i18n('header.ham-menu.logout'), value: '4'}
+  ];
 
   constructor(
     private cartService: CartService,
@@ -84,5 +90,14 @@ export class HeaderComponent extends BaseComp implements OnInit, AfterViewInit {
 
   getTheme(): string {
     return this.themeService.getActiveTheme().name;
+  }
+
+  onDropdownOption(value) {
+    switch(value) {
+      case '1': this.openMyItemPage(); break;
+      case '2': this.openAllItemPage(); break;
+      case '3': this.openCart(); break;
+      case '4': this.logoutCurrUser(); break;
+    }
   }
 }
